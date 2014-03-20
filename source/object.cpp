@@ -4,6 +4,7 @@
 
 namespace data
 {
+    // Creation of null-object
     object::object()
     {
     }

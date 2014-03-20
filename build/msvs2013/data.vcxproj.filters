@@ -12,6 +12,12 @@
     <ClInclude Include="..\..\data\object.hpp">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\data\api.h">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\data\lazy.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\object.cpp">

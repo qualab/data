@@ -14,6 +14,8 @@
     <ClCompile Include="..\..\source\object.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\data\api.h" />
+    <ClInclude Include="..\..\data\lazy.hpp" />
     <ClInclude Include="..\..\data\object.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -42,8 +42,10 @@
 		</Build>
 		<Compiler>
 			<Add option="-std=c++11" />
-			<Add directory="$(ProjectDir)" />
+			<Add directory="$(ProjectDir)/../../" />
 		</Compiler>
+		<Unit filename="../../data/api.h" />
+		<Unit filename="../../data/lazy.hpp" />
 		<Unit filename="../../data/object.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
