@@ -16,13 +16,13 @@ namespace data
 
         /// Storage for created data
         lazy(data_type* created_data);
-        
+
         /// Call of non-modifying method
         data_type const* operator -> () const;
-        
+
         /// Call of modifying method
         data_type* operator -> ();
-        
+
     private:
         mutable std::shared_ptr<data_type> m_shared_data;
 
@@ -53,6 +53,7 @@ namespace data
     template <class data_type>
     data_type* lazy<data_type>::operator -> ()
     {
+        ensure_unique_referenced();
         return m_shared_data.get();
     }
 
@@ -66,6 +67,7 @@ namespace data
     template <class data_type>
     void lazy<data_type>::ensure_unique_referenced() const
     {
+        ensure_initialized();
         if (!m_shared_data.unique())
             m_shared_data.reset(new data_type(*m_shared_data));
     }
