@@ -12,3 +12,8 @@
 *.la
 *.a
 bin
+*.opensdf
+*.sdf
+*.suo
+Debug
+Release
