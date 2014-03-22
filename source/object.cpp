@@ -1,20 +1,9 @@
 ﻿/// @author Владимир Керимов
 
-#include <data/object>
-#include <cstdint>
+#include "object_data.hpp"
 
 namespace data
 {
-    class object::data
-    {
-    public:
-        data();
-        virtual ~data();
-        virtual bool is_null() const;
-    };
-
-//  object -----------------------------------------------------------------------
-
     // Creation of null-object
     object::object()
     {
@@ -43,21 +32,6 @@ namespace data
     object::object(lazy<object::data> const& data)
         : m_data(data)
     {
-    }
-
-//  object::data -----------------------------------------------------------------
-
-    object::data::data()
-    {
-    }
-
-    object::data::~data()
-    {
-    }
-
-    bool object::data::is_null() const
-    {
-        return true;
     }
 }
 

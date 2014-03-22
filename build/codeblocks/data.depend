@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1395499247 source:d:\proj\data\source\object.cpp
+	"object_data.hpp"
+
+1395499088 d:\proj\data\source\object_data.hpp
+	<data/object>
+
+1395499082 source:d:\proj\data\source\object_data.cpp
+	"object_data.hpp"
+

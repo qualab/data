@@ -50,6 +50,8 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="../../source/object.cpp" />
+		<Unit filename="../../source/object_data.cpp" />
+		<Unit filename="../../source/object_data.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
