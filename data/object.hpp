@@ -4,6 +4,8 @@
 
 #include <data/api>
 #include <data/lazy>
+#include <cstdint>
+#include <cstddef>
 
 namespace data
 {
@@ -14,14 +16,81 @@ namespace data
         /// Create null-object
         object();
 
+        /// Base virtual destructor
+        virtual ~object();
+
+        object(object const& another);
+
+        template <typename value_type>
+        void set_as(value_type value);
+
+        template <typename value_type>
+        value_type get_as() const;
+
+        template <typename value_type>
+        object(value_type value);
+
+        template <typename value_type>
+        object& operator = (value_type value);
+
+        /// Clone data into new object
+        virtual object clone() const;
+
+        /// Check is value
+        virtual bool is_null() const;
+
     protected:
         /// Forward declaration of object::data
         class data;
+
+        object(lazy<data> const& data);
 
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;
     };
+
+    template <typename value_type>
+    object::object(value_type value)
+    {
+        set_as(value);
+    }
+
+    template <typename value_type>
+    object& object::operator = (value_type value)
+    {
+        set_as(value);
+        return *this;
+    }
+
+    template<> DATA_API void object::set_as(bool value);
+    template<> DATA_API void object::set_as(int8_t value);
+    template<> DATA_API void object::set_as(int16_t value);
+    template<> DATA_API void object::set_as(int32_t value);
+    template<> DATA_API void object::set_as(int64_t value);
+    template<> DATA_API void object::set_as(uint8_t value);
+    template<> DATA_API void object::set_as(uint16_t value);
+    template<> DATA_API void object::set_as(uint32_t value);
+    template<> DATA_API void object::set_as(uint64_t value);
+    template<> DATA_API void object::set_as(float value);
+    template<> DATA_API void object::set_as(double value);
+    template<> DATA_API void object::set_as(const char* value);
+    template<> DATA_API void object::set_as(const wchar_t* value);
+    template<> DATA_API void object::set_as(std::nullptr_t value);
+
+    template<> DATA_API bool object::get_as() const;
+    template<> DATA_API int8_t object::get_as() const;
+    template<> DATA_API int16_t object::get_as() const;
+    template<> DATA_API int32_t object::get_as() const;
+    template<> DATA_API int64_t object::get_as() const;
+    template<> DATA_API uint8_t object::get_as() const;
+    template<> DATA_API uint16_t object::get_as() const;
+    template<> DATA_API uint32_t object::get_as() const;
+    template<> DATA_API uint64_t object::get_as() const;
+    template<> DATA_API float object::get_as() const;
+    template<> DATA_API double object::get_as() const;
+    template<> DATA_API const char* object::get_as() const;
+    template<> DATA_API const wchar_t* object::get_as() const;
 }
 
 // sine qua non

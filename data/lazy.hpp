@@ -23,6 +23,9 @@ namespace data
         /// Call of modifying method
         data_type* operator -> ();
 
+        /// Clone data to the new container
+        lazy clone() const;
+
     private:
         mutable std::shared_ptr<data_type> m_shared_data;
 
@@ -70,6 +73,12 @@ namespace data
         ensure_initialized();
         if (!m_shared_data.unique())
             m_shared_data.reset(new data_type(*m_shared_data));
+    }
+
+    template <class data_type>
+    lazy<data_type> lazy<data_type>::clone() const
+    {
+        return lazy<data_type>(new data_type(*m_shared_data));
     }
 }
 
