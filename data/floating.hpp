@@ -24,7 +24,7 @@ namespace data
         /// Forward declaration of object::data
         class data;
 
-        floating(lazy<data> const& data);
+        floating(data* new_data);
 
     private:
         /// Object data is lazy to initialize and copy-on-write

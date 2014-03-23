@@ -11,14 +11,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\boolean.cpp" />
+    <ClCompile Include="..\..\source\boolean_data.cpp" />
+    <ClCompile Include="..\..\source\floating.cpp" />
+    <ClCompile Include="..\..\source\floating_data.cpp" />
+    <ClCompile Include="..\..\source\integer.cpp" />
+    <ClCompile Include="..\..\source\integer_data.cpp" />
     <ClCompile Include="..\..\source\object.cpp" />
     <ClCompile Include="..\..\source\object_data.cpp" />
+    <ClCompile Include="..\..\source\text.cpp" />
+    <ClCompile Include="..\..\source\text_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\data\api.h" />
+    <ClInclude Include="..\..\data\boolean.hpp" />
+    <ClInclude Include="..\..\data\floating.hpp" />
+    <ClInclude Include="..\..\data\integer.hpp" />
     <ClInclude Include="..\..\data\lazy.hpp" />
     <ClInclude Include="..\..\data\object.hpp" />
+    <ClInclude Include="..\..\data\text.hpp" />
+    <ClInclude Include="..\..\source\boolean_data.hpp" />
+    <ClInclude Include="..\..\source\floating_data.hpp" />
+    <ClInclude Include="..\..\source\integer_data.hpp" />
     <ClInclude Include="..\..\source\object_data.hpp" />
+    <ClInclude Include="..\..\source\text_data.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2A5697C7-C2CB-4647-8202-0B6A740E9174}</ProjectGuid>

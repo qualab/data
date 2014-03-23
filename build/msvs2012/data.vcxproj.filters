@@ -15,6 +15,30 @@
     <ClCompile Include="..\..\source\object_data.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\boolean.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\boolean_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\floating.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\floating_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\integer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\integer_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\text.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\text_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\data\object.hpp">
@@ -27,6 +51,30 @@
       <Filter>data</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\object_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\data\boolean.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\data\floating.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\data\integer.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\data\text.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\boolean_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\floating_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\integer_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\text_data.hpp">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

@@ -45,13 +45,27 @@
 			<Add directory="$(ProjectDir)/../../" />
 		</Compiler>
 		<Unit filename="../../data/api.h" />
+		<Unit filename="../../data/boolean.hpp" />
+		<Unit filename="../../data/floating.hpp" />
+		<Unit filename="../../data/integer.hpp" />
 		<Unit filename="../../data/lazy.hpp" />
-		<Unit filename="../../data/object.hpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="../../data/object.hpp" />
+		<Unit filename="../../data/text.hpp" />
+		<Unit filename="../../source/boolean.cpp" />
+		<Unit filename="../../source/boolean_data.cpp" />
+		<Unit filename="../../source/boolean_data.hpp" />
+		<Unit filename="../../source/floating.cpp" />
+		<Unit filename="../../source/floating_data.cpp" />
+		<Unit filename="../../source/floating_data.hpp" />
+		<Unit filename="../../source/integer.cpp" />
+		<Unit filename="../../source/integer_data.cpp" />
+		<Unit filename="../../source/integer_data.hpp" />
 		<Unit filename="../../source/object.cpp" />
 		<Unit filename="../../source/object_data.cpp" />
 		<Unit filename="../../source/object_data.hpp" />
+		<Unit filename="../../source/text.cpp" />
+		<Unit filename="../../source/text_data.cpp" />
+		<Unit filename="../../source/text_data.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

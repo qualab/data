@@ -42,6 +42,9 @@
     <ClInclude Include="..\..\source\text_data.hpp">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\source\floating_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\object.cpp">
@@ -66,6 +69,12 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\source\text.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\floating.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\floating_data.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

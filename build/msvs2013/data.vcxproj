@@ -88,6 +88,7 @@
     <ClInclude Include="..\..\data\object.hpp" />
     <ClInclude Include="..\..\data\text.hpp" />
     <ClInclude Include="..\..\source\boolean_data.hpp" />
+    <ClInclude Include="..\..\source\floating_data.hpp" />
     <ClInclude Include="..\..\source\integer_data.hpp" />
     <ClInclude Include="..\..\source\object_data.hpp" />
     <ClInclude Include="..\..\source\text_data.hpp" />
@@ -95,6 +96,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\source\boolean.cpp" />
     <ClCompile Include="..\..\source\boolean_data.cpp" />
+    <ClCompile Include="..\..\source\floating.cpp" />
+    <ClCompile Include="..\..\source\floating_data.cpp" />
     <ClCompile Include="..\..\source\integer.cpp" />
     <ClCompile Include="..\..\source\integer_data.cpp" />
     <ClCompile Include="..\..\source\object.cpp" />
