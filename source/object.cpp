@@ -4,12 +4,10 @@
 
 namespace data
 {
-    // Creation of null-object
     object::object()
     {
     }
 
-    // Base virtual destructor
     object::~object()
     {
     }
@@ -26,11 +24,11 @@ namespace data
 
     bool object::is_null() const
     {
-        return true;
+        return m_data->is_null();
     }
 
-    object::object(lazy<object::data> const& data)
-        : m_data(data)
+    object::object(object::data* new_data)
+        : m_data(new_data)
     {
     }
 }

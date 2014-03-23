@@ -9,7 +9,7 @@
 
 namespace data
 {
-    /// Base type for any other
+    /// Base type for any data type
     class DATA_API object
     {
     public:
@@ -19,17 +19,22 @@ namespace data
         /// Base virtual destructor
         virtual ~object();
 
+        /// Copy-on-write from another object
         object(object const& another);
 
+        /// Set object as specified value
         template <typename value_type>
         void set_as(value_type value);
 
+        /// Get object as value of specified type
         template <typename value_type>
         value_type get_as() const;
 
+        /// Initialize new data object by specified value
         template <typename value_type>
         object(value_type value);
 
+        /// Initialize existing data object by specified value
         template <typename value_type>
         object& operator = (value_type value);
 
@@ -43,12 +48,15 @@ namespace data
         /// Forward declaration of object::data
         class data;
 
-        object(lazy<data> const& data);
+        /// Initialize data object by prepared data
+        object(data* new_data);
 
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;
     };
+
+//  data::object
 
     template <typename value_type>
     object::object(value_type value)
