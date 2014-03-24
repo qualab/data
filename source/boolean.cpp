@@ -10,7 +10,13 @@ namespace data
 
     object boolean::clone() const
     {
-        return object(m_data.clone());
+        return object(m_data.clone_as<object::data>());
+    }
+
+    template<>
+    void object::set_as(bool value)
+    {
+        m_data = lazy<object::data>(new boolean::data(value));
     }
 }
 

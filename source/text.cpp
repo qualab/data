@@ -12,7 +12,7 @@ namespace data
     // Base virtual destructor
     object text::clone() const
     {
-        return object(m_data.clone());
+        return object(m_data.clone_as<object::data>());
     }
 
     bool text::is_null() const

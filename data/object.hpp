@@ -48,12 +48,16 @@ namespace data
         /// Forward declaration of object::data
         class data;
 
-        /// Initialize data object by prepared data
-        object(data* new_data);
+        /// Initialize data object by new data created
+        explicit object(data* new_data);
 
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;
+
+    public:
+        /// Initialize by prepared container of new data created
+        explicit object(lazy<data> prepared_data);
     };
 
 //  data::object

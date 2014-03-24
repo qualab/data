@@ -27,6 +27,9 @@ namespace data
         /// Initialize boolean by prepared data
         boolean(data* new_data);
 
+        /// Access to boolean::data
+        friend class object;
+
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;

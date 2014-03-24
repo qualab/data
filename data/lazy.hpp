@@ -15,7 +15,10 @@ namespace data
         lazy();
 
         /// Storage for created data
-        lazy(data_type* created_data);
+        explicit lazy(data_type* created_data);
+
+        template <class derived_data_type>
+        explicit lazy(derived_data_type* created_data);
 
         /// Call of non-modifying method
         data_type const* operator -> () const;
@@ -25,6 +28,9 @@ namespace data
 
         /// Clone data to the new container
         lazy clone() const;
+
+        template <class base_data_type>
+        lazy<base_data_type> clone_as() const;
 
     private:
         mutable std::shared_ptr<data_type> m_shared_data;
@@ -37,11 +43,19 @@ namespace data
 
     template <class data_type>
     lazy<data_type>::lazy()
+        : m_shared_data()
     {
     }
 
     template <class data_type>
     lazy<data_type>::lazy(data_type* created_data)
+        : m_shared_data(created_data)
+    {
+    }
+
+    template <class data_type>
+    template <class derived_data_type>
+    lazy<data_type>::lazy(derived_data_type* created_data)
         : m_shared_data(created_data)
     {
     }
@@ -79,6 +93,13 @@ namespace data
     lazy<data_type> lazy<data_type>::clone() const
     {
         return lazy<data_type>(new data_type(*m_shared_data));
+    }
+
+    template <class data_type>
+    template <class base_data_type>
+    lazy<base_data_type> lazy<data_type>::clone_as() const
+    {
+        return lazy<base_data_type>(new data_type(*m_shared_data));
     }
 }
 

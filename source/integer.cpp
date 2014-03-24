@@ -10,7 +10,7 @@ namespace data
 
     object integer::clone() const
     {
-        return object(m_data.clone());
+        return object(m_data.clone_as<object::data>());
     }
 
     integer::integer(integer::data* new_data)

@@ -26,6 +26,8 @@ namespace data
 
         floating(data* new_data);
 
+        friend class object;
+
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;
