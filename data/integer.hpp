@@ -27,6 +27,9 @@ namespace data
         /// Create integer by prepared data
         integer(data* new_data);
 
+        /// Parent is friend
+        friend class object;
+
     private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;

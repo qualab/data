@@ -18,6 +18,21 @@ namespace data
     {
         return false;
     }
+
+    int64_t integer::data::get_value() const
+    {
+        return m_value;
+    }
+
+    int64_t integer::data::get_as_int64() const
+    {
+        return get_value();
+    }
+
+    bool integer::data::get_as_bool() const
+    {
+        return static_cast<bool>(get_value());
+    }
 }
 
 // sine qua non
