@@ -48,6 +48,12 @@
     <ClInclude Include="..\..\..\data\cast.hpp">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\exception.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\exception_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\boolean.cpp">
@@ -81,6 +87,12 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\cast.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\exception.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\exception_data.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include "floating_data.hpp"
 #include "integer_data.hpp"
 #include "text_data.hpp"
+#include <data/cast>
 
 namespace data
 {
@@ -50,43 +51,43 @@ namespace data
     template<>
     uint64_t object::get_as() const
     {
-        return static_cast<uint64_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<uint64_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     int32_t object::get_as() const
     {
-        return static_cast<int32_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<int32_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     uint32_t object::get_as() const
     {
-        return static_cast<uint32_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<uint32_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     int16_t object::get_as() const
     {
-        return static_cast<int16_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<int16_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     uint16_t object::get_as() const
     {
-        return static_cast<uint16_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<uint16_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     int8_t object::get_as() const
     {
-        return static_cast<int8_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<int8_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
     uint8_t object::get_as() const
     {
-        return static_cast<uint8_t>(m_data->get_as_int64()); /// TODO: safe cast
+        return cast<uint8_t>(m_data->get_as_int64()); /// TODO: safe cast
     }
 
     template<>
@@ -98,13 +99,19 @@ namespace data
     template<>
     float object::get_as() const
     {
-        return static_cast<float>(m_data->get_as_double()); /// TODO: safe cast
+        return cast<float>(m_data->get_as_double()); /// TODO: safe cast
     }
 
     template<>
     bool object::get_as() const
     {
         return m_data->get_as_bool();
+    }
+
+    template<>
+    text object::get_as() const
+    {
+        return text(); /// TODO: object get as text
     }
 }
 

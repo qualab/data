@@ -85,12 +85,14 @@
     <ClInclude Include="..\..\..\data\api.h" />
     <ClInclude Include="..\..\..\data\boolean.hpp" />
     <ClInclude Include="..\..\..\data\cast.hpp" />
+    <ClInclude Include="..\..\..\data\exception.hpp" />
     <ClInclude Include="..\..\..\data\floating.hpp" />
     <ClInclude Include="..\..\..\data\integer.hpp" />
     <ClInclude Include="..\..\..\data\lazy.hpp" />
     <ClInclude Include="..\..\..\data\object.hpp" />
     <ClInclude Include="..\..\..\data\text.hpp" />
     <ClInclude Include="..\..\..\source\boolean_data.hpp" />
+    <ClInclude Include="..\..\..\source\exception_data.hpp" />
     <ClInclude Include="..\..\..\source\floating_data.hpp" />
     <ClInclude Include="..\..\..\source\integer_data.hpp" />
     <ClInclude Include="..\..\..\source\object_data.hpp" />
@@ -100,6 +102,8 @@
     <ClCompile Include="..\..\..\source\boolean.cpp" />
     <ClCompile Include="..\..\..\source\boolean_data.cpp" />
     <ClCompile Include="..\..\..\source\cast.cpp" />
+    <ClCompile Include="..\..\..\source\exception.cpp" />
+    <ClCompile Include="..\..\..\source\exception_data.cpp" />
     <ClCompile Include="..\..\..\source\floating.cpp" />
     <ClCompile Include="..\..\..\source\floating_data.cpp" />
     <ClCompile Include="..\..\..\source\integer.cpp" />
