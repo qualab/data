@@ -17,6 +17,7 @@ namespace data
         /// Storage for created data
         explicit lazy(data_type* created_data);
 
+        /// Storage for created data of derived data class
         template <class derived_data_type>
         explicit lazy(derived_data_type* created_data);
 

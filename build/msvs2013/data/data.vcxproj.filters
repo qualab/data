@@ -45,6 +45,9 @@
     <ClInclude Include="..\..\..\data\api.h">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\cast.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\boolean.cpp">
@@ -75,6 +78,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\text_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\cast.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

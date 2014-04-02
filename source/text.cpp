@@ -8,22 +8,6 @@ namespace data
     text::text()
     {
     }
-
-    // Base virtual destructor
-    object text::clone() const
-    {
-        return object(m_data.clone_as<object::data>());
-    }
-
-    bool text::is_null() const
-    {
-        return m_data->is_null();
-    }
-
-    text::text(lazy<text::data> const& data)
-        : m_data(data)
-    {
-    }
 }
 
 // sine qua non

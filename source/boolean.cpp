@@ -8,11 +8,6 @@ namespace data
     {
     }
 
-    object boolean::clone() const
-    {
-        return object(m_data.clone_as<object::data>());
-    }
-
     template<>
     void object::set_as(bool value)
     {

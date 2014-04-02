@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/cast>
 
 namespace data
 {
@@ -17,27 +18,17 @@ namespace data
         template <typename value_type>
         boolean(value_type value);
 
-        /// Clone data into new object
-        virtual object clone() const override;
-
     protected:
-        /// Forward declaration of object::data
+        /// Forward declaration of boolean::data
         class data;
-
-        /// Initialize boolean by prepared data
-        boolean(data* new_data);
 
         /// Access to boolean::data
         friend class object;
-
-    private:
-        /// Object data is lazy to initialize and copy-on-write
-        lazy<data> m_data;
     };
     
     template <typename value_type>
     boolean::boolean(value_type value)
-        : object(value)
+        : object(cast<bool>(value))
     {
     }
 }

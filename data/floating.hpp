@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/cast>
 
 namespace data
 {
@@ -17,25 +18,17 @@ namespace data
         template <typename value_type>
         floating(value_type value);
 
-        /// Clone data into new object
-        virtual object clone() const override;
-
     protected:
         /// Forward declaration of object::data
         class data;
 
-        floating(data* new_data);
-
+        // Access to floating::data
         friend class object;
-
-    private:
-        /// Object data is lazy to initialize and copy-on-write
-        lazy<data> m_data;
     };
 
     template <typename value_type>
     floating::floating(value_type value)
-        : object(value)
+        : object(cast<double>(value))
     {
     }
 }

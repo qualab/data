@@ -17,27 +17,14 @@ namespace data
         template <typename value_type>
         text(value_type value);
 
-        /// Clone data into new object
-        virtual object clone() const;
-
-        /// Check is value
-        virtual bool is_null() const;
-
     protected:
         /// Forward declaration of text::data
         class data;
-
-        /// Create text by prepared data
-        text(lazy<data> const& data);
-
-    private:
-        /// Object data is lazy to initialize and copy-on-write
-        lazy<data> m_data;
     };
     
     template <typename value_type>
     text::text(value_type value)
-        : object(value)
+        : object(cast<text>(value))
     {
     }
 }

@@ -8,16 +8,6 @@ namespace data
     {
     }
 
-    object integer::clone() const
-    {
-        return object(m_data.clone_as<object::data>());
-    }
-
-    integer::integer(integer::data* new_data)
-        : m_data(new_data)
-    {
-    }
-
     template<>
     void object::set_as(int64_t value)
     {
