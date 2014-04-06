@@ -3,16 +3,6 @@
 #include <cstdlib>
 #include <conio.h>
 
-namespace data
-{
-    namespace test
-    {
-        std::deque<std::function<void()>> application::m_functions;
-
-        void test_object();
-    }
-}
-
 namespace
 {
     void press_any_key()
@@ -25,7 +15,6 @@ namespace
 int main()
 {
     std::atexit(press_any_key);
-    data::test::test_object();
-    data::test::application::run();
+    data::test::scope::run();
     return 0;
 }

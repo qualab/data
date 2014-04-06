@@ -13,6 +13,9 @@ namespace data
         /// Create null-object of no text
         text();
 
+        text(char const* value);
+        text(wchar_t const* value);
+
         /// Create object and initialize by specified value
         template <typename value_type>
         text(value_type value);

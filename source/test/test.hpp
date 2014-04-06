@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <memory>
 #include <deque>
 
 namespace data
@@ -48,27 +49,62 @@ namespace data
             }
         };
 
-        class application
+        class scope
         {
         public:
             static void add_test(std::function<void()> const& test_function)
             {
-                m_functions.push_back(test_function);
+                get_instance().m_functions.push_back(test_function);
             }
 
             static void run()
             {
-                std::cout << "Test application started." << std::endl;
-                std::for_each(m_functions.begin(), m_functions.end(),
+                std::cout << "Test scope started." << std::endl;
+                std::for_each(get_instance().m_functions.begin(), get_instance().m_functions.end(),
                     [](std::function<void()> const& test_function) {
                         test_function();
                     }
                 );
-                std::cout << "Test application finished." << std::endl;
+                std::cout << "Test scope finished." << std::endl;
             }
 
         private:
-            static std::deque<std::function<void()>> m_functions;
+            scope()
+            {
+            }
+
+            static scope& get_instance()
+            {
+                static std::unique_ptr<scope> instance;
+                if (!instance)
+                {
+                    instance.reset(new scope);
+                }
+                return *instance;
+            }
+
+            std::deque<std::function<void()>> m_functions;
+        };
+
+
+        class test : public std::function<void()>
+        {
+        public:
+            test()
+            {
+                scope::add_test(*this);
+            }
+
+            void operator () (void)
+            {
+                call();
+            }
+
+            virtual void call() = 0;
+
+            virtual ~test()
+            {
+            }
         };
     }
 }

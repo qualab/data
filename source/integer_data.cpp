@@ -31,7 +31,7 @@ namespace data
 
     bool integer::data::get_as_bool() const
     {
-        return static_cast<bool>(get_value());
+        return cast<bool>(get_value());
     }
 }
 

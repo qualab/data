@@ -60,6 +60,8 @@ namespace data
         explicit object(lazy<data> prepared_data);
     };
 
+    DATA_API extern const object null;
+
 //  data::object
 
     template <typename value_type>
@@ -75,6 +77,8 @@ namespace data
         return *this;
     }
 
+    class text;
+
     template<> DATA_API void object::set_as(bool value);
     template<> DATA_API void object::set_as(int8_t value);
     template<> DATA_API void object::set_as(int16_t value);
@@ -86,6 +90,7 @@ namespace data
     template<> DATA_API void object::set_as(uint64_t value);
     template<> DATA_API void object::set_as(float value);
     template<> DATA_API void object::set_as(double value);
+    template<> DATA_API void object::set_as(text value);
     template<> DATA_API void object::set_as(const char* value);
     template<> DATA_API void object::set_as(const wchar_t* value);
     template<> DATA_API void object::set_as(std::nullptr_t value);
@@ -101,6 +106,7 @@ namespace data
     template<> DATA_API uint64_t object::get_as() const;
     template<> DATA_API float object::get_as() const;
     template<> DATA_API double object::get_as() const;
+    template<> DATA_API text object::get_as() const;
     template<> DATA_API const char* object::get_as() const;
     template<> DATA_API const wchar_t* object::get_as() const;
 }

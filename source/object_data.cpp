@@ -1,6 +1,7 @@
 ﻿/// @author Владимир Керимов
 
 #include "object_data.hpp"
+#include <data/text>
 #include <stdexcept>
 
 namespace data
@@ -31,6 +32,11 @@ namespace data
     bool object::data::get_as_bool() const
     {
         return false;
+    }
+
+    text object::data::get_as_text() const
+    {
+        return text("null");
     }
 }
 

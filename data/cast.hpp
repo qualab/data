@@ -155,6 +155,22 @@ namespace data
     template<> DATA_API double cast(wchar_t const* value);
     template<> DATA_API double cast(object value);
 
+    template<> DATA_API float cast(int64_t value);
+    template<> DATA_API float cast(int32_t value);
+    template<> DATA_API float cast(int16_t value);
+    template<> DATA_API float cast(int8_t value);
+    template<> DATA_API float cast(uint64_t value);
+    template<> DATA_API float cast(uint32_t value);
+    template<> DATA_API float cast(uint16_t value);
+    template<> DATA_API float cast(uint8_t value);
+    template<> DATA_API float cast(double value);
+    template<> DATA_API float cast(float value);
+    template<> DATA_API float cast(bool value);
+    template<> DATA_API float cast(text value);
+    template<> DATA_API float cast(char const* value);
+    template<> DATA_API float cast(wchar_t const* value);
+    template<> DATA_API float cast(object value);
+
     template<> DATA_API bool cast(int64_t value);
     template<> DATA_API bool cast(int32_t value);
     template<> DATA_API bool cast(int16_t value);

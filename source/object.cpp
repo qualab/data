@@ -9,6 +9,8 @@
 
 namespace data
 {
+    const object null;
+
     object::object()
     {
     }

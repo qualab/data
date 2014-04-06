@@ -8,6 +8,9 @@
 
 namespace data
 {
+
+//  int64_t ----------------------------------------------------------------------
+
     template<>
     int64_t cast(int64_t value)
     {
@@ -35,7 +38,7 @@ namespace data
     template<>
     int64_t cast(uint64_t value)
     {
-        if (value & (1LL << 63) != 0LL)
+        if ((value & (1LL << 63)) != 0LL)
         {
             /// TODO: exception
         }
@@ -113,6 +116,764 @@ namespace data
     {
         return value.get_as<int64_t>();
     }
+
+//  uint64_t -------------------------------------------------------------------
+
+    template<>
+    uint64_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint64_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint64_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint64_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint64_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint64_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    uint64_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    uint64_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    uint64_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint64_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint64_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    uint64_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint64_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint64_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint64_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  int32_t ----------------------------------------------------------------------
+
+    template<>
+    int32_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int32_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int32_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int32_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int32_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int32_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    int32_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    int32_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    int32_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int32_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int32_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    int32_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int32_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int32_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int32_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  uint32_t ---------------------------------------------------------------------
+
+    template<>
+    uint32_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint32_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint32_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint32_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint32_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint32_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    uint32_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    uint32_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    uint32_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint32_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint32_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    uint32_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint32_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint32_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint32_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  int16_t ----------------------------------------------------------------------
+
+    template<>
+    int16_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int16_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int16_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int16_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int16_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int16_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    int16_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    int16_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    int16_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int16_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int16_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    int16_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int16_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int16_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int16_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  uint16_t ---------------------------------------------------------------------
+
+    template<>
+    uint16_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint16_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint16_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint16_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint16_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint16_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    uint16_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    uint16_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    uint16_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint16_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint16_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    uint16_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint16_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint16_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint16_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  int8_t -----------------------------------------------------------------------
+
+    template<>
+    int8_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int8_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int8_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int8_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    int8_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int8_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    int8_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    int8_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    int8_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int8_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    int8_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    int8_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int8_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int8_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    int8_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  uint8_t ----------------------------------------------------------------------
+
+    template<>
+    uint8_t cast(int64_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint8_t cast(int32_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint8_t cast(int16_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint8_t cast(int8_t value)
+    {
+        return value;
+    }
+
+    template<>
+    uint8_t cast(uint64_t value)
+    {
+        if (value & (1LL << 63) != 0LL)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint8_t cast(uint32_t value)
+    {
+        return static_cast<int32_t>(value);
+    }
+
+    template<>
+    uint8_t cast(uint16_t value)
+    {
+        return static_cast<int16_t>(value);
+    }
+
+    template<>
+    uint8_t cast(uint8_t value)
+    {
+        return static_cast<int8_t>(value);
+    }
+
+    template<>
+    uint8_t cast(double value)
+    {
+        if (value < static_cast<double>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<double>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint8_t cast(float value)
+    {
+        if (value < static_cast<float>(std::numeric_limits<int64_t>::min())
+            || value > static_cast<float>(std::numeric_limits<int64_t>::max())
+            || static_cast<float>(static_cast<int64_t>(value)) - value > 1.0f)
+        {
+            /// TODO: exception
+        }
+        return static_cast<int64_t>(value);
+    }
+
+    template<>
+    uint8_t cast(bool value)
+    {
+        return value ? 1LL : 0LL;
+    }
+
+    template<>
+    uint8_t cast(text value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint8_t cast(char const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint8_t cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to integer
+    }
+
+    template<>
+    uint8_t cast(object value)
+    {
+        return value.get_as<int64_t>();
+    }
+
+//  double -----------------------------------------------------------------------
 
     template<>
     double cast(int64_t value)
@@ -212,6 +973,107 @@ namespace data
         return value.get_as<double>();
     }
 
+//  float ------------------------------------------------------------------------
+
+    template<>
+    float cast(int64_t value)
+    {
+        if (static_cast<int64_t>(static_cast<double>(value)) != value)
+        {
+            /// TODO: exception
+        }
+        return static_cast<float>(value);
+    }
+
+    template<>
+    float cast(int32_t value)
+    {
+        return cast<float>(static_cast<int64_t>(value));
+    }
+
+    template<>
+    float cast(int16_t value)
+    {
+        return cast<float>(static_cast<int64_t>(value));
+    }
+
+    template<>
+    float cast(int8_t value)
+    {
+        return cast<float>(static_cast<int64_t>(value));
+    }
+
+    template<>
+    float cast(uint64_t value)
+    {
+        if (static_cast<uint64_t>(static_cast<double>(value)) != value)
+        {
+            /// TODO: exception
+        }
+        return static_cast<float>(value);
+    }
+
+    template<>
+    float cast(uint32_t value)
+    {
+        return cast<float>(static_cast<uint64_t>(value));
+    }
+
+    template<>
+    float cast(uint16_t value)
+    {
+        return cast<float>(static_cast<uint64_t>(value));
+    }
+
+    template<>
+    float cast(uint8_t value)
+    {
+        return cast<float>(static_cast<uint64_t>(value));
+    }
+
+    template<>
+    float cast(double value)
+    {
+        return value;
+    }
+
+    template<>
+    float cast(float value)
+    {
+        return static_cast<double>(value);
+    }
+
+    template<>
+    float cast(bool value)
+    {
+        return value ? 1 : 0;
+    }
+
+    template<>
+    float cast(text value)
+    {
+        return 0; /// TODO: text to double
+    }
+
+    template<>
+    float cast(char const* value)
+    {
+        return 0; /// TODO: text to double
+    }
+
+    template<>
+    float cast(wchar_t const* value)
+    {
+        return 0; /// TODO: text to double
+    }
+
+    template<>
+    float cast(object value)
+    {
+        return value.get_as<float>();
+    }
+
+//  bool -------------------------------------------------------------------------
 
     template<>
     bool cast(int64_t value)
@@ -302,6 +1164,8 @@ namespace data
     {
         return value.get_as<bool>();
     }
+
+//  text -----------------------------------------------------------------------
 
     template<>
     text cast(int64_t value)
