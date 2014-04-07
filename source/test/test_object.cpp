@@ -1,4 +1,6 @@
-﻿#include "test.hpp"
+﻿/// @author Владимир Керимов
+
+#include "test.hpp"
 #include <data/object>
 
 namespace data
@@ -8,11 +10,19 @@ namespace data
         class test_object : public test
         {
         public:
-            virtual void call() override
+            virtual void run() override
             {
+                data::object empty;
+                check::equal(empty.is_null(), true, __FILE__, __LINE__);
+
                 data::object obj = 123;
                 check::equal(obj.get_as<int>(), 123, __FILE__, __LINE__);
+
+                data::object real = 3.14159;
+                check::almost(real.get_as<double>(), 3.14159, 1e-15, __FILE__, __LINE__);
             }
         } g_test_object;
     }
 }
+
+// sine qua non

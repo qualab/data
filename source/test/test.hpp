@@ -1,110 +1,72 @@
-﻿#pragma once
+﻿/// @author Владимир Керимов
 
-#include <functional>
-#include <algorithm>
-#include <exception>
-#include <iostream>
+#pragma once
+
 #include <sstream>
-#include <string>
-#include <memory>
 #include <deque>
 
 namespace data
 {
     namespace test
     {
+        class test
+        {
+        public:
+            test();
+            virtual void run() = 0;
+        };
+
+        class scope
+        {
+        public:
+            static void add_test(test* new_test);
+            static void run();
+
+        private:
+            std::deque<test*> m_tests;
+
+            scope();
+            static scope& get_instance();
+        };
+
         class check
         {
         public:
-            static void info(std::string const& message, char const* file, int line)
-            {
-                std::cout << "FILE: " << file << '(' << line << ") CHECK: " << message;
-            }
-
-            static void failed(std::string const& message, char const* file, int line)
-            {
-                check::info(message, file, line);
-                std::cout << " - FAILED!" << std::endl;
-            }
-
-            static void succeed(std::string const& message, char const* file, int line)
-            {
-                check::info(message, file, line);
-                std::cout << " - OK." << std::endl;
-            }
+            static void info(std::string const& message, char const* file, int line);
+            static void failed(std::string const& message, char const* file, int line);
+            static void succeed(std::string const& message, char const* file, int line);
 
             template <typename left_type, typename right_type>
             static void equal(left_type left, right_type right, char const* file, int line)
             {
                 std::stringstream stream;
                 stream << left << " == " << right;
-                if (left != right)
-                {
-                    check::failed(stream.str(), file, line);
-                }
-                else
+                if (left == right)
                 {
                     check::succeed(stream.str(), file, line);
                 }
-            }
-        };
-
-        class scope
-        {
-        public:
-            static void add_test(std::function<void()> const& test_function)
-            {
-                get_instance().m_functions.push_back(test_function);
-            }
-
-            static void run()
-            {
-                std::cout << "Test scope started." << std::endl;
-                std::for_each(get_instance().m_functions.begin(), get_instance().m_functions.end(),
-                    [](std::function<void()> const& test_function) {
-                        test_function();
-                    }
-                );
-                std::cout << "Test scope finished." << std::endl;
-            }
-
-        private:
-            scope()
-            {
-            }
-
-            static scope& get_instance()
-            {
-                static std::unique_ptr<scope> instance;
-                if (!instance)
+                else
                 {
-                    instance.reset(new scope);
+                    check::failed(stream.str(), file, line);
                 }
-                return *instance;
             }
 
-            std::deque<std::function<void()>> m_functions;
-        };
-
-
-        class test : public std::function<void()>
-        {
-        public:
-            test()
+            template <typename left_type, typename right_type, typename epsilon_type>
+            static void almost(left_type left, right_type right, epsilon_type epsilon, char const* file, int line)
             {
-                scope::add_test(*this);
-            }
-
-            void operator () (void)
-            {
-                call();
-            }
-
-            virtual void call() = 0;
-
-            virtual ~test()
-            {
+                std::stringstream stream;
+                stream << "| " << left << " - " << right << " | < " << epsilon;
+                if (std::abs(left - right) < epsilon)
+                {
+                    check::succeed(stream.str(), file, line);
+                }
+                else
+                {
+                    check::failed(stream.str(), file, line);
+                }
             }
         };
     }
 }
+
+// sine qua non
