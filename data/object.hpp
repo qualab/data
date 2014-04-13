@@ -51,7 +51,6 @@ namespace data
         /// Initialize data object by new data created
         explicit object(data* new_data);
 
-    private:
         /// Object data is lazy to initialize and copy-on-write
         lazy<data> m_data;
 

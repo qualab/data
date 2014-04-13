@@ -17,6 +17,18 @@ namespace data
         virtual double get_as_double() const;
         virtual bool get_as_bool() const;
         virtual text get_as_text() const;
+
+        template <class derived_data_type>
+        derived_data_type const& get_data_as() const
+        {
+            return dynamic_cast<derived_data_type const&>(*this);
+        }
+
+        template <class derived_data_type>
+        derived_data_type& get_data_as()
+        {
+            return dynamic_cast<derived_data_type&>(*this);
+        }
     };
 }
 
