@@ -44,6 +44,15 @@ namespace data
         get_data().pop();
     }
 
+    trace& trace::thread_stack()
+    {
+        if (!g_thread_stack)
+        {
+            g_thread_stack = new trace;
+        }
+        return *g_thread_stack;
+    }
+
     trace::entry trace::operator [] (int index) const
     {
         return get_data().get_entry(index);

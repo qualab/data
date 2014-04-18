@@ -90,6 +90,7 @@
     <ClInclude Include="..\..\..\data\integer.hpp" />
     <ClInclude Include="..\..\..\data\lazy.hpp" />
     <ClInclude Include="..\..\..\data\object.hpp" />
+    <ClInclude Include="..\..\..\data\stdfwd.hpp" />
     <ClInclude Include="..\..\..\data\text.hpp" />
     <ClInclude Include="..\..\..\data\trace.hpp" />
     <ClInclude Include="..\..\..\source\boolean_data.hpp" />

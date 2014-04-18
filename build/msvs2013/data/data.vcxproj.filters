@@ -60,6 +60,9 @@
     <ClInclude Include="..\..\..\source\trace_data.hpp">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd.hpp">
+      <Filter>data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\boolean.cpp">

@@ -5,6 +5,7 @@
 #include "floating_data.hpp"
 #include "integer_data.hpp"
 #include "text_data.hpp"
+#include <data/trace>
 #include <data/cast>
 
 namespace data
@@ -31,7 +32,8 @@ namespace data
 
     bool object::is_null() const
     {
-        return m_data->is_null();
+        DATA_TRACE_CALL(m_data, is_null)();
+        return result;
     }
 
     object::object(object::data* new_data)

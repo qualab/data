@@ -9,6 +9,7 @@
 namespace data
 {
     exception::exception()
+        : object(new exception::data())
     {
     }
 
