@@ -60,6 +60,9 @@
     <ClInclude Include="..\..\..\data\stdfwd.hpp">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\object_data.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\boolean.cpp">
@@ -102,6 +105,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\trace_data.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\object_data.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

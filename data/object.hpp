@@ -29,7 +29,7 @@ namespace data
 
         /// Initialize new data object by specified value
         template <typename value_type>
-        explicit object(value_type value);
+        object(value_type value);
 
         /// Initialize existing data object by specified value
         template <typename value_type>
