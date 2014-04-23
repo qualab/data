@@ -73,7 +73,7 @@ namespace data
     }
 
     trace::entry::entry(text file, int line, text function)
-        : object(new entry::data(file, line, function))
+        : object(static_cast<object::data*>(new trace::entry::data(file, line, function)))
     {
     }
 
@@ -103,7 +103,7 @@ namespace data
     }
 
     trace::auto_pop::auto_pop()
-        : object(new data)
+        : object(static_cast<object::data*>(new trace::auto_pop::data))
     {
     }
 }
