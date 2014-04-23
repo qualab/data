@@ -4,8 +4,8 @@
 
 #include <data/api>
 #include <data/lazy>
+#include <data/stdfwd>
 #include <cstdint>
-#include <cstddef>
 
 namespace data
 {
@@ -19,9 +19,6 @@ namespace data
         /// Base virtual destructor
         virtual ~object();
 
-        /// Copy-on-write from another object
-        object(object const& another);
-
         /// Set object as specified value
         template <typename value_type>
         void set_as(value_type value);
@@ -32,7 +29,7 @@ namespace data
 
         /// Initialize new data object by specified value
         template <typename value_type>
-        object(value_type value);
+        explicit object(value_type value);
 
         /// Initialize existing data object by specified value
         template <typename value_type>
@@ -43,6 +40,19 @@ namespace data
 
         /// Check is value
         virtual bool is_null() const;
+
+    protected:
+        /// Base object data class
+        class data;
+
+        /// Lazy data behavior
+        lazy<data> m_data;
+
+        /// Initialization by new created data
+        object(data* new_data);
+
+        /// Initialization by prepared data
+        object(lazy<data> const& prepared_data);
     };
 
     DATA_API extern const object null;
@@ -76,8 +86,10 @@ namespace data
     template<> DATA_API void object::set_as(float value);
     template<> DATA_API void object::set_as(double value);
     template<> DATA_API void object::set_as(text value);
-    template<> DATA_API void object::set_as(const char* value);
-    template<> DATA_API void object::set_as(const wchar_t* value);
+    template<> DATA_API void object::set_as(char const* value);
+    template<> DATA_API void object::set_as(wchar_t const* value);
+    template<> DATA_API void object::set_as(std::string const& value);
+    template<> DATA_API void object::set_as(std::wstring const& value);
     template<> DATA_API void object::set_as(std::nullptr_t value);
 
     template<> DATA_API bool object::get_as() const;
@@ -92,8 +104,10 @@ namespace data
     template<> DATA_API float object::get_as() const;
     template<> DATA_API double object::get_as() const;
     template<> DATA_API text object::get_as() const;
-    template<> DATA_API const char* object::get_as() const;
-    template<> DATA_API const wchar_t* object::get_as() const;
+    template<> DATA_API char const* object::get_as() const;
+    template<> DATA_API wchar_t const* object::get_as() const;
+    template<> DATA_API std::string object::get_as() const;
+    template<> DATA_API std::wstring object::get_as() const;
 }
 
 // sine qua non

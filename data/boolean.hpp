@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/lazy>
 #include <data/cast>
 
 namespace data
@@ -22,7 +23,7 @@ namespace data
         /// Forward declaration of boolean::data
         class data;
 
-        /// Access to boolean::data
+        /// Access to boolean::data class
         friend class object;
     };
     

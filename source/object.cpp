@@ -20,11 +20,6 @@ namespace data
     {
     }
 
-    object::object(object const& another)
-        : m_data(another.m_data)
-    {
-    }
-
     object object::clone() const
     {
         return object(m_data.clone());
@@ -33,7 +28,6 @@ namespace data
     bool object::is_null() const
     {
         DATA_TRACE_CALL(m_data, is_null)();
-        return result;
     }
 
     object::object(object::data* new_data)
@@ -41,7 +35,7 @@ namespace data
     {
     }
 
-    object::object(lazy<object::data> prepared_data)
+    object::object(lazy<object::data> const& prepared_data)
         : m_data(prepared_data)
     {
     }
@@ -115,7 +109,7 @@ namespace data
     template<>
     text object::get_as() const
     {
-        return text(); /// TODO: object get as text
+        return m_data->get_as_text(); /// TODO: object get as text
     }
 }
 

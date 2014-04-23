@@ -1,15 +1,16 @@
 ﻿/// @author Владимир Керимов
 
 #include <data/api>
+#include <data/stdfwd>
 #include <cstdint>
 
 namespace data
 {
-    template <typename result_type, typename argument_type>
-    result_type cast(argument_type value);
-
     class text;
     class object;
+
+    template <typename result_type, typename argument_type>
+    result_type cast(argument_type value);
 
     template<> DATA_API int64_t cast(int64_t value);
     template<> DATA_API int64_t cast(int32_t value);
@@ -25,6 +26,8 @@ namespace data
     template<> DATA_API int64_t cast(text value);
     template<> DATA_API int64_t cast(char const* value);
     template<> DATA_API int64_t cast(wchar_t const* value);
+    template<> DATA_API int64_t cast(std::string const& value);
+    template<> DATA_API int64_t cast(std::wstring const& value);
     template<> DATA_API int64_t cast(object value);
 
     template<> DATA_API uint64_t cast(int64_t value);
@@ -41,6 +44,8 @@ namespace data
     template<> DATA_API uint64_t cast(text value);
     template<> DATA_API uint64_t cast(char const* value);
     template<> DATA_API uint64_t cast(wchar_t const* value);
+    template<> DATA_API uint64_t cast(std::string const& value);
+    template<> DATA_API uint64_t cast(std::wstring const& value);
     template<> DATA_API uint64_t cast(object value);
 
     template<> DATA_API int32_t cast(int64_t value);
@@ -57,6 +62,8 @@ namespace data
     template<> DATA_API int32_t cast(text value);
     template<> DATA_API int32_t cast(char const* value);
     template<> DATA_API int32_t cast(wchar_t const* value);
+    template<> DATA_API int32_t cast(std::string const& value);
+    template<> DATA_API int32_t cast(std::wstring const& value);
     template<> DATA_API int32_t cast(object value);
 
     template<> DATA_API uint32_t cast(int64_t value);
@@ -73,6 +80,8 @@ namespace data
     template<> DATA_API uint32_t cast(text value);
     template<> DATA_API uint32_t cast(char const* value);
     template<> DATA_API uint32_t cast(wchar_t const* value);
+    template<> DATA_API uint32_t cast(std::string const& value);
+    template<> DATA_API uint32_t cast(std::wstring const& value);
     template<> DATA_API uint32_t cast(object value);
 
     template<> DATA_API int16_t cast(int64_t value);

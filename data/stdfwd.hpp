@@ -11,18 +11,22 @@ namespace std
     struct char_traits;
 
     template <typename char_type,
-              typename traits_type=char_traits<char_type>,
-              typename allocator_type=allocator<char_type>>
+              typename traits_type,
+              typename allocator_type>
     class basic_string;
 
-    typedef basic_string<char> string;
-    typedef basic_string<wchar_t> wstring;
+    // std::string forward declaration
+    typedef basic_string<char,
+                        char_traits<char>,
+                        allocator<char>> string;
 
-    template <typename value_type>
-    class shared_ptr;
+    // std::wstring forward declaration
+    typedef basic_string<wchar_t,
+                         char_traits<wchar_t>,
+                         allocator<wchar_t>> wstring;
 
-    template <typename value_type>
-    class unique_ptr;
+    // std::nullptr_t forward declaration
+    typedef decltype(nullptr) nullptr_t;
 }
 
 // sine qua non
