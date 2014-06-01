@@ -38,21 +38,30 @@ namespace data
         /// Clone data into new object
         virtual object clone() const;
 
-        /// Check is value
+        /// Create object refers to the same data
+        virtual object reference() const;
+
+        /// Check is value equal to null
         virtual bool is_null() const;
 
     protected:
         /// Base object data class
         class data;
 
-        /// Lazy data behavior
-        lazy<data> m_data;
+        /// Reference to data of lazy behavior
+        mutable std::shared_ptr<lazy<data>> m_data;
 
         /// Initialization by new created data
         object(data* new_data);
 
         /// Initialization by prepared data
         object(lazy<data> const& prepared_data);
+
+        object(std::shared_ptr<lazy<data>> referenced_data);
+
+        virtual void ensure_initialized() const;
+
+        virtual void initialize() const;
     };
 
     DATA_API extern const object null;

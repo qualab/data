@@ -11,13 +11,13 @@ namespace data
     template<>
     void object::set_as(double value)
     {
-        m_data = lazy<object::data>(new floating::data(value));
+        m_data.reset(new lazy<object::data>(new floating::data(value)));
     }
 
     template<>
     void object::set_as(float value)
     {
-        m_data = lazy<object::data>(new floating::data(value));
+        m_data.reset(new lazy<object::data>(new floating::data(value)));
     }
 }
 

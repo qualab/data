@@ -9,8 +9,8 @@ namespace data
     class text;
     class object;
 
-    template <typename result_type, typename argument_type>
-    result_type cast(argument_type value);
+    template <typename result_type, typename value_type>
+    result_type cast(value_type value);
 
     template<> DATA_API int64_t cast(int64_t value);
     template<> DATA_API int64_t cast(int32_t value);
