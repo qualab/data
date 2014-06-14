@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "object_data.hpp"
+#include <data_head/object_data.hpp>
 #include <data/text>
 #include <stdexcept>
 

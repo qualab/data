@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "floating_data.hpp"
+#include <data_head/floating_data.hpp>
 
 namespace data
 {

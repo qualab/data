@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "integer_data.hpp"
+#include <data_head/integer_data.hpp>
 
 namespace data
 {

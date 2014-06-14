@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "trace_data.hpp"
+#include <data_head/trace_data.hpp>
 
 #ifdef WIN32
 #define DATA_THREAD_LOCAL __declspec(thread)

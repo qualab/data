@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "boolean_data.hpp"
+#include <data_head/boolean_data.hpp>
 
 namespace data
 {

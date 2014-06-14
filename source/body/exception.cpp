@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "exception_data.hpp"
+#include <data_head/exception_data.hpp>
 #include <data/text>
 #include <data/trace>
 

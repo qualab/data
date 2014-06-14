@@ -1,10 +1,10 @@
 ﻿/// @author Владимир Керимов
 
-#include "object_data.hpp"
-#include "boolean_data.hpp"
-#include "floating_data.hpp"
-#include "integer_data.hpp"
-#include "text_data.hpp"
+#include <data_head/object_data.hpp>
+#include <data_head/boolean_data.hpp>
+#include <data_head/floating_data.hpp>
+#include <data_head/integer_data.hpp>
+#include <data_head/text_data.hpp>
 #include <data/trace>
 #include <data/cast>
 

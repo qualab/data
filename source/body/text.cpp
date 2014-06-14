@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include "text_data.hpp"
+#include <data_head/text_data.hpp>
 
 namespace data
 {

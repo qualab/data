@@ -10,6 +10,56 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\api" />
+    <None Include="..\..\..\data\boolean" />
+    <None Include="..\..\..\data\cast" />
+    <None Include="..\..\..\data\exception" />
+    <None Include="..\..\..\data\floating" />
+    <None Include="..\..\..\data\integer" />
+    <None Include="..\..\..\data\lazy" />
+    <None Include="..\..\..\data\object" />
+    <None Include="..\..\..\data\stdfwd" />
+    <None Include="..\..\..\data\text" />
+    <None Include="..\..\..\data\trace" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\data\head\api.h" />
+    <ClInclude Include="..\..\..\data\head\boolean.hpp" />
+    <ClInclude Include="..\..\..\data\head\cast.hpp" />
+    <ClInclude Include="..\..\..\data\head\exception.hpp" />
+    <ClInclude Include="..\..\..\data\head\floating.hpp" />
+    <ClInclude Include="..\..\..\data\head\integer.hpp" />
+    <ClInclude Include="..\..\..\data\head\lazy.hpp" />
+    <ClInclude Include="..\..\..\data\head\object.hpp" />
+    <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
+    <ClInclude Include="..\..\..\data\head\text.hpp" />
+    <ClInclude Include="..\..\..\data\head\trace.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\boolean_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\floating_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\integer_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\boolean.cpp" />
+    <ClCompile Include="..\..\..\source\body\cast.cpp" />
+    <ClCompile Include="..\..\..\source\body\exception.cpp" />
+    <ClCompile Include="..\..\..\source\body\floating.cpp" />
+    <ClCompile Include="..\..\..\source\body\integer.cpp" />
+    <ClCompile Include="..\..\..\source\body\object.cpp" />
+    <ClCompile Include="..\..\..\source\body\text.cpp" />
+    <ClCompile Include="..\..\..\source\body\trace.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\boolean_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\floating_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\integer_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\trace_data.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -54,7 +104,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DATA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)/../../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../../../;$(ProjectDir)/../../../source/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -71,7 +121,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DATA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)/../../../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../../../;$(ProjectDir)/../../../source/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -81,43 +131,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\data\api.h" />
-    <ClInclude Include="..\..\..\data\boolean.hpp" />
-    <ClInclude Include="..\..\..\data\cast.hpp" />
-    <ClInclude Include="..\..\..\data\exception.hpp" />
-    <ClInclude Include="..\..\..\data\floating.hpp" />
-    <ClInclude Include="..\..\..\data\integer.hpp" />
-    <ClInclude Include="..\..\..\data\lazy.hpp" />
-    <ClInclude Include="..\..\..\data\object.hpp" />
-    <ClInclude Include="..\..\..\data\stdfwd.hpp" />
-    <ClInclude Include="..\..\..\data\text.hpp" />
-    <ClInclude Include="..\..\..\data\trace.hpp" />
-    <ClInclude Include="..\..\..\source\boolean_data.hpp" />
-    <ClInclude Include="..\..\..\source\exception_data.hpp" />
-    <ClInclude Include="..\..\..\source\floating_data.hpp" />
-    <ClInclude Include="..\..\..\source\integer_data.hpp" />
-    <ClInclude Include="..\..\..\source\object_data.hpp" />
-    <ClInclude Include="..\..\..\source\text_data.hpp" />
-    <ClInclude Include="..\..\..\source\trace_data.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\source\boolean.cpp" />
-    <ClCompile Include="..\..\..\source\boolean_data.cpp" />
-    <ClCompile Include="..\..\..\source\cast.cpp" />
-    <ClCompile Include="..\..\..\source\exception.cpp" />
-    <ClCompile Include="..\..\..\source\exception_data.cpp" />
-    <ClCompile Include="..\..\..\source\floating.cpp" />
-    <ClCompile Include="..\..\..\source\floating_data.cpp" />
-    <ClCompile Include="..\..\..\source\integer.cpp" />
-    <ClCompile Include="..\..\..\source\integer_data.cpp" />
-    <ClCompile Include="..\..\..\source\object.cpp" />
-    <ClCompile Include="..\..\..\source\object_data.cpp" />
-    <ClCompile Include="..\..\..\source\text.cpp" />
-    <ClCompile Include="..\..\..\source\text_data.cpp" />
-    <ClCompile Include="..\..\..\source\trace.cpp" />
-    <ClCompile Include="..\..\..\source\trace_data.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
