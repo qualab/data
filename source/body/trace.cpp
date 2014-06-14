@@ -31,17 +31,17 @@ namespace data
 
     trace::auto_pop trace::push(trace::entry new_entry)
     {
-        return get_data().push(new_entry);
+        DATA_TRACE_CALL(push)(new_entry);
     }
 
     trace::auto_pop trace::push(text file, int line, text function)
     {
-        return get_data().push(entry(file, line, function));
+        DATA_TRACE_CALL(push)(entry(file, line, function));
     }
 
     void trace::pop()
     {
-        get_data().pop();
+        DATA_TRACE_CALL(pop)();
     }
 
     trace& trace::thread_stack()

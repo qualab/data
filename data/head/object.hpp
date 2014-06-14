@@ -75,6 +75,12 @@ namespace data
     private:
         /// Reference to the data with lazy behavior
         mutable std::shared_ptr<lazy<data>> m_data;
+
+        /// Get data reference
+        lazy<data> const& get_data() const;
+
+        /// Get data reference
+        lazy<data>& get_data();
     };
 
     /// Representation of null constant

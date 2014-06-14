@@ -32,7 +32,7 @@ namespace data
 
     bool object::is_null() const
     {
-        DATA_TRACE_CALL(m_data, is_null)();
+        DATA_TRACE_CALL(is_null)();
     }
 
     object::object(object::data* new_data)
@@ -78,76 +78,86 @@ namespace data
         m_data.reset(new_lazy_data);
     }
 
+    lazy<object::data> const& object::get_data() const
+    {
+        return get_lazy_data();
+    }
+
+    lazy<object::data>& object::get_data()
+    {
+        return get_lazy_data();
+    }
+
     template<>
     int64_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)();
+        DATA_TRACE_CALL(get_as_int64)();
     }
 
     template<>
     uint64_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     int32_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     uint32_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     int16_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     uint16_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     int8_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     uint8_t object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_int64)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
     }
 
     template<>
     double object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_double)();
+        DATA_TRACE_CALL(get_as_double)();
     }
 
     template<>
     float object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_double)(); /// TODO: safe cast
+        DATA_TRACE_CALL(get_as_double)(); /// TODO: safe cast
     }
 
     template<>
     bool object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_bool)();
+        DATA_TRACE_CALL(get_as_bool)();
     }
 
     template<>
     text object::get_as() const
     {
-        DATA_TRACE_CALL(m_data, get_as_text)(); /// TODO: object get as text
+        DATA_TRACE_CALL(get_as_text)(); /// TODO: object get as text
     }
 }
 

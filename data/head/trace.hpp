@@ -70,8 +70,8 @@ namespace data
     template<> DATA_API trace::entry object::get_as() const;
 }
 
-#define DATA_TRACE_CALL(m_data, method) \
+#define DATA_TRACE_CALL(method) \
     auto pop_back = trace::thread_stack().push(__FILE__, __LINE__, __FUNCTION__); \
-    return (*(m_data))->method
+    return get_data()->method
 
 // sine qua non
