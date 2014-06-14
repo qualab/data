@@ -4,14 +4,37 @@
 
 #include <data/cast>
 #include <data/text>
+#include <type_traits>
 #include <limits>
 
 namespace data
 {
+    template <typename result_type, typename value_type>
+    inline result_type int_to_smaller(value_type value)
+    {
+        if (value > static_cast<value_type>(std::numeric_limits<result_type>::max) ||
+            value < static_cast<value_type>(std::numeric_limits<result_type>::min))
+        {
+            DATA_THROW_EXCEPTION();
+        }
+        return static_cast<result_type>(value);
+    }
+
+    template <typename result_type, typename value_type>
+    inline result_type int_to_greater(value_type value)
+    {
+        return static_cast<result_type>(value);
+    }
+
+    template <typename result_type, typename value_type>
+    inline result_type unsigned_to_signed(value_type value)
+    {
+
+    }
 
 //  int64_t ----------------------------------------------------------------------
 
-    template<>
+    template <>
     int64_t cast(int64_t value)
     {
         return value;
