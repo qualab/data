@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/trace.hpp>
+#include <data/head/trace.hpp>
 
 // sine qua non

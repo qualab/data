@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/text.hpp>
+#include <data/head/text.hpp>
 
 // sine qua non

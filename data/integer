@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/integer.hpp>
+#include <data/head/integer.hpp>
 
 // sine qua non
