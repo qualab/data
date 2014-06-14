@@ -21,12 +21,12 @@ namespace data
 
     trace::data& trace::get_data()
     {
-        return (*m_data)->get_data_as<trace::data>();
+        return get_lazy_data()->get_data_as<trace::data>();
     }
 
     trace::data const& trace::get_data() const
     {
-        return (*m_data)->get_data_as<trace::data>();
+        return get_lazy_data()->get_data_as<trace::data>();
     }
 
     trace::auto_pop trace::push(trace::entry new_entry)
@@ -79,12 +79,12 @@ namespace data
 
     trace::entry::data& trace::entry::get_data()
     {
-        return (*m_data)->get_data_as<trace::entry::data>();
+        return get_lazy_data()->get_data_as<trace::entry::data>();
     }
 
     trace::entry::data const& trace::entry::get_data() const
     {
-        return (*m_data)->get_data_as<trace::entry::data>();
+        return get_lazy_data()->get_data_as<trace::entry::data>();
     }
 
     text trace::entry::get_file() const

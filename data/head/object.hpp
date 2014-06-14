@@ -48,22 +48,36 @@ namespace data
         /// Base object data class
         class data;
 
-        /// Reference to data of lazy behavior
-        mutable std::shared_ptr<lazy<data>> m_data;
-
         /// Initialization by new created data
         object(data* new_data);
 
         /// Initialization by prepared data
         object(lazy<data> const& prepared_data);
 
+        /// Initialization by same data as in referenced object
         object(std::shared_ptr<lazy<data>> referenced_data);
 
+        /// Ensure that data reference is initialized
         virtual void ensure_initialized() const;
 
+        /// Initialize data reference
         virtual void initialize() const;
+
+        /// Get lazy data const-reference
+        virtual lazy<data> const& get_lazy_data() const;
+
+        /// Get lazy data reference
+        virtual lazy<data>& get_lazy_data();
+
+        /// Set lazy data reference by new lazy<data>
+        virtual void set_lazy_data(lazy<data>* new_lazy_data) const;
+
+    private:
+        /// Reference to the data with lazy behavior
+        mutable std::shared_ptr<lazy<data>> m_data;
     };
 
+    /// Representation of null constant
     DATA_API extern const object null;
 
 //  data::object

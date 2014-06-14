@@ -58,7 +58,24 @@ namespace data
 
     void object::initialize() const
     {
-        m_data.reset(new lazy<object::data>);
+        set_lazy_data(new lazy<object::data>);
+    }
+
+    lazy<object::data> const& object::get_lazy_data() const
+    {
+        ensure_initialized();
+        return *m_data;
+    }
+
+    lazy<object::data>& object::get_lazy_data()
+    {
+        ensure_initialized();
+        return *m_data;
+    }
+
+    void object::set_lazy_data(lazy<object::data>* new_lazy_data) const
+    {
+        m_data.reset(new_lazy_data);
     }
 
     template<>

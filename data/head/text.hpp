@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/stdfwd>
 
 namespace data
 {
@@ -15,6 +16,8 @@ namespace data
 
         text(char const* value);
         text(wchar_t const* value);
+        text(std::string const& value);
+        text(std::wstring const& value);
 
         /// Create object and initialize by specified value
         template <typename value_type>
