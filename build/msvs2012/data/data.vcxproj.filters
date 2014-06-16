@@ -7,75 +7,155 @@
     <Filter Include="source">
       <UniqueIdentifier>{4fca4116-313b-4105-945e-37704a10fb87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\head">
+      <UniqueIdentifier>{79a9264d-9bf1-48f8-b301-d2803c8ba0aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\body">
+      <UniqueIdentifier>{b00f5920-4b77-45ef-b859-e0d5d95580bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\data_body">
+      <UniqueIdentifier>{9c2b3803-816a-4954-bdf6-c99285563f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\data_head">
+      <UniqueIdentifier>{3213fb84-dde0-4eea-a3a3-37af0e674b5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\object.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\object_data.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\boolean.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\boolean_data.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\floating.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\floating_data.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\integer.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\integer_data.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\text.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\text_data.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
+    <None Include="..\..\..\data\api">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\boolean">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\cast">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\exception">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\floating">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\integer">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\lazy">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\object">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\stdfwd">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\text">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\trace">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\data\object.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\api.h">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\api.h">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\boolean.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\lazy.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\cast.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\object_data.hpp">
-      <Filter>source</Filter>
+    <ClInclude Include="..\..\..\data\head\exception.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\boolean.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\floating.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\floating.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\integer.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\integer.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\lazy.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\data\text.hpp">
-      <Filter>data</Filter>
+    <ClInclude Include="..\..\..\data\head\object.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\boolean_data.hpp">
-      <Filter>source</Filter>
+    <ClInclude Include="..\..\..\data\head\stdfwd.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\floating_data.hpp">
-      <Filter>source</Filter>
+    <ClInclude Include="..\..\..\data\head\text.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\integer_data.hpp">
-      <Filter>source</Filter>
+    <ClInclude Include="..\..\..\data\head\trace.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\text_data.hpp">
-      <Filter>source</Filter>
+    <ClInclude Include="..\..\..\source\data_head\boolean_data.hpp">
+      <Filter>source\data_head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\exception_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\floating_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\integer_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\object_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\text_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\trace_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\boolean.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\cast.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\exception.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\floating.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\integer.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\object.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\text.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\trace.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\boolean_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\exception_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\floating_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\integer_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\object_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\text_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\trace_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
