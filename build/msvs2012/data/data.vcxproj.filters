@@ -33,9 +33,6 @@
     <None Include="..\..\..\data\exception">
       <Filter>data</Filter>
     </None>
-    <None Include="..\..\..\data\floating">
-      <Filter>data</Filter>
-    </None>
     <None Include="..\..\..\data\integer">
       <Filter>data</Filter>
     </None>
@@ -54,6 +51,15 @@
     <None Include="..\..\..\data\trace">
       <Filter>data</Filter>
     </None>
+    <None Include="..\..\..\data\numeric">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\query">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\unit">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.h">
@@ -66,9 +72,6 @@
       <Filter>data\head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\floating.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\integer.hpp">
@@ -110,6 +113,18 @@
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\numeric.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\query.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\unit.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\numeric_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\body\boolean.cpp">
@@ -119,9 +134,6 @@
       <Filter>source\body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\body\exception.cpp">
-      <Filter>source\body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\body\floating.cpp">
       <Filter>source\body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\body\integer.cpp">
@@ -155,6 +167,12 @@
       <Filter>source\data_body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\numeric.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\numeric_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
   </ItemGroup>
