@@ -19,16 +19,6 @@ namespace data
     {
     }
 
-    trace::data& trace::get_data()
-    {
-        return get_lazy_data()->get_data_as<trace::data>();
-    }
-
-    trace::data const& trace::get_data() const
-    {
-        return get_lazy_data()->get_data_as<trace::data>();
-    }
-
     trace::auto_pop trace::push(trace::entry new_entry)
     {
         DATA_TRACE_CALL(push)(new_entry);
@@ -55,17 +45,17 @@ namespace data
 
     trace::entry trace::operator [] (int index) const
     {
-        return get_data().get_entry(index);
+        DATA_TRACE_CALL(get_entry)(index);
     }
 
     trace::entry trace::get_entry(int index) const
     {
-        return get_data().get_entry(index);
+        DATA_TRACE_CALL(get_entry)(index);
     }
 
     int trace::get_entry_count() const
     {
-        return get_data().get_entry_count();
+        DATA_TRACE_CALL(get_entry_count)();
     }
 
     trace::entry::entry()
@@ -77,29 +67,19 @@ namespace data
     {
     }
 
-    trace::entry::data& trace::entry::get_data()
-    {
-        return get_lazy_data()->get_data_as<trace::entry::data>();
-    }
-
-    trace::entry::data const& trace::entry::get_data() const
-    {
-        return get_lazy_data()->get_data_as<trace::entry::data>();
-    }
-
     text trace::entry::get_file() const
     {
-        return get_data().get_file();
+        DATA_TRACE_CALL(get_file)();
     }
 
     int trace::entry::get_line() const
     {
-        return get_data().get_line();
+        DATA_TRACE_CALL(get_line)();
     }
 
     text trace::entry::get_function() const
     {
-        return get_data().get_function();
+        DATA_TRACE_CALL(get_function)();
     }
 
     trace::auto_pop::auto_pop()

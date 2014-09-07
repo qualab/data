@@ -36,6 +36,7 @@
     <ClInclude Include="..\..\..\data\head\text.hpp" />
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
     <ClInclude Include="..\..\..\source\data_head\boolean_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\optional.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\floating_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\integer_data.hpp" />

@@ -14,6 +14,9 @@ namespace data
         /// Create null-object of not initialized integer
         floating();
 
+        floating(double value);
+        floating(std::nullptr_t);
+
         /// Create object and initialize by specified value
         template <typename value_type>
         floating(value_type value);
@@ -24,12 +27,15 @@ namespace data
 
         // Access to floating::data
         friend class object;
+
+    private:
+        data* m_data;
     };
 
     template <typename value_type>
     floating::floating(value_type value)
-        : object(cast<double>(value))
     {
+        set_as(cast<double>(value));
     }
 }
 

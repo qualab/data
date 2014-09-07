@@ -14,6 +14,7 @@ namespace data
     {
     public:
         exception();
+
         exception(text message);
         exception(text message, text file, int line, text function);
         
@@ -24,6 +25,13 @@ namespace data
 
     protected:
         class data;
+
+        exception(std::shared_ptr<data>&& prepared_data);
+
+        friend class object;
+
+    private:
+        data* m_data;
     };
 }
 

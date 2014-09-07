@@ -8,10 +8,19 @@ namespace data
     {
     }
 
+    boolean::boolean(bool value)
+        : m_data(new boolean::data(value)), object(m_data)
+    {
+    }
+
+    boolean::boolean(std::nullptr_t)
+    {
+    }
+
     template<>
     void object::set_as(bool value)
     {
-        m_data.reset(new lazy<object::data>(new boolean::data(value)));
+        m_data = std::make_shared<boolean::data>(value);
     }
 }
 

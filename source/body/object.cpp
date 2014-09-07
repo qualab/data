@@ -35,57 +35,14 @@ namespace data
         DATA_TRACE_CALL(is_null)();
     }
 
-    object::object(object::data* new_data)
-        : m_data(new lazy<object::data>(new_data))
+    object::data const* object::get_data() const
     {
+        return m_data.get();
     }
 
-    object::object(lazy<object::data> const& prepared_data)
-        : m_data(new lazy<object::data>(prepared_data))
+    object::data* object::get_data()
     {
-    }
-
-    object::object(std::shared_ptr<lazy<object::data>> referenced_data)
-        : m_data(referenced_data)
-    {
-    }
-
-    void object::ensure_initialized() const
-    {
-        if (!m_data)
-            initialize();
-    }
-
-    void object::initialize() const
-    {
-        set_lazy_data(new lazy<object::data>);
-    }
-
-    lazy<object::data> const& object::get_lazy_data() const
-    {
-        ensure_initialized();
-        return *m_data;
-    }
-
-    lazy<object::data>& object::get_lazy_data()
-    {
-        ensure_initialized();
-        return *m_data;
-    }
-
-    void object::set_lazy_data(lazy<object::data>* new_lazy_data) const
-    {
-        m_data.reset(new_lazy_data);
-    }
-
-    lazy<object::data> const& object::get_data() const
-    {
-        return get_lazy_data();
-    }
-
-    lazy<object::data>& object::get_data()
-    {
-        return get_lazy_data();
+        return m_data.get();
     }
 
     template<>

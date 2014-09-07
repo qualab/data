@@ -26,6 +26,11 @@ namespace data
     protected:
         /// Forward declaration of text::data
         class data;
+
+        friend class object;
+
+    private:
+        data* m_data;
     };
     
     template <typename value_type>

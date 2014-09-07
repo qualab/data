@@ -15,6 +15,12 @@ namespace data
         /// Create null-object of not initialized boolean
         boolean();
 
+        /// Create boolean object initialized as true or false
+        boolean(bool value);
+
+        /// Create boolean object initialized as null
+        boolean(std::nullptr_t);
+
         /// Create object and initialize by specified value
         template <typename value_type>
         boolean(value_type value);
@@ -23,14 +29,20 @@ namespace data
         /// Forward declaration of boolean::data
         class data;
 
+        /// Initialize boolean by prepared data
+        boolean(std::shared_ptr<data>&& prepared_data);
+
         /// Access to boolean::data class
         friend class object;
+
+    private:
+        data* m_data;
     };
     
     template <typename value_type>
     boolean::boolean(value_type value)
-        : object(cast<bool>(value))
     {
+        set_as(cast<bool>(value));
     }
 }
 

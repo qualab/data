@@ -25,13 +25,13 @@ namespace data
         entry get_entry(int index) const;
         int get_entry_count() const;
 
-    private:
+    protected:
         class data;
 
         void pop();
 
-        data& get_data();
-        data const& get_data() const;
+    private:
+        data* m_data;
     };
     
     class DATA_API trace::entry : public object
@@ -41,26 +41,29 @@ namespace data
         entry(text file, int line, text function);
         
         text get_file() const;
-        int get_line() const;
+        int  get_line() const;
         text get_function() const;
 
-    private:
+    protected:
         class data;
 
         friend class object;
 
-        data& get_data();
-        data const& get_data() const;
+    private:
+        data* m_data;
     };
 
     class DATA_API trace::auto_pop : public object
     {
-    private:
+    protected:
         class data;
 
         auto_pop();
 
         friend class trace;
+
+    private:
+        data* m_data;
     };
 
     template<> DATA_API void object::set_as(trace value);
@@ -72,6 +75,6 @@ namespace data
 
 #define DATA_TRACE_CALL(method) \
     auto pop_back = trace::thread_stack().push(__FILE__, __LINE__, __FUNCTION__); \
-    return get_data()->method
+    return m_data->method
 
 // sine qua non

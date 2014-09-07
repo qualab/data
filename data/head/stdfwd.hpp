@@ -17,8 +17,8 @@ namespace std
 
     // std::string forward declaration
     typedef basic_string<char,
-                        char_traits<char>,
-                        allocator<char>> string;
+                         char_traits<char>,
+                         allocator<char>> string;
 
     // std::wstring forward declaration
     typedef basic_string<wchar_t,

@@ -110,6 +110,9 @@
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\optional.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\data_body\boolean_data.cpp">
