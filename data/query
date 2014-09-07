@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/floating.hpp>
+#include <data/head/query.hpp>
 
 // sine qua non
