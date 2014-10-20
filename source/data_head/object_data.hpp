@@ -6,19 +6,21 @@
 
 namespace data
 {
+    // base class for data of object
     class object::data
     {
     public:
+        // create null object
         data();
+
+        // destruct data
         virtual ~data();
+
+        // check is data null
         virtual bool is_null() const;
 
-        virtual int64_t get_as_int64() const;
-        virtual double get_as_double() const;
-        virtual bool get_as_bool() const;
-        virtual text get_as_text() const;
-
-        virtual object::data clone() const;
+        // clone data of object
+        virtual std::shared_ptr<object::data> clone() const;
     };
 }
 

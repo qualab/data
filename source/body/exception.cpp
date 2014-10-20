@@ -9,7 +9,6 @@
 namespace data
 {
     exception::exception()
-        : m_data(new exception::data), object(static_cast<object::data*>(new exception::data))
     {
     }
 

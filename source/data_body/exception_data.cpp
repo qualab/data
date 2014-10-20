@@ -6,8 +6,19 @@
 
 namespace data
 {
-    exception::data::data()
+    exception::data::data(text const& message, trace const& traceback)
+        : m_trace(traceback), m_message(message)
     {
+    }
+
+    text exception::data::get_message() const
+    {
+        return m_message;
+    }
+
+    trace exception::data::get_trace() const
+    {
+        return m_trace;
     }
 }
 

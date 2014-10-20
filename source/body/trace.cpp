@@ -63,7 +63,7 @@ namespace data
     }
 
     trace::entry::entry(text file, int line, text function)
-        : object(static_cast<object::data*>(new trace::entry::data(file, line, function)))
+        : object(std::shared_ptr<object::data>((m_data = new trace::entry::data(file, line, function))))
     {
     }
 
@@ -83,7 +83,7 @@ namespace data
     }
 
     trace::auto_pop::auto_pop()
-        : object(static_cast<object::data*>(new trace::auto_pop::data))
+        : object(std::shared_ptr<object::data>(m_data = new trace::auto_pop::data))
     {
     }
 }

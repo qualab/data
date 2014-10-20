@@ -23,16 +23,6 @@ namespace data
     {
         return m_value;
     }
-
-    int64_t integer::data::get_as_int64() const
-    {
-        return get_value();
-    }
-
-    bool integer::data::get_as_bool() const
-    {
-        return cast<bool>(get_value());
-    }
 }
 
 // sine qua non

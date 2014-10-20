@@ -60,6 +60,12 @@ namespace data
         /// Retrieve object::data pointer
         data* get_data();
 
+        /// Set data by prepared data
+        void set_data(std::shared_ptr<data>&& prepared_data);
+
+        /// Set data by data reference
+        void set_data(std::shared_ptr<data> const& data_reference);
+
     private:
         /// Reference to the base object::data
         std::shared_ptr<data> m_data;
@@ -81,6 +87,18 @@ namespace data
     {
         set_as(value);
         return *this;
+    }
+
+    template <typename value_type>
+    void object::set_as(value_type value)
+    {
+        static_assert(false, "Unable to initialize object by this type.");
+    }
+
+    template <typename value_type>
+    value_type object::get_as() const
+    {
+        static_assert(false, "Unable to cast object to this type.");
     }
 
     // Fast declarations

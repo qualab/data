@@ -35,6 +35,16 @@ namespace data
         DATA_TRACE_CALL(is_null)();
     }
 
+    object::object(std::shared_ptr<object::data>&& prepared_data)
+        : m_data(std::move(prepared_data))
+    {
+    }
+
+    object::object(std::shared_ptr<object::data> const& data_reference)
+        : m_data(data_reference)
+    {
+    }
+
     object::data const* object::get_data() const
     {
         return m_data.get();
@@ -45,76 +55,14 @@ namespace data
         return m_data.get();
     }
 
-    template<>
-    int64_t object::get_as() const
+    void object::set_data(std::shared_ptr<object::data>&& prepared_data)
     {
-        DATA_TRACE_CALL(get_as_int64)();
+        m_data = std::move(prepared_data);
     }
 
-    template<>
-    uint64_t object::get_as() const
+    void object::set_data(std::shared_ptr<object::data> const& data_reference)
     {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    int32_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    uint32_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    int16_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    uint16_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    int8_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    uint8_t object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_int64)(); /// TODO: safe cast
-    }
-
-    template<>
-    double object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_double)();
-    }
-
-    template<>
-    float object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_double)(); /// TODO: safe cast
-    }
-
-    template<>
-    bool object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_bool)();
-    }
-
-    template<>
-    text object::get_as() const
-    {
-        DATA_TRACE_CALL(get_as_text)(); /// TODO: object get as text
+        m_data = data_reference;
     }
 }
 
