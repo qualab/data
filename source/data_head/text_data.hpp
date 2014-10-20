@@ -15,7 +15,6 @@ namespace data
     public:
         data();
         data(unicode_string const& value);
-        virtual bool is_null() const override;
 
     private:
         unicode_string m_value;

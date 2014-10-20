@@ -3,7 +3,6 @@
 #pragma once
 
 #include <data/api>
-#include <data/lazy>
 #include <data/stdfwd>
 #include <cstdint>
 
@@ -16,59 +15,92 @@ namespace data
         /// Create null-object
         object();
 
-        /// Base virtual destructor
-        virtual ~object();
+        /// Base scalar destructor
+        ~object();
 
-        /// Set object as specified value
-        template <typename value_type>
-        void set_as(value_type value);
+        /// Create with copy of data from another object
+        object(object const& another);
+
+        /// Copy data from another object
+        object& operator = (object const& another);
+
+        /// Create with data moved from r-value reference
+        object(object&& temporary);
+
+        /// Move data from r-value reference
+        object& operator = (object&& temporary);
 
         /// Get object as value of specified type
         template <typename value_type>
-        value_type get_as() const;
-
-        /// Initialize new data object by specified value
-        template <typename value_type>
-        object(value_type value);
-
-        /// Initialize existing data object by specified value
-        template <typename value_type>
-        object& operator = (value_type value);
+        value_type as() const;
 
         /// Clone data into new object
-        virtual object clone() const;
+        object clone() const;
 
-        /// Create new object refers to the same data
-        virtual object reference() const;
+        /// Check is object null
+        bool is_null() const;
 
-        /// Check is value equal to null
-        virtual bool is_null() const;
+        /// Create object of null value
+        explicit object(std::nullptr_t);
+
+        /// Create object of 8-bit signed integer 
+        explicit object(int8_t value);
+
+        /// Create object of 16-bit signed integer 
+        explicit object(int16_t value);
+
+        /// Create object of 32-bit signed integer 
+        explicit object(int32_t value);
+
+        /// Create object of 64-bit signed integer 
+        explicit object(int64_t value);
+
+        /// Create object of 8-bit unsigned integer 
+        explicit object(uint8_t value);
+
+        /// Create object of 8-bit unsigned integer 
+        explicit object(uint16_t value);
+
+        /// Create object of 8-bit unsigned integer 
+        explicit object(uint32_t value);
+
+        /// Create object of 8-bit unsigned integer 
+        explicit object(uint64_t value);
+
+        /// Create object of single precision floating point value
+        explicit object(float value);
+
+        /// Create object of double precision floating point value
+        explicit object(double value);
+
+        /// Create object of ansi-char string
+        explicit object(char const* value);
+
+        /// Create object of wide-char string
+        explicit object(wchar_t const* value);
 
     protected:
         /// Base object data class
         class data;
 
-        /// Initialize object by prepared data
-        object(std::shared_ptr<data>&& prepared_data);
+        /// Constant of max available size for data
+        static const size_t data_max_size = DATA_MAX_SIZE;
 
-        /// Initialize object by data reference
-        object(std::shared_ptr<data> const& data_reference);
+        /// Address of buffer
+        char* buffer();
 
-        /// Retrieve object::data constant pointer
-        data const* get_data() const;
-
-        /// Retrieve object::data pointer
-        data* get_data();
-
-        /// Set data by prepared data
-        void set_data(std::shared_ptr<data>&& prepared_data);
-
-        /// Set data by data reference
-        void set_data(std::shared_ptr<data> const& data_reference);
+        /// Create object by prepared data
+        object(data&& prepared);
 
     private:
         /// Reference to the base object::data
-        std::shared_ptr<data> m_data;
+        data* m_data;
+
+        /// Data buffer must be greater size than any possible data
+        char m_buffer[data_max_size];
+
+        /// Destruct data
+        void destruct();
     };
 
     /// Representation of null constant
@@ -76,73 +108,24 @@ namespace data
 
 //  data::object
 
-    template <typename value_type>
-    object::object(value_type value)
-    {
-        set_as(value);
-    }
-
-    template <typename value_type>
-    object& object::operator = (value_type value)
-    {
-        set_as(value);
-        return *this;
-    }
-
-    template <typename value_type>
-    void object::set_as(value_type value)
-    {
-        static_assert(false, "Unable to initialize object by this type.");
-    }
-
-    template <typename value_type>
-    value_type object::get_as() const
-    {
-        static_assert(false, "Unable to cast object to this type.");
-    }
-
-    // Fast declarations
-    class decimal;
-    class text;
-
-    // Setter-methods
-    template<> DATA_API void object::set_as(bool value);
-    template<> DATA_API void object::set_as(int8_t value);
-    template<> DATA_API void object::set_as(int16_t value);
-    template<> DATA_API void object::set_as(int32_t value);
-    template<> DATA_API void object::set_as(int64_t value);
-    template<> DATA_API void object::set_as(uint8_t value);
-    template<> DATA_API void object::set_as(uint16_t value);
-    template<> DATA_API void object::set_as(uint32_t value);
-    template<> DATA_API void object::set_as(uint64_t value);
-    template<> DATA_API void object::set_as(float value);
-    template<> DATA_API void object::set_as(double value);
-    template<> DATA_API void object::set_as(char const* value);
-    template<> DATA_API void object::set_as(wchar_t const* value);
-    template<> DATA_API void object::set_as(std::string const& value);
-    template<> DATA_API void object::set_as(std::wstring const& value);
-    template<> DATA_API void object::set_as(std::nullptr_t value);
-    template<> DATA_API void object::set_as(decimal const& value);
-    template<> DATA_API void object::set_as(text const& value);
-
     // Getter-methods
-    template<> DATA_API bool     object::get_as() const;
-    template<> DATA_API int8_t   object::get_as() const;
-    template<> DATA_API int16_t  object::get_as() const;
-    template<> DATA_API int32_t  object::get_as() const;
-    template<> DATA_API int64_t  object::get_as() const;
-    template<> DATA_API uint8_t  object::get_as() const;
-    template<> DATA_API uint16_t object::get_as() const;
-    template<> DATA_API uint32_t object::get_as() const;
-    template<> DATA_API uint64_t object::get_as() const;
-    template<> DATA_API float    object::get_as() const;
-    template<> DATA_API double   object::get_as() const;
-    template<> DATA_API char    const* object::get_as() const;
-    template<> DATA_API wchar_t const* object::get_as() const;
-    template<> DATA_API std::string    object::get_as() const;
-    template<> DATA_API std::wstring   object::get_as() const;
-    template<> DATA_API decimal  object::get_as() const;
-    template<> DATA_API text     object::get_as() const;
+    template<> DATA_API bool     object::as() const;
+    template<> DATA_API int8_t   object::as() const;
+    template<> DATA_API int16_t  object::as() const;
+    template<> DATA_API int32_t  object::as() const;
+    template<> DATA_API int64_t  object::as() const;
+    template<> DATA_API uint8_t  object::as() const;
+    template<> DATA_API uint16_t object::as() const;
+    template<> DATA_API uint32_t object::as() const;
+    template<> DATA_API uint64_t object::as() const;
+    template<> DATA_API float    object::as() const;
+    template<> DATA_API double   object::as() const;
+    template<> DATA_API decimal  object::as() const;
+    template<> DATA_API text     object::as() const;
+    template<> DATA_API char    const* object::as() const;
+    template<> DATA_API wchar_t const* object::as() const;
+    template<> DATA_API std::string    object::as() const;
+    template<> DATA_API std::wstring   object::as() const;
 }
 
 // sine qua non

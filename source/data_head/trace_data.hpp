@@ -21,8 +21,6 @@ namespace data
         entry get_entry(int index) const;
         int get_entry_count() const;
 
-        virtual bool is_null() const override;
-
     private:
         std::deque<trace::entry> m_entries;
     };
@@ -36,8 +34,6 @@ namespace data
         virtual text get_file() const;
         virtual int  get_line() const;
         virtual text get_function() const;
-
-        virtual bool is_null() const override;
 
     private:
         text m_file;

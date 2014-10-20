@@ -24,16 +24,7 @@
     <None Include="..\..\..\data\api">
       <Filter>data</Filter>
     </None>
-    <None Include="..\..\..\data\boolean">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\cast">
-      <Filter>data</Filter>
-    </None>
     <None Include="..\..\..\data\exception">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\integer">
       <Filter>data</Filter>
     </None>
     <None Include="..\..\..\data\lazy">
@@ -52,24 +43,12 @@
       <Filter>data</Filter>
     </None>
     <None Include="..\..\..\data\numeric" />
-    <None Include="..\..\..\data\floating">
-      <Filter>data</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.h">
       <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\head\boolean.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\cast.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\integer.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\object.hpp">
@@ -84,13 +63,7 @@
     <ClInclude Include="..\..\..\data\head\trace.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\data_head\boolean_data.hpp">
-      <Filter>source\data_head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp">
-      <Filter>source\data_head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\source\data_head\integer_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp">
@@ -102,31 +75,16 @@
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\data_head\optional.hpp">
-      <Filter>source\data_head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\head\numeric.hpp" />
-    <ClInclude Include="..\..\..\data\head\floating.hpp">
+    <ClInclude Include="..\..\..\data\head\lazy.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\data_head\floating_data.hpp">
-      <Filter>source\data_head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\lazy.hpp">
+    <ClInclude Include="..\..\..\data\head\decimal.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\data_body\boolean_data.cpp">
-      <Filter>source\data_body</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp">
-      <Filter>source\data_body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\data_body\floating_data.cpp">
-      <Filter>source\data_body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\data_body\integer_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp">
@@ -138,16 +96,7 @@
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\body\boolean.cpp">
-      <Filter>source\body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\body\cast.cpp">
-      <Filter>source\body</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\body\exception.cpp">
-      <Filter>source\body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\body\integer.cpp">
       <Filter>source\body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\body\object.cpp">

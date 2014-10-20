@@ -19,25 +19,15 @@ namespace data
         text(std::string const& value);
         text(std::wstring const& value);
 
-        /// Create object and initialize by specified value
-        template <typename value_type>
-        text(value_type value);
+        text(object const& another);
 
     protected:
         /// Forward declaration of text::data
         class data;
 
-        friend class object;
-
     private:
         data* m_data;
     };
-    
-    template <typename value_type>
-    text::text(value_type value)
-        : object(cast<text>(value))
-    {
-    }
 }
 
 // sine qua non

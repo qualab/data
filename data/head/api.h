@@ -10,4 +10,25 @@
 #   define DATA_API __declspec(dllimport)
 #endif
 
+#define DATA_VERSION_MAJOR  0u
+#define DATA_VERSION_MINOR  0u
+#define DATA_SUBVERS_MAJOR  0u
+#define DATA_SUBVERS_MINOR  0u
+
+#define DATA_VERSION  ( (static_cast<unsigned>(DATA_VERSION_MAJOR) << 24) | \
+                        (static_cast<unsigned>(DATA_VERSION_MINOR) << 16) | \
+                        (static_cast<unsigned>(DATA_VERSION_MAJOR) <<  8) | \
+                         static_cast<unsigned>(DATA_VERSION_MINOR) )
+
+#define DATA_MAX_SIZE 32
+
+namespace data
+{
+    class object;
+    class decimal;
+    class text;
+    class trace;
+    class exception;
+}
+
 // sine qua non

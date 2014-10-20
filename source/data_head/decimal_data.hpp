@@ -11,15 +11,13 @@ namespace data
     {
     public:
         data();
-        data(double value);
-        virtual bool is_null() const override;
-        double get_value() const;
-
-        virtual double get_as_double() const override;
-        virtual bool get_as_bool() const override;
+		data(double value);
+		
+		void set_value(double value);
+		double get_value() const;
 
     private:
-        double m_value;
+		double m_value;
     };
 }
 

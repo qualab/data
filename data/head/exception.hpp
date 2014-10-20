@@ -7,9 +7,6 @@
 
 namespace data
 {
-    class text;
-    class trace;
-
     /// Base class for exception throwns from data namespace
     class DATA_API exception : public object, public std::exception
     {

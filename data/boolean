@@ -1,7 +1,0 @@
-﻿/// @author Владимир Керимов
-
-#pragma once
-
-#include <data/head/boolean.hpp>
-
-// sine qua non
