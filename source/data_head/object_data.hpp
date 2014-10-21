@@ -25,6 +25,37 @@ namespace data
 
         // move data of object into the buffer specified
         virtual data* move_to(void* address) const = 0;
+
+        // 
+        virtual object get_element_copy() const;
+
+        virtual object& get_element_reference();
+
+        virtual object call_as_functor(object const another) const;
+
+        virtual object binary_plus(object const& another) const;
+
+        virtual object binary_minus(object const& another) const;
+
+        virtual object binary_multiplication(object const& another) const;
+
+        virtual object binary_division(object const& another) const;
+
+        virtual object unary_plus() const;
+
+        virtual object unary_minus() const;
+
+        virtual int64_t  as_signed_integer() const;
+
+        virtual uint64_t as_unsigned_integer() const;
+
+        virtual double as_double_precision() const;
+
+        virtual float as_single_precision() const;
+
+        virtual decimal as_decimal() const;
+
+        virtual text as_text() const;
     };
 
 

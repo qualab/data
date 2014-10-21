@@ -79,12 +79,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\..\..\data\api" />
-    <None Include="..\..\..\data\boolean" />
-    <None Include="..\..\..\data\cast" />
     <None Include="..\..\..\data\exception" />
-    <None Include="..\..\..\data\integer" />
     <None Include="..\..\..\data\lazy" />
-    <None Include="..\..\..\data\numeric" />
     <None Include="..\..\..\data\object" />
     <None Include="..\..\..\data\query" />
     <None Include="..\..\..\data\stdfwd" />
@@ -94,41 +90,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.h" />
-    <ClInclude Include="..\..\..\data\head\boolean.hpp" />
-    <ClInclude Include="..\..\..\data\head\cast.hpp" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
-    <ClInclude Include="..\..\..\data\head\integer.hpp" />
     <ClInclude Include="..\..\..\data\head\lazy.hpp" />
-    <ClInclude Include="..\..\..\data\head\numeric.hpp" />
     <ClInclude Include="..\..\..\data\head\object.hpp" />
     <ClInclude Include="..\..\..\data\head\query.hpp" />
     <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
     <ClInclude Include="..\..\..\data\head\text.hpp" />
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
     <ClInclude Include="..\..\..\data\head\unit.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\boolean_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\floating_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\integer_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\numeric_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\body\boolean.cpp" />
-    <ClCompile Include="..\..\..\source\body\cast.cpp" />
     <ClCompile Include="..\..\..\source\body\exception.cpp" />
-    <ClCompile Include="..\..\..\source\body\integer.cpp" />
-    <ClCompile Include="..\..\..\source\body\numeric.cpp" />
     <ClCompile Include="..\..\..\source\body\object.cpp" />
     <ClCompile Include="..\..\..\source\body\text.cpp" />
     <ClCompile Include="..\..\..\source\body\trace.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\boolean_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\floating_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\integer_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\numeric_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp" />

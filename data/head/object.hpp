@@ -43,6 +43,9 @@ namespace data
         /// Create object of null value
         explicit object(std::nullptr_t);
 
+        /// Create object of logical value
+        explicit object(bool value);
+
         /// Create object of 8-bit signed integer 
         explicit object(int8_t value);
 
@@ -58,13 +61,13 @@ namespace data
         /// Create object of 8-bit unsigned integer 
         explicit object(uint8_t value);
 
-        /// Create object of 8-bit unsigned integer 
+        /// Create object of 16-bit unsigned integer 
         explicit object(uint16_t value);
 
-        /// Create object of 8-bit unsigned integer 
+        /// Create object of 32-bit unsigned integer 
         explicit object(uint32_t value);
 
-        /// Create object of 8-bit unsigned integer 
+        /// Create object of 64-bit unsigned integer 
         explicit object(uint64_t value);
 
         /// Create object of single precision floating point value
@@ -73,11 +76,44 @@ namespace data
         /// Create object of double precision floating point value
         explicit object(double value);
 
-        /// Create object of ansi-char string
+        /// Create object of ANSI string
         explicit object(char const* value);
 
-        /// Create object of wide-char string
+        /// Create object of wide character string
         explicit object(wchar_t const* value);
+
+        /// Create object of standard container of ANSI string
+        explicit object(std::string const& value);
+
+        /// Create object of standard container of wide character string
+        explicit object(std::wstring const& value);
+
+        /// Indexing by constant object
+        object operator [] (object const& id) const;
+
+        /// Indexing by non-constant object
+        object& operator [] (object const& index);
+
+        /// Call functor as constant object with constant arguments
+        object operator () (object const& arguments) const;
+
+        /// Add another object to this
+        object operator + (object const& another) const;
+
+        /// Subtract another object from this
+        object operator - (object const& another) const;
+
+        /// Multiply this object to another
+        object operator * (object const& another) const;
+
+        /// Divide this object to another
+        object operator / (object const& another) const;
+
+        /// Unary plus
+        object operator + () const;
+
+        /// Unary minus
+        object operator - () const;
 
     protected:
         /// Base object data class
@@ -107,6 +143,12 @@ namespace data
     DATA_API extern const object null;
 
 //  data::object
+
+    template <typename value_type>
+    value_type object::as() const
+    {
+       static_assert(false, "Not supported type to get object as the type specified.");
+    }
 
     // Getter-methods
     template<> DATA_API bool     object::as() const;

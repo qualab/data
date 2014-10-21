@@ -1,8 +1,8 @@
 ﻿/// @author Владимир Керимов
 
 #include <data_head/object_data.hpp>
+#include <data/text>
 #include <data/trace>
-#include <data/cast>
 
 namespace data
 {
@@ -67,16 +67,50 @@ namespace data
     {
     }
 
-    object::object(bool value)
-        : m_data(new(m_buffer) scalar_data<bool>(value))
-    {
-        static_assert(sizeof(scalar_data<bool>) <= data_max_size, "Unable to inplace boolean object data into the buffer prepared. Not enough memory in buffer, data size is too big.");
+#define DATA_OBJECT_DECLARE_CONSTRUCTOR(value_type, value_type_name) \
+    object::object(value_type value) \
+        : m_data(new(m_buffer) scalar_data<value_type>(value)) \
+    { \
+        static_assert(sizeof(scalar_data<value_type>) <= data_max_size, \
+                      "Unable to inplace " ## value_type_name ## \
+                      " object data into the buffer prepared. " \
+                      "Not enough memory in buffer, data size is too big."); \
     }
 
-    object::object(int8_t value)
-        : m_data(new(m_buffer) scalar_data<int8_t>(value))
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(bool,     "boolean")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(int8_t,   "8-bit signed integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(int16_t,  "16-bit signed integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(int32_t,  "32-bit signed integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(int64_t,  "64-bit signed integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(uint8_t,  "8-bit unsigned integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(uint16_t, "16-bit unsigned integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(uint32_t, "32-bit unsigned integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(uint64_t, "64-bit unsigned integer")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(float,    "single precision floating-point")
+    DATA_OBJECT_DECLARE_CONSTRUCTOR(double,   "double precision floating-point")
+
+    object::object(char const* value)
+        : m_data(nullptr)
     {
-        static_assert(sizeof(scalar_data<bool>) <= data_max_size, "Unable to inplace object data of 8-bit signed integer into the buffer prepared. Not enough memory in buffer, data size is too big.");
+        *this = text(value);
+    }
+
+    object::object(wchar_t const* value)
+        : m_data(nullptr)
+    {
+        *this = text(value);
+    }
+
+    object::object(std::string const& value)
+        : m_data(nullptr)
+    {
+        *this = text(value);
+    }
+
+    object::object(std::wstring const& value)
+        : m_data(nullptr)
+    {
+        *this = text(value);
     }
 }
 
