@@ -1,6 +1,7 @@
 ﻿/// @author Владимир Керимов
 
 #include <data_head/object_data.hpp>
+#include <data/exception>
 #include <data/text>
 #include <data/trace>
 
@@ -57,11 +58,16 @@ namespace data
         return m_buffer;
     }
 
-    object::object(object::data&& prepared_data)
-        : m_data(prepared_data.move_to(m_buffer))
+    object::object(object::data* derived_data)
+        : m_data(derived_data)
     {
+        if (static_cast<void*>(derived_data) != static_cast<void*>(m_buffer))
+        {
+            m_data = nullptr; // m_data can't refer outside m_buffer
+            DATA_EXCEPTION_THROW(exception, "Data should be initialized inside buffer of owner object.");
+        }
     }
-
+;
     object::object(std::nullptr_t)
         : m_data(nullptr)
     {

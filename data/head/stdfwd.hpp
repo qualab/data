@@ -27,6 +27,17 @@ namespace std
 
     // std::nullptr_t forward declaration
     typedef decltype(nullptr) nullptr_t;
+
+    template <typename char_type,
+              typename traits_type>
+    class basic_ostream;
+
+    template <typename char_type,
+              typename traits_type>
+    class basic_istream;
+
+    typedef basic_ostream<char, char_traits<char>> ostream;
+    typedef basic_istream<char, char_traits<char>> istream;
 }
 
 // sine qua non

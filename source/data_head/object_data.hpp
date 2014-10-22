@@ -26,38 +26,51 @@ namespace data
         // move data of object into the buffer specified
         virtual data* move_to(void* address) const = 0;
 
-        // 
+        // return the value of element of collection represented by object
         virtual object get_element_copy() const;
 
+        // access by reference to the element of collection represented by object
         virtual object& get_element_reference();
 
+        // call functor object
         virtual object call_as_functor(object const another) const;
 
+        // binary plus operation
         virtual object binary_plus(object const& another) const;
 
+        // binary minus operation
         virtual object binary_minus(object const& another) const;
 
+        // operation of multiplication
         virtual object binary_multiplication(object const& another) const;
 
+        // operation of division
         virtual object binary_division(object const& another) const;
 
+        // unary plus operation
         virtual object unary_plus() const;
 
+        // unary minus operation
         virtual object unary_minus() const;
 
-        virtual int64_t  as_signed_integer() const;
+        // get object as 64-bit signed integer value
+        virtual int64_t as_signed_integer() const;
 
+        // get object as 64-bit unsigned integer value
         virtual uint64_t as_unsigned_integer() const;
 
+        // get object as double-precision floating-point value
         virtual double as_double_precision() const;
 
+        // get object as single-precision floating-point value
         virtual float as_single_precision() const;
 
+        // get object as decimal fixed-point value
         virtual decimal as_decimal() const;
 
+        // get object as text
         virtual text as_text() const;
     };
-
 
     template <typename value_type>
     class scalar_data : public object::data

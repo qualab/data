@@ -29,6 +29,11 @@ namespace data
     class text;
     class trace;
     class exception;
+    class date;
+    class time;
+    class datetime;
+    class query;
+    class unit;
 }
 
 // sine qua non

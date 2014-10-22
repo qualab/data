@@ -14,6 +14,9 @@ namespace data
 
     protected:
         class data;
+
+    private:
+        data* m_data;
     };
 }
 

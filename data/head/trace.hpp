@@ -66,11 +66,8 @@ namespace data
         data* m_data;
     };
 
-    template<> DATA_API void object::set_as(trace value);
-    template<> DATA_API void object::set_as(trace::entry value);
-
-    template<> DATA_API trace object::get_as() const;
-    template<> DATA_API trace::entry object::get_as() const;
+    template<> DATA_API trace object::as() const;
+    template<> DATA_API trace::entry object::as() const;
 }
 
 #define DATA_TRACE_CALL(method) \

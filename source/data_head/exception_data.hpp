@@ -12,6 +12,7 @@ namespace data
     class exception::data : public object::data
     {
     public:
+        data();
         data(text const& message, trace const& traceback);
 
         text get_message() const;

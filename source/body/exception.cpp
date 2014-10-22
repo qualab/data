@@ -9,6 +9,7 @@
 namespace data
 {
     exception::exception()
+        : object(m_data = new(buffer()) exception::data)
     {
     }
 
