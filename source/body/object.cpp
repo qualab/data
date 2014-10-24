@@ -22,6 +22,12 @@ namespace data
         destruct();
     }
 
+    void object::destruct()
+    {
+        if (m_data)
+            m_data->~data();
+    }
+
     object::object(object const& another)
         : m_data(another.m_data->copy_to(m_buffer))
     {
@@ -68,6 +74,16 @@ namespace data
     char* object::buffer()
     {
         return m_buffer;
+    }
+
+    object::data* object::data_ptr()
+    {
+        return m_data;
+    }
+
+    object::data const* object::data_ptr() const
+    {
+        return m_data;
     }
 
     object::object(object::data* derived_data)

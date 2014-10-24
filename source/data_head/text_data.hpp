@@ -16,6 +16,9 @@ namespace data
         data();
         data(unicode_string const& value);
 
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
+
     private:
         unicode_string m_value;
     };

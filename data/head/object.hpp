@@ -134,6 +134,13 @@ namespace data
         /// Scalar data storage
         template <typename value_type> class scalar_data;
 
+    public:
+        /// Pointer to the data
+        data* data_ptr();
+
+        /// Constant pointer to the data
+        data const* data_ptr() const;
+
     private:
         /// Reference to the base object::data
         data* m_data;
