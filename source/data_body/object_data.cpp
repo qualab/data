@@ -64,7 +64,7 @@ namespace data
         DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as boolean.");
     }   
 
-    int64_t  object::data::as_signed_integer() const
+    int64_t object::data::as_signed_integer() const
     {
         DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as signed integer.");
     }

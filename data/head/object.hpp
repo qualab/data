@@ -132,7 +132,8 @@ namespace data
         object(data&& prepared_data);
 
         /// Scalar data storage
-        template <typename value_type> class scalar_data;
+        template <typename value_type>
+        class scalar_data;
 
     public:
         /// Pointer to the data

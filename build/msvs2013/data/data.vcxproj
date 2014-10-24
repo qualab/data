@@ -32,6 +32,7 @@
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
   </ItemGroup>

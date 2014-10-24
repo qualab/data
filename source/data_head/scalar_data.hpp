@@ -3,6 +3,8 @@
 #pragma once
 
 #include <data_head/object_data.hpp>
+#include <data/decimal>
+#include <data/text>
 
 namespace data
 {
@@ -18,7 +20,33 @@ namespace data
 
         virtual data* move_to(void* address) const override;
 
-;    private:
+        virtual object binary_plus(object const& another) const override;
+
+        virtual object binary_minus(object const& another) const override;
+
+        virtual object binary_multiplication(object const& another) const override;
+
+        virtual object binary_division(object const& another) const override;
+
+        virtual object unary_plus() const override;
+
+        virtual object unary_minus() const override;
+
+        virtual bool as_boolean() const override;
+
+        virtual int64_t as_signed_integer() const override;
+
+        virtual uint64_t as_unsigned_integer() const override;
+
+        virtual double as_double_precision() const override;
+
+        virtual float as_single_precision() const override;
+
+        virtual decimal as_decimal() const override;
+
+        virtual text as_text() const override;
+
+     private:
         value_type m_value;
     };
 
@@ -44,6 +72,84 @@ namespace data
     object::data* object::scalar_data<value_type>::move_to(void* address) const
     {
         return new(address) scalar_data(std::move(*this));
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::binary_plus(object const& another) const
+    {
+        return object::data::binary_plus(another);
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::binary_minus(object const& another) const
+    {
+        return object::data::binary_minus(another);
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::binary_multiplication(object const& another) const
+    {
+        return object::data::binary_multiplication(another);
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::binary_division(object const& another) const
+    {
+        return object::data::binary_division(another);
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::unary_plus() const
+    {
+        return object::data::unary_plus();
+    }
+
+    template <typename value_type>
+    object object::scalar_data<value_type>::unary_minus() const
+    {
+        return object::data::unary_minus();
+    }
+
+    template <typename value_type>
+    bool object::scalar_data<value_type>::as_boolean() const
+    {
+        return object::data::as_boolean();
+    }
+
+    template <typename value_type>
+    int64_t object::scalar_data<value_type>::as_signed_integer() const
+    {
+        return object::data::as_signed_integer();
+    }
+
+    template <typename value_type>
+    uint64_t object::scalar_data<value_type>::as_unsigned_integer() const
+    {
+        return object::data::as_unsigned_integer();
+    }
+
+    template <typename value_type>
+    double object::scalar_data<value_type>::as_double_precision() const
+    {
+        return object::data::as_double_precision();
+    }
+
+    template <typename value_type>
+    float object::scalar_data<value_type>::as_single_precision() const
+    {
+        return object::data::as_single_precision();
+    }
+
+    template <typename value_type>
+    decimal object::scalar_data<value_type>::as_decimal() const
+    {
+        return object::data::as_decimal();
+    }
+
+    template <typename value_type>
+    text object::scalar_data<value_type>::as_text() const
+    {
+        return object::data::as_text();
     }
 }
 

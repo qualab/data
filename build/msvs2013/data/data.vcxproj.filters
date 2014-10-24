@@ -82,6 +82,9 @@
     <ClInclude Include="..\..\..\data\head\decimal.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp">
