@@ -71,34 +71,6 @@ namespace data
         // get object as text
         virtual text as_text() const;
     };
-
-    template <typename value_type>
-    class scalar_data : public object::data
-    {
-    public:
-        scalar_data(value_type value)
-            : m_value(value) {
-        }
-
-        value_type value() const {
-            return m_value;
-        }
-
-        virtual object clone() const override {
-            return object(scalar_data(*this));
-        }
-
-        virtual data* copy_to(void* address) const override {
-            return new(address) scalar_data(*this);
-        }
-
-        virtual data* move_to(void* address) const override {
-            return new(address) scalar_data(std::move(*this));
-        }
-
-    private:
-        value_type m_value;
-    };
 }
 
 // sine qua non
