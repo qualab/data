@@ -5,7 +5,6 @@
 #include <data/trace>
 #include <data_head/object_data.hpp>
 #include <data/text>
-#include <data/integer>
 #include <deque>
 
 namespace data
@@ -37,7 +36,7 @@ namespace data
 
     private:
         text m_file;
-        integer m_line;
+        int m_line;
         text m_function;
     };
 

@@ -29,11 +29,6 @@ namespace data
         return m_entries.size();
     }
 
-    bool trace::data::is_null() const
-    {
-        return false;
-    }
-
     trace::entry::data::data()
     {
     }
@@ -50,17 +45,12 @@ namespace data
 
     int trace::entry::data::get_line() const
     {
-        return m_line.get_as<int>();
+        return m_line;
     }
 
     text trace::entry::data::get_function() const
     {
         return m_function;
-    }
-
-    bool trace::entry::data::is_null() const
-    {
-        return false;
     }
 
     trace::auto_pop::data::data()

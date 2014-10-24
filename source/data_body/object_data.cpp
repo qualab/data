@@ -2,6 +2,7 @@
 
 #include <data_head/object_data.hpp>
 #include <data/exception>
+#include <data/decimal>
 
 namespace data
 {

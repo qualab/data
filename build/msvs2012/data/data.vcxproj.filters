@@ -21,35 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\api">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\exception">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\lazy">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\object">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\stdfwd">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\text">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\trace">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\query">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\unit">
-      <Filter>data</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.h">
       <Filter>data\head</Filter>
     </ClInclude>
@@ -91,6 +62,39 @@
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp">
       <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\decimal">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\api">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\exception">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\lazy">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\object">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\query">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\text">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\trace">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\unit">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\decimal.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

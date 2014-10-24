@@ -78,17 +78,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\api" />
-    <None Include="..\..\..\data\exception" />
-    <None Include="..\..\..\data\lazy" />
-    <None Include="..\..\..\data\object" />
-    <None Include="..\..\..\data\query" />
-    <None Include="..\..\..\data\stdfwd" />
-    <None Include="..\..\..\data\text" />
-    <None Include="..\..\..\data\trace" />
-    <None Include="..\..\..\data\unit" />
+    <ClInclude Include="..\..\..\data\api">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\exception">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\decimal.hpp" />
+    <ClInclude Include="..\..\..\data\lazy">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\object">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\query">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\text">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\trace">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\unit">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\data\decimal" />
     <ClInclude Include="..\..\..\data\head\api.h" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\lazy.hpp" />

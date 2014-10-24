@@ -2,10 +2,10 @@
 
 #pragma once
 
-#include <data/object>
+#include <data/text>
 #include <exception>
 
-#define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type(message, __FILE__, __LINE__, __FUNCTION__)
+#define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type(text(message), text(__FILE__), int(__LINE__), text(__FUNCTION__))
 
 namespace data
 {
