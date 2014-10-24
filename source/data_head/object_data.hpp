@@ -17,9 +17,6 @@ namespace data
         // destruct data
         virtual ~data();
 
-        // clone data of object into the new object
-        virtual object clone() const = 0;
-
         // copy data of object into the buffer specified
         virtual data* copy_to(void* address) const = 0;
 
@@ -52,6 +49,9 @@ namespace data
 
         // unary minus operation
         virtual object unary_minus() const;
+
+        // get object as 64-bit signed integer value
+        virtual bool as_boolean() const;
 
         // get object as 64-bit signed integer value
         virtual int64_t as_signed_integer() const;

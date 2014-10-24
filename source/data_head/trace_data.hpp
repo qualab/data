@@ -20,6 +20,9 @@ namespace data
         entry get_entry(int index) const;
         int get_entry_count() const;
 
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
+
     private:
         std::deque<trace::entry> m_entries;
     };
@@ -34,6 +37,9 @@ namespace data
         virtual int  get_line() const;
         virtual text get_function() const;
 
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
+
     private:
         text m_file;
         int m_line;
@@ -47,6 +53,9 @@ namespace data
         data(trace& target);
 
         virtual ~data();
+
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
 
     private:
         trace* m_target;

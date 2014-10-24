@@ -9,14 +9,14 @@ namespace data
     {
     }
 
-    text::text(char const* value)
+    text::text(char const* value, char const* encoding)
     {
-        // TODO: initialization by byte string
+        // TODO: initialization by byte-character string
     }
 
     text::text(wchar_t const* value)
     {
-        // TODO: initialization by wide string
+        // TODO: initialization by wide-character string
     }
 }
 

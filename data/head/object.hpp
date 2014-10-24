@@ -128,6 +128,12 @@ namespace data
         /// Create object by derived data
         object(data* derived_data);
 
+        /// Create object by prepared_data
+        object(data&& prepared_data);
+
+        /// Scalar data storage
+        template <typename value_type> class scalar_data;
+
     private:
         /// Reference to the base object::data
         data* m_data;
@@ -159,55 +165,55 @@ namespace data
     }
 
     /// Get object as value of boolean type
-    template<> DATA_API bool object::as() const;
+    template <> DATA_API bool object::as() const;
 
     /// Get object as 8-bit signed integer value
-    template<> DATA_API int8_t object::as() const;
+    template <> DATA_API int8_t object::as() const;
 
     /// Get object as 16-bit signed integer value
-    template<> DATA_API int16_t object::as() const;
+    template <> DATA_API int16_t object::as() const;
 
     /// Get object as 32-bit signed integer value
-    template<> DATA_API int32_t object::as() const;
+    template <> DATA_API int32_t object::as() const;
 
     /// Get object as 64-bit signed integer value
-    template<> DATA_API int64_t object::as() const;
+    template <> DATA_API int64_t object::as() const;
 
     /// Get object as 8-bit unsigned integer value
-    template<> DATA_API uint8_t object::as() const;
+    template <> DATA_API uint8_t object::as() const;
 
     /// Get object as 16-bit unsigned integer value
-    template<> DATA_API uint16_t object::as() const;
+    template <> DATA_API uint16_t object::as() const;
 
     /// Get object as 32-bit unsigned integer value
-    template<> DATA_API uint32_t object::as() const;
+    template <> DATA_API uint32_t object::as() const;
 
     /// Get object as 64-bit unsigned integer value
-    template<> DATA_API uint64_t object::as() const;
+    template <> DATA_API uint64_t object::as() const;
 
     /// Get object as single-precision floating-point value
-    template<> DATA_API float object::as() const;
+    template <> DATA_API float object::as() const;
 
     /// Get object as double-precision floating-point value
-    template<> DATA_API double object::as() const;
+    template <> DATA_API double object::as() const;
 
     /// Get object as decimal fixed-point value
-    template<> DATA_API decimal object::as() const;
+    template <> DATA_API decimal object::as() const;
 
     /// Get object as text
-    template<> DATA_API text object::as() const;
+    template <> DATA_API text object::as() const;
 
     /// Get object as pointer to byte character string
-    template<> DATA_API char const* object::as() const;
+    template <> DATA_API char const* object::as() const;
 
     /// Get object as pointer to wide character string
-    template<> DATA_API wchar_t const* object::as() const;
+    template <> DATA_API wchar_t const* object::as() const;
 
     /// Get object as standard byte character string
-    template<> DATA_API std::string object::as() const;
+    template <> DATA_API std::string object::as() const;
 
     /// Get object as stardard wide character string
-    template<> DATA_API std::wstring object::as() const;
+    template <> DATA_API std::wstring object::as() const;
 }
 
 // sine qua non

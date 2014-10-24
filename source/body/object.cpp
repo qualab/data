@@ -1,9 +1,12 @@
 ﻿/// @author Владимир Керимов
 
 #include <data_head/object_data.hpp>
+#include <data_head/scalar_data.hpp>
 #include <data/exception>
+#include <data/decimal>
 #include <data/text>
 #include <data/trace>
+#include <string>
 
 namespace data
 {
@@ -45,7 +48,16 @@ namespace data
 
     object object::clone() const
     {
-        return m_data ? m_data->clone() : null;
+        if (!m_data)
+        {
+            return null;
+        }
+        else
+        {
+            object result;
+            m_data->copy_to(result.m_buffer);
+            return result;
+        }
     }
 
     bool object::is_null() const
@@ -67,7 +79,7 @@ namespace data
             DATA_EXCEPTION_THROW(exception, "Data should be initialized inside buffer of owner object.");
         }
     }
-;
+
     object::object(std::nullptr_t)
         : m_data(nullptr)
     {
@@ -75,7 +87,7 @@ namespace data
 
 #define DATA_OBJECT_DECLARE_CONSTRUCTOR(value_type, value_type_name) \
     object::object(value_type value) \
-        : m_data(new(m_buffer) scalar_data<value_type>(value)) \
+        : m_data(new(m_buffer) object::scalar_data<value_type>(value)) \
     { \
         static_assert(sizeof(scalar_data<value_type>) <= data_max_size, \
                       "Unable to inplace " ## value_type_name ## \
@@ -118,6 +130,158 @@ namespace data
     {
         *this = text(value);
     }
+
+    template <>
+    bool object::as() const
+    {
+        return m_data ? m_data->as_boolean() : false;
+    }
+
+    template <>
+    int8_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit signed integer.");
+        int64_t value = m_data->as_signed_integer();
+        if (value & 0xFFFFFFFFFFFFFF00LL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 8-bit signed integer.");
+        return static_cast<int8_t>(value);
+    }
+
+    template <>
+    int16_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit signed integer.");
+        int64_t value = m_data->as_signed_integer();
+        if (value & 0xFFFFFFFFFFFF0000LL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 16-bit signed integer.");
+        return static_cast<int16_t>(value);
+    }
+
+    template <>
+    int32_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit signed integer.");
+        int64_t value = m_data->as_signed_integer();
+        if (value & 0xFFFFFFFF00000000LL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 32-bit signed integer.");
+        return static_cast<int32_t>(value);
+    }
+
+    template <>
+    int64_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit signed integer.");
+        return m_data->as_signed_integer();
+    }
+
+    template <>
+    uint8_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit unsigned integer.");
+        uint64_t value = m_data->as_unsigned_integer();
+        if (value & 0xFFFFFFFFFFFFFF00uLL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 8-bit unsigned integer.");
+        return static_cast<uint8_t>(value);
+    }
+
+    template <>
+    uint16_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit unsigned integer.");
+        uint64_t value = m_data->as_signed_integer();
+        if (value & 0xFFFFFFFFFFFF0000uLL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 16-bit unsigned integer.");
+        return static_cast<uint16_t>(value);
+    }
+
+    template <>
+    uint32_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit unsigned integer.");
+        uint64_t value = m_data->as_signed_integer();
+        if (value & 0xFFFFFFFF00000000uLL)
+            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 32-bit unsigned integer.");
+        return static_cast<uint16_t>(value);
+    }
+
+    template <>
+    uint64_t object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit unsigned integer.");
+        return m_data->as_signed_integer();
+    }
+
+    template <>
+    float object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as single-precision floating-point value.");
+        return m_data->as_single_precision();
+    }
+
+    template <>
+    double object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as double-precision floating-point value.");
+        return m_data->as_double_precision();
+    }
+
+    template <>
+    decimal object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as decimal fixed-point value.");
+        return m_data->as_decimal();
+    }
+
+    template <>
+    text object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as text.");
+        return m_data->as_decimal();
+    }
+
+    template <>
+    char const* object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string pointer.");
+        return m_data->as_text().byte_char();
+    }
+
+    template <>
+    wchar_t const* object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as wide-character string pointer.");
+        return m_data->as_text().wide_char();
+    }
+
+    template <>
+    std::string object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string container.");
+        return m_data->as_text().byte_string();
+    }
+
+    template <> DATA_API std::wstring object::as() const
+    {
+        if (!m_data)
+            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string container.");
+        return m_data->as_text().wide_string();
+    }
+    
 }
 
 // sine qua non

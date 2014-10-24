@@ -20,6 +20,16 @@ namespace data
     {
         return m_trace;
     }
+
+    object::data* exception::data::copy_to(void* address) const
+    {
+        return new(address) exception::data(*this);
+    }
+
+    object::data* exception::data::move_to(void* address) const
+    {
+        return new(address) exception::data(std::move(*this));
+    }
 }
 
 // sine qua non

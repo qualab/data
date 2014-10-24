@@ -18,6 +18,9 @@ namespace data
         text get_message() const;
         trace get_trace() const;
 
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
+
     private:
         trace m_trace;
         text m_message;

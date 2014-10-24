@@ -29,6 +29,16 @@ namespace data
         return m_entries.size();
     }
 
+    object::data* trace::data::copy_to(void* address) const
+    {
+        return new(address) trace::data(*this);
+    }
+
+    object::data* trace::data::move_to(void* address) const
+    {
+        return new(address) trace::data(std::move(*this));
+    }
+
     trace::entry::data::data()
     {
     }

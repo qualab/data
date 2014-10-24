@@ -7,14 +7,12 @@
 namespace data
 {
     template <typename value_type>
-    class scalar_data : public object::data
+    class object::scalar_data : public object::data
     {
     public:
         scalar_data(value_type value);
 
         value_type value() const;
-
-        virtual object clone() const override;
 
         virtual data* copy_to(void* address) const override;
 
@@ -25,31 +23,25 @@ namespace data
     };
 
     template <typename value_type>
-    scalar_data<value_type>::scalar_data(value_type value)
+    object::scalar_data<value_type>::scalar_data(value_type value)
         : m_value(value)
     {
     }
 
     template <typename value_type>
-    value_type scalar_data<value_type>::value() const
+    value_type object::scalar_data<value_type>::value() const
     {
         return m_value;
     }
 
     template <typename value_type>
-    object scalar_data<value_type>::clone() const
-    {
-        return object(scalar_data(*this));
-    }
-
-    template <typename value_type>
-    object::data* scalar_data<value_type>::copy_to(void* address) const
+    object::data* object::scalar_data<value_type>::copy_to(void* address) const
     {
         return new(address) scalar_data(*this);
     }
 
     template <typename value_type>
-    object::data* scalar_data<value_type>::move_to(void* address) const
+    object::data* object::scalar_data<value_type>::move_to(void* address) const
     {
         return new(address) scalar_data(std::move(*this));
     }
