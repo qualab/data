@@ -18,7 +18,7 @@ namespace data
 
         virtual data* move_to(void* address) const override;
 
-    private:
+;    private:
         value_type m_value;
     };
 

@@ -6,15 +6,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\source\test\test.cpp">
+    <ClCompile Include="..\..\..\source\test\test.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\source\test\test_object.cpp">
+    <ClCompile Include="..\..\..\source\test\test_object.cpp">
       <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\source\test\test.hpp">
+    <ClInclude Include="..\..\..\source\test\test.hpp">
       <Filter>test</Filter>
     </ClInclude>
   </ItemGroup>

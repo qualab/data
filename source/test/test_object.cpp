@@ -15,11 +15,11 @@ namespace data
                 data::object empty;
                 check::equal(empty.is_null(), true, __FILE__, __LINE__);
 
-                data::object obj = 123;
-                check::equal(obj.get_as<int>(), 123, __FILE__, __LINE__);
+                data::object obj = data::object(123);
+                check::equal(obj.as<int>(), 123, __FILE__, __LINE__);
 
-                data::object real = 3.14159;
-                check::almost(real.get_as<double>(), 3.14159, 1e-15, __FILE__, __LINE__);
+                data::object real = data::object(3.14159);
+                check::almost(real.as<double>(), 3.14159, 1e-15, __FILE__, __LINE__);
             }
         } g_test_object;
     }
