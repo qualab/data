@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data_head/object_data.hpp>
+#include <data/exception>
 #include <data/decimal>
 #include <data/text>
 
@@ -119,6 +120,23 @@ namespace data
     template <typename result_type, typename value_type>
     result_type cast_to_signed_integer(value_type value);
 
+    template <>
+    int64_t cast_to_signed_integer(bool value)
+    {
+        return value ? 1 : 0;
+    }
+
+    template <typename value_type>
+    typename std::enable_if<std::is_floating_point<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    {
+        if (value < static_cast<value_type>(std::numeric_limits<int64_t>::min()) ||
+            value > static_cast<value_type>(std::numeric_limits<int64_t>::max()))
+        {
+            DATA_EXCEPTION_THROW(exception, "TODO: exception");
+        }
+        return static_cast<int64_t>(value);
+    }
+
     template <typename value_type>
     typename std::enable_if<std::is_integral<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
     {
@@ -126,7 +144,7 @@ namespace data
     }
 
     template <typename value_type>
-    typename std::enable_if<!std::is_integral<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    typename std::enable_if<!std::is_integral<value_type>::value && !std::is_floating_point<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
     {
         throw 1; // TODO: implement any cast to int64_t
     }
