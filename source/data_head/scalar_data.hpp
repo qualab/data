@@ -111,10 +111,19 @@ namespace data
         return object::data::unary_minus();
     }
 
+    template <typename result_type, typename value_type>
+    bool cast_to_boolean(value_type value);
+
+    template <typename value_type>
+    typename std::enable_if<std::is_integral<value_type>::value, bool>::type cast_to_boolean(value_type value)
+    {
+        return value != 0;
+    }
+
     template <typename value_type>
     bool object::scalar_data<value_type>::as_boolean() const
     {
-        return object::data::as_boolean();
+        return cast_to_boolean(m_value);
     }
 
     template <typename result_type, typename value_type>
