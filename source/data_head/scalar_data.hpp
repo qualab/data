@@ -116,10 +116,25 @@ namespace data
         return object::data::as_boolean();
     }
 
+    template <typename result_type, typename value_type>
+    result_type cast_to_signed_integer(value_type value);
+
+    template <typename value_type>
+    typename std::enable_if<std::is_integral<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    {
+        return static_cast<int64_t>(value);
+    }
+
+    template <typename value_type>
+    typename std::enable_if<!std::is_integral<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    {
+        throw 1; // TODO: implement any cast to int64_t
+    }
+
     template <typename value_type>
     int64_t object::scalar_data<value_type>::as_signed_integer() const
     {
-        return object::data::as_signed_integer();
+        return cast_to_signed_integer(m_value);
     }
 
     template <typename value_type>
@@ -128,10 +143,25 @@ namespace data
         return object::data::as_unsigned_integer();
     }
 
+    template <typename result_type, typename value_type>
+    result_type cast_to_double_precision();
+
+    template <typename value_type>
+    typename std::enable_if<std::is_floating_point<value_type>::value, double>::type cast_to_double_precision(value_type value)
+    {
+        return static_cast<double>(value);
+    }
+
+    template <typename value_type>
+    typename std::enable_if<!std::is_floating_point<value_type>::value, double>::type cast_to_double_precision(value_type value)
+    {
+        throw 2; // TODO: implement any cast to double
+    }
+
     template <typename value_type>
     double object::scalar_data<value_type>::as_double_precision() const
     {
-        return object::data::as_double_precision();
+        return cast_to_double_precision(m_value);
     }
 
     template <typename value_type>

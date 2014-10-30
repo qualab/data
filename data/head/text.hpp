@@ -14,9 +14,11 @@ namespace data
         /// Create null-object of no text
         text();
 
-        text(char const* value, char const* encoding = nullptr);
+        text(char const* value, char const* encoding);
+        text(char const* value);
         text(wchar_t const* value);
         text(std::string const& value, std::string const& encoding);
+        text(std::string const& value, char const* encoding);
         text(std::string const& value);
         text(std::wstring const& value);
 

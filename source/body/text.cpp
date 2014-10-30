@@ -11,6 +11,11 @@ namespace data
     {
     }
 
+    text::text(char const* value)
+    {
+        // TODO: initialization by byte-character C string
+    }
+
     text::text(char const* value, char const* encoding)
     {
         // TODO: initialization by byte-character C string
@@ -22,6 +27,11 @@ namespace data
     }
 
     text::text(std::string const& value, std::string const& encoding)
+    {
+        // TODO: initialization by byte-character string container
+    }
+
+    text::text(std::string const& value, char const* encoding)
     {
         // TODO: initialization by byte-character string container
     }
