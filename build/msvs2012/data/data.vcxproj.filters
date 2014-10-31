@@ -96,6 +96,9 @@
     <ClInclude Include="..\..\..\data\head\decimal.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\cast.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\body\exception.cpp">
@@ -122,5 +125,13 @@
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\body\cast.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\cast">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
 </Project>

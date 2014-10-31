@@ -115,7 +115,7 @@ namespace data
     bool cast_to_boolean(value_type value);
 
     template <typename value_type>
-    typename std::enable_if<std::is_integral<value_type>::value, bool>::type cast_to_boolean(value_type value)
+    typename std::enable_if<std::is_integral<value_type>::value || std::is_floating_point<value_type>::value, bool>::type cast_to_boolean(value_type value)
     {
         return value != 0;
     }

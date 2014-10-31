@@ -88,6 +88,7 @@
     <ClInclude Include="..\..\..\data\exception">
       <FileType>Document</FileType>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\cast.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
     <ClInclude Include="..\..\..\data\lazy">
       <FileType>Document</FileType>
@@ -129,6 +130,7 @@
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\cast.cpp" />
     <ClCompile Include="..\..\..\source\body\exception.cpp" />
     <ClCompile Include="..\..\..\source\body\object.cpp" />
     <ClCompile Include="..\..\..\source\body\text.cpp" />
@@ -137,6 +139,9 @@
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\cast" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
