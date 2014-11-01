@@ -44,9 +44,17 @@ namespace data
         {
             std::cout << "Test scope started." << std::endl;
             std::for_each(get_instance().m_tests.begin(), get_instance().m_tests.end(),
-                [](test* single_test) {
-                single_test->run();
-            }
+                [](test* single_test)
+                {
+                    try
+                    {
+                        single_test->run();
+                    }
+                    catch (std::exception& e)
+                    {
+                        std::cout << "Exception: " << e.what() << std::endl;
+                    }
+                }
             );
             std::cout << "Test scope finished." << std::endl;
         }
