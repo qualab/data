@@ -150,7 +150,7 @@ namespace data
     template <>
     bool object::as() const
     {
-        return m_data ? m_data->as_boolean() : false;
+        return m_data ? m_data->as_bool() : false;
     }
 
     template <>
@@ -158,10 +158,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit signed integer.");
-        int64_t value = m_data->as_signed_integer();
-        if (value & 0xFFFFFFFFFFFFFF00LL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 8-bit signed integer.");
-        return static_cast<int8_t>(value);
+        return m_data->as_int8();
     }
 
     template <>
@@ -169,10 +166,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit signed integer.");
-        int64_t value = m_data->as_signed_integer();
-        if (value & 0xFFFFFFFFFFFF0000LL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 16-bit signed integer.");
-        return static_cast<int16_t>(value);
+        return m_data->as_int16();
     }
 
     template <>
@@ -180,10 +174,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit signed integer.");
-        int64_t value = m_data->as_signed_integer();
-        if (value & 0xFFFFFFFF00000000LL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 32-bit signed integer.");
-        return static_cast<int32_t>(value);
+        return m_data->as_int32();
     }
 
     template <>
@@ -191,7 +182,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit signed integer.");
-        return m_data->as_signed_integer();
+        return m_data->as_int64();
     }
 
     template <>
@@ -199,10 +190,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit unsigned integer.");
-        uint64_t value = m_data->as_unsigned_integer();
-        if (value & 0xFFFFFFFFFFFFFF00uLL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 8-bit unsigned integer.");
-        return static_cast<uint8_t>(value);
+        return m_data->as_uint8();
     }
 
     template <>
@@ -210,10 +198,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit unsigned integer.");
-        uint64_t value = m_data->as_signed_integer();
-        if (value & 0xFFFFFFFFFFFF0000uLL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 16-bit unsigned integer.");
-        return static_cast<uint16_t>(value);
+        return m_data->as_uint16();
     }
 
     template <>
@@ -221,10 +206,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit unsigned integer.");
-        uint64_t value = m_data->as_signed_integer();
-        if (value & 0xFFFFFFFF00000000uLL)
-            DATA_EXCEPTION_THROW(exception, "Object value is out of range of 32-bit unsigned integer.");
-        return static_cast<uint16_t>(value);
+        return m_data->as_uint32();
     }
 
     template <>
@@ -232,7 +214,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit unsigned integer.");
-        return m_data->as_signed_integer();
+        return m_data->as_uint64();
     }
 
     template <>
@@ -240,7 +222,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as single-precision floating-point value.");
-        return m_data->as_single_precision();
+        return m_data->as_float();
     }
 
     template <>
@@ -248,7 +230,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as double-precision floating-point value.");
-        return m_data->as_double_precision();
+        return m_data->as_double();
     }
 
     template <>
@@ -264,7 +246,7 @@ namespace data
     {
         if (!m_data)
             DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as text.");
-        return m_data->as_decimal();
+        return m_data->as_text();
     }
 
     template <>

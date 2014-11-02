@@ -59,27 +59,57 @@ namespace data
         DATA_EXCEPTION_THROW(exception, "Object is not supporting interface of unary minus.");
     }
 
-    bool object::data::as_boolean() const
+    bool object::data::as_bool() const
     {
         DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as boolean.");
     }   
 
-    int64_t object::data::as_signed_integer() const
+    int64_t object::data::as_int64() const
     {
-        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as signed integer.");
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 64-bit signed integer.");
     }
 
-    uint64_t object::data::as_unsigned_integer() const
+    int32_t object::data::as_int32() const
     {
-        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as unsigned integer.");
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 32-bit signed integer.");
     }
 
-    double object::data::as_double_precision() const
+    int16_t object::data::as_int16() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 16-bit signed integer.");
+    }
+
+    int8_t object::data::as_int8() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 8-bit signed integer.");
+    }
+
+    uint64_t object::data::as_uint64() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 64-bit unsigned integer.");
+    }
+
+    uint32_t object::data::as_uint32() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 32-bit unsigned integer.");
+    }
+
+    uint16_t object::data::as_uint16() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 16-bit unsigned integer.");
+    }
+
+    uint8_t object::data::as_uint8() const
+    {
+        DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as 8-bit unsigned integer.");
+    }
+
+    double object::data::as_double() const
     {
         DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as double-precision floating-point value.");
     }
 
-    float object::data::as_single_precision() const
+    float object::data::as_float() const
     {
         DATA_EXCEPTION_THROW(exception, "Object is not supporting retrievement as single-precision floating-point value.");
     }

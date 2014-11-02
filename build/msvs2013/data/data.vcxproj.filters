@@ -43,6 +43,9 @@
       <Filter>data</Filter>
     </None>
     <None Include="..\..\..\data\numeric" />
+    <None Include="..\..\..\data\cast">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.h">
@@ -84,6 +87,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp">
       <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\cast.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

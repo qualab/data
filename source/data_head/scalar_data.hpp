@@ -6,6 +6,7 @@
 #include <data/exception>
 #include <data/decimal>
 #include <data/text>
+#include <data/cast>
 
 namespace data
 {
@@ -33,15 +34,27 @@ namespace data
 
         virtual object unary_minus() const override;
 
-        virtual bool as_boolean() const override;
+        virtual bool as_bool() const override;
 
-        virtual int64_t as_signed_integer() const override;
+        virtual int64_t as_int64() const override;
 
-        virtual uint64_t as_unsigned_integer() const override;
+        virtual int32_t as_int32() const override;
 
-        virtual double as_double_precision() const override;
+        virtual int16_t as_int16() const override;
 
-        virtual float as_single_precision() const override;
+        virtual int8_t as_int8() const override;
+
+        virtual uint64_t as_uint64() const override;
+
+        virtual uint32_t as_uint32() const override;
+
+        virtual uint16_t as_uint16() const override;
+
+        virtual uint8_t as_uint8() const override;
+
+        virtual double as_double() const override;
+
+        virtual float as_float() const override;
 
         virtual decimal as_decimal() const override;
 
@@ -111,102 +124,82 @@ namespace data
         return object::data::unary_minus();
     }
 
-    template <typename result_type, typename value_type>
-    bool cast_to_boolean(value_type value);
-
     template <typename value_type>
-    typename std::enable_if<std::is_integral<value_type>::value || std::is_floating_point<value_type>::value, bool>::type cast_to_boolean(value_type value)
+    bool object::scalar_data<value_type>::as_bool() const
     {
-        return value != 0;
+        return cast<bool>(m_value);
     }
 
     template <typename value_type>
-    bool object::scalar_data<value_type>::as_boolean() const
+    int64_t object::scalar_data<value_type>::as_int64() const
     {
-        return cast_to_boolean(m_value);
-    }
-
-    template <typename result_type, typename value_type>
-    result_type cast_to_signed_integer(value_type value);
-
-    template <>
-    int64_t cast_to_signed_integer(bool value)
-    {
-        return value ? 1 : 0;
+        return cast<int64_t>(m_value);
     }
 
     template <typename value_type>
-    typename std::enable_if<std::is_floating_point<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    int32_t object::scalar_data<value_type>::as_int32() const
     {
-        if (value < static_cast<value_type>(std::numeric_limits<int64_t>::min()) ||
-            value > static_cast<value_type>(std::numeric_limits<int64_t>::max()))
-        {
-            DATA_EXCEPTION_THROW(exception, "TODO: exception");
-        }
-        return static_cast<int64_t>(value);
+        return cast<int32_t>(m_value);
     }
 
     template <typename value_type>
-    typename std::enable_if<std::is_integral<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    int16_t object::scalar_data<value_type>::as_int16() const
     {
-        return static_cast<int64_t>(value);
+        return cast<int16_t>(m_value);
     }
 
     template <typename value_type>
-    typename std::enable_if<!std::is_integral<value_type>::value && !std::is_floating_point<value_type>::value, int64_t>::type cast_to_signed_integer(value_type value)
+    int8_t object::scalar_data<value_type>::as_int8() const
     {
-        throw 1; // TODO: implement any cast to int64_t
+        return cast<int8_t>(m_value);
     }
 
     template <typename value_type>
-    int64_t object::scalar_data<value_type>::as_signed_integer() const
+    uint64_t object::scalar_data<value_type>::as_uint64() const
     {
-        return cast_to_signed_integer(m_value);
+        return cast<uint64_t>(m_value);
     }
 
     template <typename value_type>
-    uint64_t object::scalar_data<value_type>::as_unsigned_integer() const
+    uint32_t object::scalar_data<value_type>::as_uint32() const
     {
-        return object::data::as_unsigned_integer();
-    }
-
-    template <typename result_type, typename value_type>
-    result_type cast_to_double_precision();
-
-    template <typename value_type>
-    typename std::enable_if<std::is_floating_point<value_type>::value, double>::type cast_to_double_precision(value_type value)
-    {
-        return static_cast<double>(value);
+        return cast<uint32_t>(m_value);
     }
 
     template <typename value_type>
-    typename std::enable_if<!std::is_floating_point<value_type>::value, double>::type cast_to_double_precision(value_type value)
+    uint16_t object::scalar_data<value_type>::as_uint16() const
     {
-        throw 2; // TODO: implement any cast to double
+        return cast<uint16_t>(m_value);
     }
 
     template <typename value_type>
-    double object::scalar_data<value_type>::as_double_precision() const
+    uint8_t object::scalar_data<value_type>::as_uint8() const
     {
-        return cast_to_double_precision(m_value);
+        return cast<uint8_t>(m_value);
     }
 
     template <typename value_type>
-    float object::scalar_data<value_type>::as_single_precision() const
+    double object::scalar_data<value_type>::as_double() const
     {
-        return object::data::as_single_precision();
+        return cast<double>(m_value);
+    }
+
+    template <typename value_type>
+    float object::scalar_data<value_type>::as_float() const
+    {
+        return cast<float>(m_value);
     }
 
     template <typename value_type>
     decimal object::scalar_data<value_type>::as_decimal() const
     {
-        return object::data::as_decimal();
+        return cast<decimal>(m_value);
     }
 
     template <typename value_type>
     text object::scalar_data<value_type>::as_text() const
     {
-        return object::data::as_text();
+        return cast<text>(m_value);
     }
 }
 

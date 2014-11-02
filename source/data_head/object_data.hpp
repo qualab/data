@@ -51,19 +51,37 @@ namespace data
         virtual object unary_minus() const;
 
         // get object as 64-bit signed integer value
-        virtual bool as_boolean() const;
+        virtual bool as_bool() const;
 
         // get object as 64-bit signed integer value
-        virtual int64_t as_signed_integer() const;
+        virtual int64_t as_int64() const;
+
+        // get object as 32-bit signed integer value
+        virtual int32_t as_int32() const;
+
+        // get object as 16-bit signed integer value
+        virtual int16_t as_int16() const;
+
+        // get object as 8-bit signed integer value
+        virtual int8_t as_int8() const;
 
         // get object as 64-bit unsigned integer value
-        virtual uint64_t as_unsigned_integer() const;
+        virtual uint64_t as_uint64() const;
+
+        // get object as 32-bit unsigned integer value
+        virtual uint32_t as_uint32() const;
+
+        // get object as 16-bit unsigned integer value
+        virtual uint16_t as_uint16() const;
+
+        // get object as 8-bit unsigned integer value
+        virtual uint8_t as_uint8() const;
 
         // get object as double-precision floating-point value
-        virtual double as_double_precision() const;
+        virtual double as_double() const;
 
         // get object as single-precision floating-point value
-        virtual float as_single_precision() const;
+        virtual float as_float() const;
 
         // get object as decimal fixed-point value
         virtual decimal as_decimal() const;
