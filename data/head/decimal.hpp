@@ -10,6 +10,9 @@ namespace data
     class DATA_API decimal : public object
     {
     public:
+        /// Create decimal with value of zero
+        decimal();
+
         /// Create decimal by textual representation
         explicit decimal(text const& value);
 
@@ -18,6 +21,12 @@ namespace data
 
         /// Create decimal by double precision floating-point value
         explicit decimal(double value);
+
+        /// Create decimal by 64-bit signed integer
+        explicit decimal(int64_t value);
+
+        /// Create decimal by 32-bit signed integer
+        explicit decimal(int32_t value);
 
         /// Create decimal by integral and fractional components
         decimal(int64_t integral, uint64_t fractional);

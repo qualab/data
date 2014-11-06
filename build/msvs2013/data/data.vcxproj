@@ -22,7 +22,7 @@
     <None Include="..\..\..\data\trace" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\data\head\api.h" />
+    <ClInclude Include="..\..\..\data\head\api.hpp" />
     <ClInclude Include="..\..\..\data\head\cast.hpp" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
