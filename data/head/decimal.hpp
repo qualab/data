@@ -28,6 +28,24 @@ namespace data
         /// Create decimal by 32-bit signed integer
         explicit decimal(int32_t value);
 
+        /// Create decimal by 16-bit signed integer
+        explicit decimal(int16_t value);
+
+        /// Create decimal by 8-bit signed integer
+        explicit decimal(int8_t value);
+
+        /// Create decimal by 64-bit unsigned integer
+        explicit decimal(uint64_t value);
+
+        /// Create decimal by 32-bit unsigned integer
+        explicit decimal(uint32_t value);
+
+        /// Create decimal by 16-bit unsigned integer
+        explicit decimal(uint16_t value);
+
+        /// Create decimal by 8-bit unsigned integer
+        explicit decimal(uint8_t value);
+
         /// Create decimal by integral and fractional components
         decimal(int64_t integral, uint64_t fractional);
 

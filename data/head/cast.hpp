@@ -10,24 +10,24 @@
 
 namespace data
 {
-    class text;
-    class object;
-
+    /// Special structure to implement common functionality for type cast of scalar data
     template <typename result_type, typename value_type, typename meta_type = void>
-    struct scalar_cast
+    struct type_cast
     {
-        static bool try_cast(result_type& result, value_type const& value)
+        static bool try_cast(result_type& result, value_type const& value) throw()
         {
             static_assert(false, "Type cast is not enabled between two types specified.");
         }
     };
 
+    /// Try to cast value of value_type to the result_type and returns true if success and false otherwise
     template <typename result_type, typename value_type>
-    bool try_cast(result_type& result, value_type const& value)
+    bool try_cast(result_type& result, value_type const& value) throw()
     {
-        return scalar_cast<result_type, value_type>::try_cast(result, value);
+        return type_cast<result_type, value_type>::try_cast(result, value);
     }
 
+    /// Cast value of value_type to the result_type and throw exception if failure
     template <typename result_type, typename value_type>
     result_type cast(value_type const& value)
     {
@@ -37,10 +37,11 @@ namespace data
         return result;
     }
 
-    // Specializations of template of scalar_cast
+    // Specializations of template of type_cast
 
+    // Trevial cast to the same type
     template <typename same_type>
-    struct scalar_cast<same_type, same_type>
+    struct type_cast<same_type, same_type>
     {
         static bool try_cast(same_type& result, same_type const& value)
         {
@@ -49,8 +50,9 @@ namespace data
         }
     };
 
+    // Cast arithmetic value to boolean type
     template <typename value_type>
-    struct scalar_cast<bool, value_type,
+    struct type_cast<bool, value_type,
                        typename std::enable_if<!std::is_same<bool, value_type>::value &&
                                                 std::is_arithmetic<value_type>::value>::type>
     {
@@ -61,8 +63,9 @@ namespace data
         }
     };
 
+    // Cast boolean value to arithmetic type
     template <typename result_type>
-    struct scalar_cast<result_type, bool,
+    struct type_cast<result_type, bool,
                        typename std::enable_if<!std::is_same<result_type, bool>::value &&
                                                (std::is_arithmetic<result_type>::value ||
                                                 std::is_same<result_type, decimal>::value)>::type>
@@ -74,8 +77,9 @@ namespace data
         }
     };
 
+    // Cast integral value to integral of greater size with same signed attribute
     template <typename result_type, typename value_type>
-    struct scalar_cast<result_type, value_type,
+    struct type_cast<result_type, value_type,
                        typename std::enable_if<!std::is_same<result_type, value_type>::value &&
                                                 std::is_integral<result_type>::value &&
                                                 std::is_integral<value_type>::value &&
@@ -91,29 +95,139 @@ namespace data
         }
     };
 
+    // Cast unsigned integer to the unsigned integral type of less size
     template <typename result_type, typename value_type>
-    struct scalar_cast<result_type, value_type,
+    struct type_cast<result_type, value_type,
                        typename std::enable_if<!std::is_same<result_type, value_type>::value &&
                                                 std::is_integral<result_type>::value &&
                                                 std::is_integral<value_type>::value &&
-                                               (std::is_signed<result_type>::value == std::is_signed<value_type>::value) &&
+                                                std::is_unsigned<result_type>::value &&
+                                                std::is_unsigned<value_type>::value &&
                                                (sizeof(result_type) < sizeof(value_type)) &&
                                                !std::is_same<result_type, bool>::value &&
                                                !std::is_same<value_type, bool>::value>::type>
     {
         static bool try_cast(result_type& result, value_type const& value)
         {
-            result = value;
+            if ((value & std::numeric_limits<result_type>::max()) != value)
+                return false;
+            result = result_type(value);
             return true;
         }
     };
 
-    template <>
-    struct scalar_cast<text, bool>
+    // Cast signed integer to the signed integral type of less size
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                       typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                                std::is_integral<result_type>::value &&
+                                                std::is_integral<value_type>::value &&
+                                                std::is_signed<result_type>::value &&
+                                                std::is_signed<value_type>::value &&
+                                               (sizeof(result_type) < sizeof(value_type)) &&
+                                               !std::is_same<result_type, bool>::value &&
+                                               !std::is_same<value_type, bool>::value>::type>
     {
-        static bool try_cast(text& result, bool const& value)
+        static bool try_cast(result_type& result, value_type const& value)
         {
-            result = value ? text("true") : text("false");
+            if ((value & (std::numeric_limits<result_type>::max() | std::numeric_limits<value_type>::min())) != value)
+            {
+                return false;
+            }
+            result = result_type(value);
+            return true;
+        }
+    };
+
+    // Cast signed integer to the unsigned integral type
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                       typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                                std::is_integral<result_type>::value &&
+                                                std::is_integral<value_type>::value &&
+                                                std::is_unsigned<result_type>::value &&
+                                                std::is_signed<value_type>::value &&
+                                               !std::is_same<result_type, bool>::value &&
+                                               !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(result_type& result, value_type const& value)
+        {
+            if (value < 0)
+                return false;
+            return try_cast(result, static_cast<typename std::make_unsigned<value_type>::type>(value));
+        }
+    };
+
+    // Cast unsigned integer to the signed integral type of greater size
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                       typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                                std::is_integral<result_type>::value &&
+                                                std::is_integral<value_type>::value &&
+                                                std::is_signed<result_type>::value &&
+                                                std::is_unsigned<value_type>::value &&
+                                               (sizeof(result_type) > sizeof(value_type)) &&
+                                               !std::is_same<result_type, bool>::value &&
+                                               !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(result_type& result, value_type const& value)
+        {
+            result = static_cast<typename std::make_signed<value_type>::type>(value);
+            return true;
+        }
+    };
+
+    // Cast unsigned integer to the signed integral type of less or equal size
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                       typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                                std::is_integral<result_type>::value &&
+                                                std::is_integral<value_type>::value &&
+                                                std::is_signed<result_type>::value &&
+                                                std::is_unsigned<value_type>::value &&
+                                               (sizeof(result_type) <= sizeof(value_type)) &&
+                                               !std::is_same<result_type, bool>::value &&
+                                               !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(result_type& result, value_type const& value)
+        {
+            if ((value & std::numeric_limits<result_type>::min()) != 0 ||   // bit of sign is set
+                 value > static_cast<typename std::make_unsigned<result_type>::type>(
+                                std::numeric_limits<result_type>::max()))   // value is greater than maximum
+            {
+                return false;
+            }
+            result = static_cast<result_type>(
+                        static_cast<typename std::make_signed<value_type>::type>(value));
+            return true;
+        }
+    };
+
+    // Cast value of arithmetic type into the floating-point type
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                       typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                               (std::is_floating_point<result_type>::value ||
+                                                std::is_same<result_type, decimal>::value) &&
+                                                std::is_arithmetic<value_type>::value &&
+                                               !std::is_same<result_type, bool>::value &&
+                                               !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(result_type& result, value_type const& value)
+        {
+            result = result_type(value);
+            return true;
+        }
+    };
+
+    // Cast boolean value to textual type
+    template <typename value_type>
+    struct type_cast<text, value_type>
+    {
+        static bool try_cast(text& result, value_type const& value)
+        {
+            result = text(value);
+            return true;
         }
     };
 }
