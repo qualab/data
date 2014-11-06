@@ -207,14 +207,38 @@ namespace data
     template <typename result_type, typename value_type>
     struct type_cast<result_type, value_type,
                        typename std::enable_if<!std::is_same<result_type, value_type>::value &&
-                                               (std::is_floating_point<result_type>::value ||
-                                                std::is_same<result_type, decimal>::value) &&
+                                                std::is_floating_point<result_type>::value &&
                                                 std::is_arithmetic<value_type>::value &&
-                                               !std::is_same<result_type, bool>::value &&
                                                !std::is_same<value_type, bool>::value>::type>
     {
         static bool try_cast(result_type& result, value_type const& value)
         {
+            if (result_type(value) < -std::numeric_limits<result_type>::max() ||
+                result_type(value) >  std::numeric_limits<result_type>::max())
+            {
+                return false;
+            }
+            result = result_type(value);
+            return true;
+        }
+    };
+
+    // Cast value of arithmetic type into the floating-point type
+    template <typename result_type, typename value_type>
+    struct type_cast<result_type, value_type,
+                        typename std::enable_if<!std::is_same<result_type, value_type>::value &&
+                                                 std::is_integral<result_type>::value &&
+                                                 std::is_floating_point<value_type>::value &&
+                                                !std::is_same<result_type, bool>::value &&
+                                                !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(result_type& result, value_type const& value)
+        {
+            if (value < value_type(std::numeric_limits<result_type>::min()) ||
+                value > value_type(std::numeric_limits<result_type>::max()))
+            {
+                return false;
+            }
             result = result_type(value);
             return true;
         }
@@ -227,6 +251,19 @@ namespace data
         static bool try_cast(text& result, value_type const& value)
         {
             result = text(value);
+            return true;
+        }
+    };
+
+    template <typename value_type>
+    struct type_cast<decimal, value_type,
+                        typename std::enable_if<!std::is_same<decimal, value_type>::value &&
+                                                 std::is_arithmetic<value_type>::value &&
+                                                !std::is_same<value_type, bool>::value>::type>
+    {
+        static bool try_cast(decimal& result, value_type const& value)
+        {
+            result = decimal(value);
             return true;
         }
     };
