@@ -88,6 +88,7 @@
     <ClInclude Include="..\..\..\data\exception">
       <FileType>Document</FileType>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\api.hpp" />
     <ClInclude Include="..\..\..\data\head\cast.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
     <ClInclude Include="..\..\..\data\lazy">
@@ -114,7 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\decimal" />
-    <ClInclude Include="..\..\..\data\head\api.h" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\lazy.hpp" />
     <ClInclude Include="..\..\..\data\head\object.hpp" />

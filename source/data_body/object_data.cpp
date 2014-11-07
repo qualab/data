@@ -3,6 +3,7 @@
 #include <data_head/object_data.hpp>
 #include <data/exception>
 #include <data/decimal>
+#include <data/text>
 
 namespace data
 {

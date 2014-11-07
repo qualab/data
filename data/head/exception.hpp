@@ -2,10 +2,14 @@
 
 #pragma once
 
-#include <data/text>
+#include <data/object>
 #include <exception>
 
-#define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type(text(message), text(__FILE__), int(__LINE__), text(__FUNCTION__))
+#define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type((message), (__FILE__), (__LINE__), (__FUNCTION__))
+
+#ifdef _MSC_VER
+#define noexcept throw()
+#endif
 
 namespace data
 {
@@ -20,8 +24,8 @@ namespace data
         explicit exception(text const& message);
 
         /// Create exception with message and origin
-        exception(text const& message, text const& file, int line, text const& function);
-        
+        exception(text const& message, char const* file, int line, char const* function);
+
         /// Get exception associated message
         virtual text get_message() const;
 
@@ -40,33 +44,33 @@ namespace data
         data* m_data;
     };
 
-    /// "Operation is not supported" exception
-    class DATA_API operation_not_supported : public exception
+    template <class tag_type, class base_exception = exception>
+    class exception_class : public base_exception
     {
     public:
-        /// Create an "Operation is not supported" exception with this message by default
-        operation_not_supported();
+        typedef base_exception base;
+        typedef exception_class type;
 
-        /// Create an "Operation is not supported" exception with the message specified
-        operation_not_supported(text const& message);
+        exception_class()
+        {
+        }
 
-        /// Create an "Operation is not supported" exception with the message specified and source origin
-        operation_not_supported(text const& message, text const& file, int line, text const& function);
+        exception_class(text const& message)
+            : base(message)
+        {
+        }
+
+        exception_class(text const& message, char const* file, int line, char const* function)
+            : base(message, file, line, function)
+        {
+        }
     };
+
+    /// "Operation is not supported" exception
+    typedef exception_class<class operation_no_supported_tag> operation_not_supported;
 
     /// "Nonexistent type cast between the types specified" exception
-    class DATA_API nonexistent_type_cast : public exception
-    {
-    public:
-        /// "Nonexistent type cast between the types specified" exception with this message by default
-        nonexistent_type_cast();
-
-        /// "Nonexistent type cast between the types specified" exception with the message specified
-        nonexistent_type_cast(text const& message);
-
-        /// "Nonexistent type cast between the types specified" exception with the message specified and source origin
-        nonexistent_type_cast(text const& message, text const& file, int line, text const& function);
-    };
+    typedef exception_class<class nonexistent_type_cast_tag> nonexistent_type_cast;
 }
 
 // sine qua non

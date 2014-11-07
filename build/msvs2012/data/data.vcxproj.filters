@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\data\head\api.h">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
@@ -101,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp">
       <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\api.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
