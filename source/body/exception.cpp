@@ -13,12 +13,12 @@ namespace data
     {
     }
 
-    exception::exception(text message)
+    exception::exception(text const& message)
     {
         // TODO: initialization exception with message
     }
 
-    exception::exception(text message, text file, int line, text function)
+    exception::exception(text const& message, text const& file, int line, text const& function)
     {
         // TODO: initialization exception with message, file name, line number and function name where exception occurs
     }
@@ -36,6 +36,34 @@ namespace data
     char const* exception::what() const
     {
         return ""; /// TODO: return message
+    }
+
+    operation_not_supported::operation_not_supported()
+    {
+    }
+
+    operation_not_supported::operation_not_supported(text const& message)
+        : exception(message)
+    {
+    }
+
+    operation_not_supported::operation_not_supported(text const& message, text const& file, int line, text const& function)
+        : exception(message, file, line, function)
+    {
+    }
+
+    nonexistent_type_cast::nonexistent_type_cast()
+    {
+    }
+
+    nonexistent_type_cast::nonexistent_type_cast(text const& message)
+        : exception(message)
+    {
+    }
+
+    nonexistent_type_cast::nonexistent_type_cast(text const& message, text const& file, int line, text const& function)
+        : exception(message, file, line, function)
+    {
     }
 }
 

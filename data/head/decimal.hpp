@@ -49,13 +49,9 @@ namespace data
         /// Create decimal by integral and fractional components
         decimal(int64_t integral, uint64_t fractional);
 
-        int64_t floor() const;
+        int64_t intfloor() const;
 
-        int64_t ceil() const;
-
-        int64_t integral() const;
-
-        uint64_t fractional() const;
+        uint64_t multifract() const;
 
     protected:
         /// Forward declaration of object::data

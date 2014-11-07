@@ -51,6 +51,61 @@ namespace data
     {
     }
 
+    text::text(bool value)
+    {
+        // TODO: convert boolean value to text
+    }
+
+    text::text(int64_t value)
+    {
+        // TODO: convert 64-bit signed integer to text
+    }
+
+    text::text(int32_t value)
+    {
+        // TODO: convert 32-bit signed integer value to text
+    }
+
+    text::text(int16_t value)
+    {
+        // TODO: convert 16-bit signed integer value to text
+    }
+
+    text::text(int8_t value)
+    {
+        // TODO: convert 8-bit signed integer value to text
+    }
+
+    text::text(uint64_t value)
+    {
+        // TODO: convert 64-bit unsigned integer value to text
+    }
+
+    text::text(uint32_t value)
+    {
+        // TODO: convert 32-bit unsigned integer value to text
+    }
+
+    text::text(uint16_t value)
+    {
+        // TODO: convert 16-bit unsigned integer value to text
+    }
+
+    text::text(uint8_t value)
+    {
+        // TODO: convert 8-bit unsigned integer value to text
+    }
+
+    text::text(double value)
+    {
+        // TODO: convert double-precision floating-point value to text
+    }
+
+    text::text(float value)
+    {
+        // TODO: convert double-precision floating-point value to text
+    }
+
     char const* text::byte_char(char const* encoding) const
     {
         return "";

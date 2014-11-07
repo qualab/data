@@ -17,10 +17,10 @@ namespace data
         exception();
 
         /// Create exception with message
-        explicit exception(text message);
+        explicit exception(text const& message);
 
         /// Create exception with message and origin
-        exception(text message, text file, int line, text function);
+        exception(text const& message, text const& file, int line, text const& function);
         
         /// Get exception associated message
         virtual text get_message() const;
@@ -38,6 +38,34 @@ namespace data
     private:
         /// Stored pointer to exception::data
         data* m_data;
+    };
+
+    /// "Operation is not supported" exception
+    class DATA_API operation_not_supported : public exception
+    {
+    public:
+        /// Create an "Operation is not supported" exception with this message by default
+        operation_not_supported();
+
+        /// Create an "Operation is not supported" exception with the message specified
+        operation_not_supported(text const& message);
+
+        /// Create an "Operation is not supported" exception with the message specified and source origin
+        operation_not_supported(text const& message, text const& file, int line, text const& function);
+    };
+
+    /// "Nonexistent type cast between the types specified" exception
+    class DATA_API nonexistent_type_cast : public exception
+    {
+    public:
+        /// "Nonexistent type cast between the types specified" exception with this message by default
+        nonexistent_type_cast();
+
+        /// "Nonexistent type cast between the types specified" exception with the message specified
+        nonexistent_type_cast(text const& message);
+
+        /// "Nonexistent type cast between the types specified" exception with the message specified and source origin
+        nonexistent_type_cast(text const& message, text const& file, int line, text const& function);
     };
 }
 

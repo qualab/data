@@ -33,7 +33,7 @@ namespace data
     {
         result_type result;
         if (!try_cast(result, value))
-            DATA_EXCEPTION_THROW(exception, "TODO: ...");
+            DATA_EXCEPTION_THROW(nonexistent_type_cast, "No type cast exists between the types specified.");
         return result;
     }
 
