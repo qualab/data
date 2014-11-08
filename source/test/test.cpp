@@ -37,13 +37,13 @@ namespace data
 
         void scope::add_test(test* new_test)
         {
-            get_instance().m_tests.push_back(new_test);
+            instance().m_tests.push_back(new_test);
         }
 
         void scope::run()
         {
             std::cout << "Test scope started." << std::endl;
-            std::for_each(get_instance().m_tests.begin(), get_instance().m_tests.end(),
+            std::for_each(instance().m_tests.begin(), instance().m_tests.end(),
                 [](test* single_test)
                 {
                     try
@@ -63,7 +63,7 @@ namespace data
         {
         }
 
-        scope& scope::get_instance()
+        scope& scope::instance()
         {
             static std::unique_ptr<scope> instance;
             if (!instance)
@@ -73,25 +73,35 @@ namespace data
             return *instance;
         }
 
-        void check::info(std::string const& message, char const* file, int line)
+        void check::info(std::string const& message, char const* file, int line, char const* function)
         {
             std::string file_name(file);
-            auto pos = file_name.find_last_of("\\/");
-            if (pos != std::string::npos)
-                file_name.erase(0, pos + 1);
-            std::cout << file_name << '(' << line << ") CHECK: " << message;
+            {
+                auto pos = file_name.find_last_of("\\/");
+                if (pos != std::string::npos)
+                    file_name.erase(0, pos + 1);
+            }
+            std::string function_name(function);
+            {
+                auto pos = function_name.rfind("::");
+                if (pos != std::string::npos)
+                    function_name.erase(pos);
+            }
+            std::cout << file_name << '(' << line << ") [" << function_name << "] CHECK\n > " << message;
         }
 
-        void check::failed(std::string const& message, char const* file, int line)
+        bool check::failed(std::string const& message, char const* file, int line, char const* function)
         {
-            check::info(message, file, line);
+            check::info(message, file, line, function);
             std::cout << " - FAILED!" << std::endl;
+            return false;
         }
 
-        void check::succeed(std::string const& message, char const* file, int line)
+        bool check::succeed(std::string const& message, char const* file, int line, char const* function)
         {
-            check::info(message, file, line);
+            check::info(message, file, line, function);
             std::cout << " - OK." << std::endl;
+            return true;
         }
     }
 }

@@ -32,6 +32,7 @@
     <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
     <ClInclude Include="..\..\..\data\head\text.hpp" />
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
@@ -39,10 +40,12 @@
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\decimal.cpp" />
     <ClCompile Include="..\..\..\source\body\exception.cpp" />
     <ClCompile Include="..\..\..\source\body\object.cpp" />
     <ClCompile Include="..\..\..\source\body\text.cpp" />
     <ClCompile Include="..\..\..\source\body\trace.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
