@@ -153,130 +153,118 @@ namespace data
         return m_data ? m_data->as_bool() : false;
     }
 
+#define DATA_OBJECT_CHECK_NOT_NULL(type_name) \
+    if (!m_data) \
+        DATA_EXCEPTION_THROW(null_representation_error, "Object is null and can not be represented as " ## type_name)
+
     template <>
     int8_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit signed integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("8-bit signed integer");
         return m_data->as_int8();
     }
 
     template <>
     int16_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit signed integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("16-bit signed integer");
         return m_data->as_int16();
     }
 
     template <>
     int32_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit signed integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("32-bit signed integer");
         return m_data->as_int32();
     }
 
     template <>
     int64_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit signed integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("64-bit signed integer");
         return m_data->as_int64();
     }
 
     template <>
     uint8_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 8-bit unsigned integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("8-bit unsigned integer");
         return m_data->as_uint8();
     }
 
     template <>
     uint16_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 16-bit unsigned integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("16-bit unsigned integer");
         return m_data->as_uint16();
     }
 
     template <>
     uint32_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 32-bit unsigned integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("32-bit unsigned integer");
         return m_data->as_uint32();
     }
 
     template <>
     uint64_t object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as 64-bit unsigned integer.");
+        DATA_OBJECT_CHECK_NOT_NULL("64-bit unsigned integer");
         return m_data->as_uint64();
     }
 
     template <>
     float object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as single-precision floating-point value.");
+        DATA_OBJECT_CHECK_NOT_NULL("single-precision floating-point");
         return m_data->as_float();
     }
 
     template <>
     double object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as double-precision floating-point value.");
+        DATA_OBJECT_CHECK_NOT_NULL("double-precision floating-point");
         return m_data->as_double();
     }
 
     template <>
     decimal object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as decimal fixed-point value.");
+        DATA_OBJECT_CHECK_NOT_NULL("decimal fixed-point");
         return m_data->as_decimal();
     }
 
     template <>
     text object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as text.");
+        DATA_OBJECT_CHECK_NOT_NULL("text");
         return m_data->as_text();
     }
 
     template <>
     char const* object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string pointer.");
+        DATA_OBJECT_CHECK_NOT_NULL("byte-character C string pointer");
         return m_data->as_text().byte_char();
     }
 
     template <>
     wchar_t const* object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as wide-character string pointer.");
+        DATA_OBJECT_CHECK_NOT_NULL("wide-character C string pointer");
         return m_data->as_text().wide_char();
     }
 
     template <>
     std::string object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string container.");
+        DATA_OBJECT_CHECK_NOT_NULL("byte-character STL string container");
         return m_data->as_text().byte_string();
     }
 
     template <> DATA_API std::wstring object::as() const
     {
-        if (!m_data)
-            DATA_EXCEPTION_THROW(exception, "Object is null and can not be represented as byte-character string container.");
+        DATA_OBJECT_CHECK_NOT_NULL("wide-character STL string container");
         return m_data->as_text().wide_string();
     }
     

@@ -71,6 +71,9 @@ namespace data
 
     /// "Nonexistent type cast between the types specified" exception
     typedef exception_class<class nonexistent_type_cast_tag> nonexistent_type_cast;
+
+    /// "Object is null and can not be represented as type specified" exception
+    typedef exception_class<class null_representation_error_tag> null_representation_error;
 }
 
 // sine qua non
