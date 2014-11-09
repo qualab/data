@@ -1,16 +1,25 @@
 ﻿/// @author Владимир Керимов
 
-#include <data_head/text_data.hpp>
+#include <data_head/text_data_body.hpp>
 
 namespace data
 {
     text::data::data()
-        : m_value()
     {
     }
 
-    text::data::data(unicode_string const& value)
-        : m_value(value)
+    text::data::data(std::string const& byte_string)
+        : m_body(new body(byte_string))
+    {
+    }
+
+    text::data::data(std::string const& byte_string, std::string const& encoding)
+        : m_body(new body(byte_string, encoding))
+    {
+    }
+
+    text::data::data(std::wstring const& wide_string)
+        : m_body(new body(wide_string))
     {
     }
 

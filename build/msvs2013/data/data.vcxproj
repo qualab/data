@@ -26,7 +26,6 @@
     <ClInclude Include="..\..\..\data\head\cast.hpp" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
-    <ClInclude Include="..\..\..\data\head\lazy.hpp" />
     <ClInclude Include="..\..\..\data\head\numeric.hpp" />
     <ClInclude Include="..\..\..\data\head\object.hpp" />
     <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
@@ -34,9 +33,11 @@
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\lazy_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\text_data_body.hpp" />
     <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +50,7 @@
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp" />
     <ClCompile Include="..\..\..\source\data_body\trace_data.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

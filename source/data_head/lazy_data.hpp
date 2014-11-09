@@ -6,20 +6,20 @@
 
 namespace data
 {
-    /// Template for lazy initialization and copy-on-write
+    /// Template for lazy_data initialization and copy-on-write
     template <class data_type>
-    class lazy
+    class lazy_data
     {
     public:
-        /// Lazy initialization
-        lazy();
+        /// lazy_data initialization
+        lazy_data();
 
         /// Storage for created data
-        explicit lazy(data_type* created_data);
+        explicit lazy_data(data_type* created_data);
 
         /// Storage for created data of derived data class
         template <class derived_data_type>
-        explicit lazy(derived_data_type* created_data);
+        explicit lazy_data(derived_data_type* created_data);
 
         /// Call of non-modifying method
         data_type const* operator -> () const;
@@ -28,10 +28,10 @@ namespace data
         data_type* operator -> ();
 
         /// Clone data to the new container
-        lazy clone() const;
+        lazy_data clone() const;
 
         template <class base_data_type>
-        lazy<base_data_type> clone_as() const;
+        lazy_data<base_data_type> clone_as() const;
 
     private:
         mutable std::shared_ptr<data_type> m_shared_data;
@@ -43,47 +43,47 @@ namespace data
 //  -- implementation of the template class methods --
 
     template <class data_type>
-    lazy<data_type>::lazy()
+    lazy_data<data_type>::lazy_data()
         : m_shared_data()
     {
     }
 
     template <class data_type>
-    lazy<data_type>::lazy(data_type* created_data)
+    lazy_data<data_type>::lazy_data(data_type* created_data)
         : m_shared_data(created_data)
     {
     }
 
     template <class data_type>
     template <class derived_data_type>
-    lazy<data_type>::lazy(derived_data_type* created_data)
+    lazy_data<data_type>::lazy_data(derived_data_type* created_data)
         : m_shared_data(created_data)
     {
     }
 
     template <class data_type>
-    data_type const* lazy<data_type>::operator -> () const
+    data_type const* lazy_data<data_type>::operator -> () const
     {
         ensure_initialized();
         return m_shared_data.get();
     }
 
     template <class data_type>
-    data_type* lazy<data_type>::operator -> ()
+    data_type* lazy_data<data_type>::operator -> ()
     {
         ensure_unique_referenced();
         return m_shared_data.get();
     }
 
     template <class data_type>
-    void lazy<data_type>::ensure_initialized() const
+    void lazy_data<data_type>::ensure_initialized() const
     {
         if (!m_shared_data)
             m_shared_data.reset(new data_type);
     }
 
     template <class data_type>
-    void lazy<data_type>::ensure_unique_referenced() const
+    void lazy_data<data_type>::ensure_unique_referenced() const
     {
         ensure_initialized();
         if (!m_shared_data.unique())
@@ -91,16 +91,16 @@ namespace data
     }
 
     template <class data_type>
-    lazy<data_type> lazy<data_type>::clone() const
+    lazy_data<data_type> lazy_data<data_type>::clone() const
     {
-        return lazy<data_type>(new data_type(*m_shared_data));
+        return lazy_data<data_type>(new data_type(*m_shared_data));
     }
 
     template <class data_type>
     template <class base_data_type>
-    lazy<base_data_type> lazy<data_type>::clone_as() const
+    lazy_data<base_data_type> lazy_data<data_type>::clone_as() const
     {
-        return lazy<base_data_type>(new data_type(*m_shared_data));
+        return lazy_data<base_data_type>(new data_type(*m_shared_data));
     }
 }
 

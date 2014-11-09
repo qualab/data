@@ -4,23 +4,34 @@
 
 #include <data/text>
 #include <data_head/object_data.hpp>
-#include <string>
+#include <data_head/lazy_data.hpp>
 
 namespace data
 {
-    typedef std::basic_string<int32_t> unicode_string;
-
     class text::data : public object::data
     {
     public:
         data();
-        data(unicode_string const& value);
+        data(std::string const& byte_string);
+        data(std::string const& byte_string, std::string const& encoding);
+        data(std::wstring const& wide_string);
+
+        data& operator = (std::string const& byte_string);
+        data& operator = (std::pair<std::string, std::string> const& string_encoded);
+        data& operator = (std::wstring const& wide_string);
+
+        std::string encoding() const;
+        std::string as_byte_string() const;
+        std::wstring as_wide_string() const;
 
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
 
+    protected:
+        class body;
+
     private:
-        unicode_string m_value;
+        lazy_data<body> m_body;
     };
 }
 

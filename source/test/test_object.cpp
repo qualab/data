@@ -16,6 +16,7 @@ namespace data
                 data::object empty;
                 DATA_CHECK_IS_TRUE(empty.is_null());
                 DATA_CHECK_EXCEPTION_THROWN(null_representation_error, empty.as<int>());
+                DATA_CHECK_EXCEPTION_THROWN(null_representation_error, empty.as<float>());
 
                 data::object obj = data::object(123);
                 DATA_CHECK_EQUAL(obj.as<int>(), 123);

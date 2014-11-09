@@ -154,7 +154,10 @@ namespace data
         {
             if (value < 0)
                 return false;
-            return data::try_cast<result_type, typename std::make_unsigned<value_type>::type>(result, value);
+            return type_cast<result_type,
+                             typename std::make_unsigned<value_type>::type
+
+            >::try_cast(result, value);
         }
     };
 

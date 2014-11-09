@@ -76,9 +76,6 @@
       <Filter>source\data_head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\numeric.hpp" />
-    <ClInclude Include="..\..\..\data\head\lazy.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\head\decimal.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
@@ -92,6 +89,12 @@
       <Filter>data\head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\lazy_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\text_data_body.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
   </ItemGroup>
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\body\decimal.cpp">
       <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp">
+      <Filter>source\data_body</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
