@@ -11,6 +11,7 @@ namespace data
     exception::exception()
         : object(m_data = new(buffer()) exception::data)
     {
+        static_assert(sizeof(exception::data) <= data_max_size, "Data size of data::exception class have greater size than provided by base data::object class.");
     }
 
     exception::exception(text const& message)

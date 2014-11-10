@@ -8,7 +8,9 @@ namespace data
 {
     // Creation of null-object
     text::text()
+        : object((m_data = new(buffer()) text::data))
     {
+        static_assert(sizeof(text::data) <= data_max_size, "Data size of data::text class have greater size than provided by base data::object class.");
     }
 
     text::text(char const* value)

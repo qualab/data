@@ -53,17 +53,19 @@ namespace data
         data* m_data;
     };
 
-    class DATA_API trace::auto_pop : public object
+    class DATA_API trace::auto_pop
     {
-    protected:
-        class data;
-
+    public:
         auto_pop();
+        auto_pop(auto_pop&& temporary);
+        ~auto_pop();
 
         friend class trace;
 
     private:
-        data* m_data;
+        bool m_need_pop;
+
+        auto_pop(auto_pop const&);
     };
 
     template<> DATA_API trace object::as() const;

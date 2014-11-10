@@ -4,8 +4,7 @@
 
 #include <data/exception>
 #include <data_head/object_data.hpp>
-#include <data/trace>
-#include <data/text>
+#include <data_head/lazy_data.hpp>
 
 namespace data
 {
@@ -21,9 +20,11 @@ namespace data
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
 
+    protected:
+        class body;
+
     private:
-        trace m_trace;
-        text m_message;
+        lazy_data<body> m_body;
     };
 }
 

@@ -102,6 +102,12 @@
     <ClInclude Include="..\..\..\data\head\api.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\text_data_body.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\exception_data_body.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\body\exception.cpp">
@@ -132,6 +138,12 @@
       <Filter>source\body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\exception_data_body.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
   </ItemGroup>

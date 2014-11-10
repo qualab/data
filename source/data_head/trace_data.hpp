@@ -45,21 +45,6 @@ namespace data
         int m_line;
         text m_function;
     };
-
-    class trace::auto_pop::data : public object::data
-    {
-    public:
-        data();
-        data(trace& target);
-
-        virtual ~data();
-
-        virtual object::data* copy_to(void* address) const override;
-        virtual object::data* move_to(void* address) const override;
-
-    private:
-        trace* m_target;
-    };
 }
 
 // sine qua non

@@ -16,17 +16,19 @@ namespace data
     }
 
     trace::trace()
+        : object(m_data = new(buffer()) trace::data)
     {
+        static_assert(sizeof(trace::data) <= data_max_size, "Data size of data::trace class have greater size than provided by base data::object class.");
     }
 
     trace::auto_pop trace::push(trace::entry new_entry)
     {
-        DATA_TRACE_CALL(push)(new_entry);
+        return m_data->push(new_entry);
     }
 
     trace::auto_pop trace::push(text file, int line, text function)
     {
-        DATA_TRACE_CALL(push)(entry(file, line, function));
+        return m_data->push(entry(file, line, function));
     }
 
     void trace::pop()
@@ -59,7 +61,9 @@ namespace data
     }
 
     trace::entry::entry()
+        : object(m_data = new(buffer()) trace::entry::data)
     {
+        static_assert(sizeof(trace::data) <= data_max_size, "Data size of data::trace::entry class have greater size than provided by base data::object class.");
     }
 
     trace::entry::entry(text file, int line, text function)
@@ -83,8 +87,20 @@ namespace data
     }
 
     trace::auto_pop::auto_pop()
-        : object((m_data = new(buffer()) trace::auto_pop::data))
+        : m_need_pop(true)
     {
+    }
+
+    trace::auto_pop::auto_pop(trace::auto_pop&& temporary)
+        : m_need_pop(temporary.m_need_pop)
+    {
+        temporary.m_need_pop = false;
+    }
+
+    trace::auto_pop::~auto_pop()
+    {
+        if (m_need_pop)
+            trace::thread_stack().pop();
     }
 }
 

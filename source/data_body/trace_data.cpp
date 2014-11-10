@@ -72,31 +72,6 @@ namespace data
     {
         return new(address) trace::entry::data(std::move(*this));
     }
-
-    trace::auto_pop::data::data()
-    {
-    }
-
-    trace::auto_pop::data::data(trace& target)
-        : m_target(&target)
-    {
-    }
-
-    trace::auto_pop::data::~data()
-    {
-        if (m_target)
-            m_target->pop();
-    }
-
-    object::data* trace::auto_pop::data::copy_to(void* address) const
-    {
-        return new(address) trace::auto_pop::data(*this);
-    }
-
-    object::data* trace::auto_pop::data::move_to(void* address) const
-    {
-        return new(address) trace::auto_pop::data(std::move(*this));
-    }
 }
 
 // sine qua non

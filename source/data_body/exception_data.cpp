@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <data_head/exception_data.hpp>
+#include <data_head/exception_data_body.hpp>
 
 namespace data
 {
@@ -11,18 +11,18 @@ namespace data
     }
 
     exception::data::data(text const& message, trace const& traceback)
-        : m_trace(traceback), m_message(message)
+        : m_body(new exception::data::body(message, traceback))
     {
     }
 
     text exception::data::get_message() const
     {
-        return m_message;
+        return m_body->get_message();
     }
 
     trace exception::data::get_trace() const
     {
-        return m_trace;
+        return m_body->get_trace();
     }
 
     object::data* exception::data::copy_to(void* address) const

@@ -7,6 +7,7 @@ namespace data
     decimal::decimal()
         : object((m_data = new(buffer()) decimal::data))
     {
+        static_assert(sizeof(decimal::data) <= data_max_size, "Data size of data::decimal class have greater size than provided by base data::object class.");
     }
 
     decimal::decimal(text const& value)
