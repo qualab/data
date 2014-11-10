@@ -2,10 +2,10 @@
 
 #include <data_head/trace_data.hpp>
 
-#ifdef WIN32
+#ifdef _MSC_VER
 #define DATA_THREAD_LOCAL __declspec(thread)
 #else
-#define DATA_THREAD_LOCAL 
+#define DATA_THREAD_LOCAL thread_local
 #endif
 
 namespace data
@@ -47,17 +47,17 @@ namespace data
 
     trace::entry trace::operator [] (int index) const
     {
-        DATA_TRACE_CALL(get_entry)(index);
+        return m_data->get_entry(index);
     }
 
     trace::entry trace::get_entry(int index) const
     {
-        DATA_TRACE_CALL(get_entry)(index);
+        return m_data->get_entry(index);
     }
 
     int trace::get_entry_count() const
     {
-        DATA_TRACE_CALL(get_entry_count)();
+        return m_data->get_entry_count();
     }
 
     trace::entry::entry()
@@ -73,17 +73,17 @@ namespace data
 
     text trace::entry::get_file() const
     {
-        DATA_TRACE_CALL(get_file)();
+        return m_data->get_file();
     }
 
     int trace::entry::get_line() const
     {
-        DATA_TRACE_CALL(get_line)();
+        return m_data->get_line();
     }
 
     text trace::entry::get_function() const
     {
-        DATA_TRACE_CALL(get_function)();
+        return m_data->get_function();
     }
 
     trace::auto_pop::auto_pop()
