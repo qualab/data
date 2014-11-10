@@ -2,43 +2,50 @@
 
 #include <data_head/text_data.hpp>
 #include <data/exception>
+#include <data/trace>
 #include <string>
 
 namespace data
 {
-    // Creation of null-object
     text::text()
-        : object((m_data = new(buffer()) text::data))
+        : object(m_data = new(buffer()) text::data)
     {
+        DATA_CALL_INFO("Create an empty data::text object with text of zero length.");
         static_assert(sizeof(text::data) <= data_max_size, "Data size of data::text class have greater size than provided by base data::object class.");
     }
 
     text::text(char const* value)
+        : object(m_data = new(buffer()) text::data(value))
     {
-        // TODO: initialization by byte-character C string
+        DATA_CALL_INFO("Create an empty data::text by byte-character C string with default encoding.");
     }
 
     text::text(char const* value, char const* encoding)
+        : object(m_data = new(buffer()) text::data(value, encoding))
     {
-        // TODO: initialization by byte-character C string
+        DATA_CALL_INFO("Create an empty data::text by byte-character C string with the encoding specified.");
     }
 
     text::text(wchar_t const* value)
+        : object(m_data = new(buffer()) text::data(value))
     {
-        // TODO: initialization by wide-character C string
+        DATA_CALL_INFO("Create an empty data::text by wide-character C string.");
     }
 
     text::text(std::string const& value, std::string const& encoding)
+        : object(m_data = new(buffer()) text::data(value, encoding))
     {
-        // TODO: initialization by byte-character string container
+        DATA_CALL_INFO("Create an empty data::text by byte-character string container with encoding specified by byte-character string container.");
     }
 
     text::text(std::string const& value, char const* encoding)
+        : object(m_data = new(buffer()) text::data(value, encoding))
     {
-        // TODO: initialization by byte-character string container
+        DATA_CALL_INFO("Create an empty data::text by byte-character string container with encoding specified by byte-character C string.");
     }
 
     text::text(std::string const& value)
+        : object(m_data = new(buffer()) text::data(value))
     {
         // TODO: initialization by byte-character string container
     }

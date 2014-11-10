@@ -11,32 +11,38 @@ namespace data
     exception::exception()
         : object(m_data = new(buffer()) exception::data)
     {
+        DATA_CALL_INFO("Create data::exception without any information by default.");
         static_assert(sizeof(exception::data) <= data_max_size, "Data size of data::exception class have greater size than provided by base data::object class.");
     }
 
     exception::exception(text const& message)
+        : object(m_data = new(buffer()) exception::data(message))
     {
-        // TODO: initialization exception with message
+        DATA_CALL_INFO("Create data::exception with message but without information about where exception is origin from.");
     }
 
     exception::exception(text const& message, char const* file, int line, char const* function)
+        : object(m_data = new(buffer()) exception::data(message, file, line, function))
     {
-        // TODO: initialization exception with message, file name, line number and function name where exception occurs
+        DATA_CALL_INFO("Create data::exception with message and information about where exception is origin from.");
     }
 
     text exception::get_message() const
     {
-        return text(); /// TODO: return message
+        DATA_CALL_INFO("Get the message from object of data::exception.");
+        return m_data->get_message();
     }
 
     trace exception::get_trace() const
     {
-        return trace(); /// TODO: return trace
+        DATA_CALL_INFO("Get stack trace from where exception is origin from.");
+        return m_data->get_trace();
     }
 
     char const* exception::what() const
     {
-        return ""; /// TODO: return message
+        DATA_CALL_INFO("Get the message from object of data::exception as byte character string. Implementation of method what() of standard std::exception.");
+        return m_data->get_message().byte_char();
     }
 }
 

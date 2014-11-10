@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data_head/exception_data_body.hpp>
+#include <data/trace>
 
 namespace data
 {
@@ -10,8 +11,8 @@ namespace data
     {
     }
 
-    exception::data::data(text const& message, trace const& traceback)
-        : m_body(new exception::data::body(message, traceback))
+    exception::data::data(text const& message, text const& file, int line, text const& function)
+        : m_body(new exception::data::body(message, trace::stack_trace().append(trace::entry(file, line, function)))
     {
     }
 

@@ -12,7 +12,8 @@ namespace data
     {
     public:
         data();
-        data(text const& message, trace const& traceback);
+        data(text const& message);
+        data(text const& message, text const& file, int line, text const& function);
 
         text get_message() const;
         trace get_trace() const;
