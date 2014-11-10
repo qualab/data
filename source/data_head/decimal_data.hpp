@@ -13,8 +13,8 @@ namespace data
         data();
         data(int64_t intfloor, uint64_t multifract);
 
-        int64_t intfloor() const;
-        uint64_t multifract() const;
+        int64_t  get_intfloor() const;
+        uint64_t get_multifract() const;
 
         static const uint64_t divider = static_cast<int64_t>(1e+18);
 

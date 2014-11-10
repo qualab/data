@@ -43,9 +43,14 @@ namespace data
     {
     }
 
-    trace::entry::data::data(text file, int line, text function)
-        : m_file(file), m_line(line), m_function(function)
+    trace::entry::data::data(text const& info, text const& file, int line, text const& function)
+        : m_info(info), m_file(file), m_line(line), m_function(function)
     {
+    }
+
+    text trace::entry::data::get_info() const
+    {
+        return m_info;
     }
 
     text trace::entry::data::get_file() const

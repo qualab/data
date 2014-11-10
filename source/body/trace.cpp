@@ -26,14 +26,19 @@ namespace data
         return m_data->push(new_entry);
     }
 
-    trace::auto_pop trace::push(text file, int line, text function)
+    trace::auto_pop trace::push(text const& info, text const& file, int line, text const& function)
     {
-        return m_data->push(entry(file, line, function));
+        return m_data->push(trace::entry(info, file, line, function));
+    }
+
+    trace::auto_pop trace::push(char const* info, char const* file, int line, char const* function)
+    {
+        return m_data->push(trace::entry(info, file, line, function));
     }
 
     void trace::pop()
     {
-        DATA_TRACE_CALL(pop)();
+        m_data->pop();
     }
 
     trace& trace::thread_stack()
@@ -66,9 +71,19 @@ namespace data
         static_assert(sizeof(trace::data) <= data_max_size, "Data size of data::trace::entry class have greater size than provided by base data::object class.");
     }
 
-    trace::entry::entry(text file, int line, text function)
-        : object((m_data = new(buffer()) trace::entry::data(file, line, function)))
+    trace::entry::entry(text const& info, text const& file, int line, text const& function)
+        : object((m_data = new(buffer()) trace::entry::data(info, file, line, function)))
     {
+    }
+
+    trace::entry::entry(char const* info, char const* file, int line, char const* function)
+        : object((m_data = new(buffer()) trace::entry::data(info, file, line, function)))
+    {
+    }
+
+    text trace::entry::get_info() const
+    {
+        return m_data->get_info();
     }
 
     text trace::entry::get_file() const

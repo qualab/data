@@ -31,8 +31,9 @@ namespace data
     {
     public:
         data();
-        data(text file, int line, text function);
+        data(text const& info, text const& file, int line, text const& function);
 
+        virtual text get_info() const;
         virtual text get_file() const;
         virtual int  get_line() const;
         virtual text get_function() const;
@@ -41,8 +42,9 @@ namespace data
         virtual object::data* move_to(void* address) const override;
 
     private:
+        text m_info;
         text m_file;
-        int m_line;
+        int  m_line;
         text m_function;
     };
 }

@@ -14,12 +14,12 @@ namespace data
     {
     }
 
-    int64_t decimal::data::intfloor() const
+    int64_t decimal::data::get_intfloor() const
     {
         return m_intfloor;
     }
 
-    uint64_t decimal::data::multifract() const
+    uint64_t decimal::data::get_multifract() const
     {
         return m_multifract;
     }
