@@ -67,7 +67,7 @@ namespace data
     };
 
     /// "Operation is not supported" exception
-    typedef exception_class<class operation_no_supported_tag> operation_not_supported;
+    typedef exception_class<class operation_is_not_supported_tag> operation_is_not_supported;
 
     /// "Nonexistent type cast between the types specified" exception
     typedef exception_class<class nonexistent_type_cast_tag> nonexistent_type_cast;

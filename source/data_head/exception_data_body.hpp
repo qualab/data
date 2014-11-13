@@ -13,16 +13,17 @@ namespace data
     {
     public:
         body();
-        body(text const& message, trace::entry const& origin);
+        body(text const& message);
+        body(trace::entry const& origin);
 
         text get_message() const;
-        trace get_trace() const;
         trace::entry get_origin() const;
+        trace get_trace() const;
 
     private:
         text m_message;
-        trace m_trace;
         trace::entry m_origin;
+        trace m_trace;
     };
 }
 

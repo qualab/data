@@ -11,8 +11,13 @@ namespace data
     {
     }
 
+    exception::data::data(text const& message)
+        : m_body(new exception::data::body(message))
+    {
+    }
+
     exception::data::data(text const& message, text const& file, int line, text const& function)
-        : m_body(new exception::data::body(message, trace::stack_trace().append(trace::entry(file, line, function)))
+        : m_body(new exception::data::body(trace::entry(message, file, line, function)))
     {
     }
 
