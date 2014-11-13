@@ -20,9 +20,9 @@ namespace data
         trace::entry get_origin() const;
 
     private:
+        text m_message;
         trace m_trace;
         trace::entry m_origin;
-        text m_message;
     };
 }
 

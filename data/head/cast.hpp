@@ -156,8 +156,7 @@ namespace data
                 return false;
             return type_cast<result_type,
                              typename std::make_unsigned<value_type>::type
-
-            >::try_cast(result, value);
+                             >::try_cast(result, value);
         }
     };
 
