@@ -4,6 +4,7 @@
 #include <data/exception>
 #include <data/decimal>
 #include <data/text>
+#include <data/cast>
 
 namespace data
 {
@@ -63,46 +64,46 @@ namespace data
     bool object::data::as_bool() const
     {
         DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as boolean.");
-    }   
+    }
 
     int64_t object::data::as_int64() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 64-bit signed integer.");
+        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as signed integer.");
     }
 
     int32_t object::data::as_int32() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 32-bit signed integer.");
+        return cast<int32_t>(as_int64());
     }
 
     int16_t object::data::as_int16() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 16-bit signed integer.");
+        return cast<int16_t>(as_int64());
     }
 
     int8_t object::data::as_int8() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 8-bit signed integer.");
+        return cast<int8_t>(as_int64());
     }
 
     uint64_t object::data::as_uint64() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 64-bit unsigned integer.");
+        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as unsigned integer.");
     }
 
     uint32_t object::data::as_uint32() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 32-bit unsigned integer.");
+        return cast<uint32_t>(as_uint64());
     }
 
     uint16_t object::data::as_uint16() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 16-bit unsigned integer.");
+        return cast<uint16_t>(as_uint64());
     }
 
     uint8_t object::data::as_uint8() const
     {
-        DATA_EXCEPTION_THROW(operation_is_not_supported, "Object is not supporting retrievement as 8-bit unsigned integer.");
+        return cast<uint8_t>(as_uint64());
     }
 
     double object::data::as_double() const

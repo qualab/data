@@ -13,6 +13,11 @@ namespace data
         data();
         data(int64_t intfloor, uint64_t multifract);
 
+        data(int64_t value);
+        data(double value);
+        data(float value);
+        data(text const& value);
+
         int64_t  get_intfloor() const;
         uint64_t get_multifract() const;
 
@@ -20,6 +25,14 @@ namespace data
 
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
+
+        virtual uint64_t as_uint64() const override;
+        virtual int64_t  as_int64()  const override;
+
+        virtual double as_double() const override;
+        virtual float  as_float()  const override;
+
+        virtual text as_text() const override;
 
     private:
 		int64_t  m_intfloor;   //< maximal integer less than this value (floor)

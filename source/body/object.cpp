@@ -174,13 +174,13 @@ namespace data
     }
 
 #define DATA_OBJECT_CHECK_NOT_NULL(type_name) \
+    DATA_CALL_INFO("Get data::object value as " ## type_name); \
     if (!m_data) \
         DATA_EXCEPTION_THROW(null_representation_error, "Object is null and can not be represented as " ## type_name)
 
     template <>
     int8_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 8-bit signed integer.");
         DATA_OBJECT_CHECK_NOT_NULL("8-bit signed integer");
         return m_data->as_int8();
     }
@@ -188,7 +188,6 @@ namespace data
     template <>
     int16_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 16-bit signed integer.");
         DATA_OBJECT_CHECK_NOT_NULL("16-bit signed integer");
         return m_data->as_int16();
     }
@@ -196,7 +195,6 @@ namespace data
     template <>
     int32_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 32-bit signed integer.");
         DATA_OBJECT_CHECK_NOT_NULL("32-bit signed integer");
         return m_data->as_int32();
     }
@@ -204,7 +202,6 @@ namespace data
     template <>
     int64_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 64-bit signed integer.");
         DATA_OBJECT_CHECK_NOT_NULL("64-bit signed integer");
         return m_data->as_int64();
     }
@@ -212,7 +209,6 @@ namespace data
     template <>
     uint8_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 8-bit unsigned integer.");
         DATA_OBJECT_CHECK_NOT_NULL("8-bit unsigned integer");
         return m_data->as_uint8();
     }
@@ -220,7 +216,6 @@ namespace data
     template <>
     uint16_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 16-bit unsigned integer.");
         DATA_OBJECT_CHECK_NOT_NULL("16-bit unsigned integer");
         return m_data->as_uint16();
     }
@@ -228,7 +223,6 @@ namespace data
     template <>
     uint32_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 32-bit unsigned integer.");
         DATA_OBJECT_CHECK_NOT_NULL("32-bit unsigned integer");
         return m_data->as_uint32();
     }
@@ -236,7 +230,6 @@ namespace data
     template <>
     uint64_t object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as 64-bit unsigned integer.");
         DATA_OBJECT_CHECK_NOT_NULL("64-bit unsigned integer");
         return m_data->as_uint64();
     }
@@ -244,7 +237,6 @@ namespace data
     template <>
     float object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as single-precision floating-point.");
         DATA_OBJECT_CHECK_NOT_NULL("single-precision floating-point");
         return m_data->as_float();
     }
@@ -252,7 +244,6 @@ namespace data
     template <>
     double object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as double-precision floating-point.");
         DATA_OBJECT_CHECK_NOT_NULL("double-precision floating-point");
         return m_data->as_double();
     }
@@ -260,7 +251,6 @@ namespace data
     template <>
     decimal object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as decimal fixed-point.");
         DATA_OBJECT_CHECK_NOT_NULL("decimal fixed-point");
         return m_data->as_decimal();
     }
@@ -268,7 +258,6 @@ namespace data
     template <>
     text object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as text.");
         DATA_OBJECT_CHECK_NOT_NULL("text");
         return m_data->as_text();
     }
@@ -276,7 +265,6 @@ namespace data
     template <>
     char const* object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as byte-character C-string pointer.");
         DATA_OBJECT_CHECK_NOT_NULL("byte-character C-string pointer");
         return m_data->as_text().byte_char();
     }
@@ -284,7 +272,6 @@ namespace data
     template <>
     wchar_t const* object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as wide-character C-string pointer.");
         DATA_OBJECT_CHECK_NOT_NULL("wide-character C-string pointer");
         return m_data->as_text().wide_char();
     }
@@ -292,14 +279,12 @@ namespace data
     template <>
     std::string object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as byte-character standard string container.");
         DATA_OBJECT_CHECK_NOT_NULL("byte-character standard string container");
         return m_data->as_text().byte_string();
     }
 
     template <> DATA_API std::wstring object::as() const
     {
-        DATA_CALL_INFO("Get data::object value as wide-character standard string container.");
         DATA_OBJECT_CHECK_NOT_NULL("wide-character STL string container");
         return m_data->as_text().wide_string();
     }    
