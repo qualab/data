@@ -17,14 +17,14 @@ namespace data
         static datetime now();
 
         /// Create datetime by date components
-        datetime(year const& the_year, month const& the_month, day const& the_day);
+        datetime(int the_year, month const& the_month, int the_day);
 
         /// Create datetime by date and time components
-        datetime(year const& the_year, month const& the_month, day const& the_day,
+        datetime(int the_year, month const& the_month, int the_day,
                     int hour, int minute, decimal const& second);
 
         /// Create datetime by date and time components with time zone specified
-        datetime(year const& the_year, month const& the_month, day const& the_day,
+        datetime(int the_year, month const& the_month, int the_day,
                     int hour, int minute, decimal const& second, timezone const& zone);
 
         /// Create datetime by date and time objects
@@ -37,13 +37,13 @@ namespace data
         datetime(time const& the_time);
 
         /// Get year from date
-        year get_year() const;
+        int get_year() const;
 
         /// Get month from date
         month get_month() const;
 
         /// Get day from date
-        day get_day() const;
+        int get_day() const;
 
         /// Get hour from time
         int get_hour() const;
@@ -67,7 +67,7 @@ namespace data
         datetime& operator += (period const& delta);
 
         /// Addition of datetime point and time interval
-        datetime operator + (period const& delta);
+        datetime operator + (period const& delta) const;
 
         /// Subtraction between two datetime points
         period operator - (datetime const& another);
@@ -97,20 +97,20 @@ namespace data
         /// Create date by component of date in datetime
         date(datetime const& the_datetime);
 
-        /// Get year component
-        year get_year() const;
+        /// Get component of years
+        int get_year() const;
 
-        /// Get month component
+        /// Get component of months
         month get_month() const;
 
-        /// Get day component
-        day get_day() const;
+        /// Get component of days
+        int get_day() const;
 
         /// Add time interval to this data
         date& operator += (period const& delta);
 
         /// Addition of date and time interval
-        datetime operator + (period const& delta);
+        datetime operator + (period const& delta) const;
 
         /// Subtraction between two dates
         period operator - (date const& another);
@@ -155,6 +155,10 @@ namespace data
         /// Get time zone specified
         timezone get_timezone() const;
 
+        time& operator += (period const& delta);
+
+        time operator + (period const& delta) const;
+
     protected:
         /// Forward declaration of time::data
         class data;
@@ -171,26 +175,94 @@ namespace data
         /// Create time zone of null value (no time zone specified)
         timezone();
 
-        /// Create time zone with specified shift from UTC time
-        timezone(decimal const& UTC_shift);
+        /// Create time zone by specified time shift in hours from UTC time
+        timezone(decimal const& shift);
+
+        /// Create time zone by name
+        timezone(text const& name);
+
+        /// Get time shift in hours from UTC time
+        decimal get_shift();
+
+        text get_name() const;
 
     protected:
+        /// Forward declaration of timezone::data
         class data;
 
     private:
+        /// Stored pointer to timezone::data
         data* m_data;
     };
 
+    /// Period of time between two date and/or time points
     class DATA_API period : public object
     {
     public:
+        /// Create period of zero length
         period();
 
+        /// Create period of specified length in seconds
+        period(decimal const& seconds);
+
+        /// Get specified length in seconds of this period of time
+        decimal get_length();
+
     protected:
+        /// Forward declaration of period::data
         class data;
 
     private:
+        /// Stored pointer to period::data
         data* m_data;
+    };
+
+    /// Month with ability to create month by name or number
+    class DATA_API month
+    {
+    public:
+        /// Enumerate months by name
+        enum name
+        {
+            January   =  1,
+            Febrary   =  2,
+            March     =  3,
+            April     =  4,
+            May       =  5,
+            June      =  6,
+            July      =  7,
+            August    =  8,
+            September =  9,
+            October   = 10,
+            November  = 11,
+            December  = 12,
+            Unknown   =  0
+        };
+
+        /// Create month of unknown value
+        month();
+
+        /// Create month by value of name enumeration
+        month(name the_name);
+
+        /// Create month by number in year, January is first and equal to 1
+        month(int number);
+
+        /// Create month by textual name
+        month(text const& the_name);
+
+        /// Get number of month in the year, starts from 1 for January
+        int get_number() const;
+
+        /// Implicitely cast month to the integral value of number in the year
+        operator int () const;
+
+        /// Get name of month
+        text get_name() const;
+
+    private:
+        /// Numeration starts from 1 for January
+        int m_number;
     };
 }
 
