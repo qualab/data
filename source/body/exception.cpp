@@ -42,7 +42,7 @@ namespace data
     char const* exception::what() const
     {
         DATA_CALL_INFO("Get the message from object of data::exception as byte character string. Implementation of method what() of standard std::exception.");
-        return m_data->get_message().byte_char();
+        return m_data->get_message().byte_c_str();
     }
 }
 

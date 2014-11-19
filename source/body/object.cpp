@@ -261,14 +261,14 @@ namespace data
     char const* object::as() const
     {
         DATA_OBJECT_CHECK_NOT_NULL("byte-character C-string pointer");
-        return m_data->as_text().byte_char();
+        return m_data->as_text().byte_c_str();
     }
 
     template <>
     wchar_t const* object::as() const
     {
         DATA_OBJECT_CHECK_NOT_NULL("wide-character C-string pointer");
-        return m_data->as_text().wide_char();
+        return m_data->as_text().wide_c_str();
     }
 
     template <>

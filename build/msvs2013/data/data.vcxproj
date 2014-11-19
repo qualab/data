@@ -11,18 +11,37 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\api" />
-    <None Include="..\..\..\data\cast" />
-    <None Include="..\..\..\data\datetime" />
-    <None Include="..\..\..\data\exception" />
-    <None Include="..\..\..\data\lazy" />
+    <ClInclude Include="..\..\..\data\api">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\cast">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\datetime">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\exception">
+      <FileType>Document</FileType>
+    </ClInclude>
     <None Include="..\..\..\data\numeric" />
-    <None Include="..\..\..\data\object" />
-    <None Include="..\..\..\data\query" />
-    <None Include="..\..\..\data\stdfwd" />
-    <None Include="..\..\..\data\text" />
-    <None Include="..\..\..\data\stacktrace" />
-    <None Include="..\..\..\data\unit" />
+    <ClInclude Include="..\..\..\data\object">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\query">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\text">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stacktrace">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\unit">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.hpp" />

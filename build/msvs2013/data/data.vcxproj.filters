@@ -21,40 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\api">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\exception">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\lazy">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\object">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\stdfwd">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\text">
-      <Filter>data</Filter>
-    </None>
     <None Include="..\..\..\data\numeric" />
-    <None Include="..\..\..\data\cast">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\datetime">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\stacktrace">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\query">
-      <Filter>data</Filter>
-    </None>
-    <None Include="..\..\..\data\unit">
-      <Filter>data</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
@@ -120,6 +87,36 @@
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\query.hpp">
       <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\api">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\cast">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\datetime">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\exception">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\object">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\query">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\text">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stacktrace">
+      <Filter>data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\unit">
+      <Filter>data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

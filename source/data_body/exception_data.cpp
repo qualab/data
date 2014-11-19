@@ -17,7 +17,7 @@ namespace data
     }
 
     exception::data::data(text const& message, char const* file, int line, char const* function)
-        : m_body(new exception::data::body(message, callinfo(message.byte_char(), file, line, function)))
+        : m_body(new exception::data::body(message, callinfo(message.byte_c_str(), file, line, function)))
     {
     }
 

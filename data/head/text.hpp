@@ -70,29 +70,29 @@ namespace data
         /// Type cast of single-precision floating-point value to the text
         explicit text(float  value);
 
-        /// Get text as pointer to byte-character null-terminated string using encoding specified
-        char const* byte_char(char const* encoding) const;
-
-        /// Get text as pointer to byte-character null-terminated string using encoding specified
-        char const* byte_char(std::string const& encoding) const;
-
-        /// Get text as pointer to byte-character null-terminated string using default encoding
-        char const* byte_char() const;
-
-        /// Get text as pointer to wide-character null-terminated string
-        wchar_t const* wide_char() const;
+        /// Get text as byte-character standard string container using encoding specified
+        std::string const& byte_string(char const* encoding) const;
 
         /// Get text as byte-character standard string container using encoding specified
-        std::string byte_string(char const* encoding) const;
-
-        /// Get text as byte-character standard string container using encoding specified
-        std::string byte_string(std::string const& encoding) const;
+        std::string const& byte_string(std::string const& encoding) const;
 
         /// Get text as byte-character standard string container using default encoding
-        std::string byte_string() const;
+        std::string const& byte_string() const;
 
         /// Get text as wide-character standard string container
-        std::wstring wide_string() const;
+        std::wstring const& wide_string() const;
+
+        /// Get text as pointer to byte-character null-terminated string using encoding specified
+        char const* byte_c_str(char const* encoding) const;
+
+        /// Get text as pointer to byte-character null-terminated string using encoding specified
+        char const* byte_c_str(std::string const& encoding) const;
+
+        /// Get text as pointer to byte-character null-terminated string using default encoding
+        char const* byte_c_str() const;
+
+        /// Get text as pointer to wide-character null-terminated string
+        wchar_t const* wide_c_str() const;
 
     protected:
         /// Forward declaration of text::data

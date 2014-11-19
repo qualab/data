@@ -3,7 +3,6 @@
 #include <data_head/text_data.hpp>
 #include <data/exception>
 #include <data/stacktrace>
-#include <string>
 
 namespace data
 {
@@ -116,29 +115,39 @@ namespace data
         // TODO: convert double-precision floating-point value to text
     }
 
-    char const* text::byte_char(char const* encoding) const
+    char const* text::byte_c_str(char const* encoding) const
     {
-        return "";
+        return m_data->byte_c_str(encoding);
     }
 
-    wchar_t const* text::wide_char() const
+    char const* text::byte_c_str(std::string const& encoding) const
     {
-        return L"";
+        return m_data->byte_c_str(encoding);
     }
 
-    std::string text::byte_string(std::string const& encoding) const
+    char const* text::byte_c_str() const
     {
-        return std::string();
+        return m_data->byte_c_str();
     }
 
-    std::string text::byte_string() const
+    wchar_t const* text::wide_c_str() const
     {
-        return std::string();
+        return m_data->wide_c_str();
     }
 
-    std::wstring text::wide_string() const
+    std::string const& text::byte_string(std::string const& encoding) const
     {
-        return std::wstring();
+        return m_data->byte_string(encoding);
+    }
+
+    std::string const& text::byte_string() const
+    {
+        return m_data->byte_string();
+    }
+
+    std::wstring const& text::wide_string() const
+    {
+        return m_data->wide_string();
     }
 }
 
