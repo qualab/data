@@ -32,12 +32,6 @@ namespace data
         return m_data->push(new_entry);
     }
 
-    trace::auto_pop trace::push(text const& info, text const& file, int line, text const& function)
-    {
-        DATA_TRACE_ON_PUSH;
-        return m_data->push(trace::entry(info, file, line, function));
-    }
-
     trace::auto_pop trace::push(char const* info, char const* file, int line, char const* function)
     {
         DATA_TRACE_ON_PUSH;
@@ -77,12 +71,7 @@ namespace data
     trace::entry::entry()
         : object(m_data = new(buffer()) trace::entry::data)
     {
-        static_assert(sizeof(trace::data) <= data_max_size, "Data size of data::trace::entry class have greater size than provided by base data::object class.");
-    }
-
-    trace::entry::entry(text const& info, text const& file, int line, text const& function)
-        : object((m_data = new(buffer()) trace::entry::data(info, file, line, function)))
-    {
+        static_assert(sizeof(trace::entry::data) <= data_max_size, "Data size of data::trace::entry class have greater size than provided by base data::object class.");
     }
 
     trace::entry::entry(char const* info, char const* file, int line, char const* function)

@@ -14,7 +14,7 @@ namespace data
     public:
         body();
         body(text const& message);
-        body(trace::entry const& origin);
+        body(text const& message, trace::entry const& origin);
 
         text get_message() const;
         trace::entry get_origin() const;

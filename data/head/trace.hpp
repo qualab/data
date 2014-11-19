@@ -17,7 +17,6 @@ namespace data
         class auto_pop;
         
         auto_pop push(entry new_entry);
-        auto_pop push(text const& info, text const& file, int line, text const& function);
         auto_pop push(char const* info, char const* file, int line, char const* function);
 
         static trace& thread_stack();
@@ -39,7 +38,6 @@ namespace data
     {
     public:
         entry();
-        entry(text const& info, text const& file, int line, text const& function);
         entry(char const* info, char const* file, int line, char const* function);
 
         text get_info() const;

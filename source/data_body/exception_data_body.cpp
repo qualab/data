@@ -15,8 +15,8 @@ namespace data
     {
     }
 
-    exception::data::body::body(trace::entry const& origin)
-        : m_message(origin.get_info()), m_origin(origin), m_trace(trace::thread_stack())
+    exception::data::body::body(text const& message, trace::entry const& origin)
+        : m_message(message), m_origin(origin), m_trace(trace::thread_stack())
     {
     }
 

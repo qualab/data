@@ -35,21 +35,21 @@ namespace data
     {
     public:
         data();
-        data(text const& info, text const& file, int line, text const& function);
+        data(char const* info, char const* file, int line, char const* function);
 
-        virtual text get_info() const;
-        virtual text get_file() const;
-        virtual int  get_line() const;
-        virtual text get_function() const;
+        virtual char const* get_info() const;
+        virtual char const* get_file() const;
+        virtual int get_line() const;
+        virtual char const* get_function() const;
 
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
 
     private:
-        text m_info;
-        text m_file;
+        char const* m_info;
+        char const* m_file;
         int  m_line;
-        text m_function;
+        char const* m_function;
     };
 }
 

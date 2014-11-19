@@ -53,17 +53,17 @@ namespace data
     {
     }
 
-    trace::entry::data::data(text const& info, text const& file, int line, text const& function)
+    trace::entry::data::data(char const* info, char const* file, int line, char const* function)
         : m_info(info), m_file(file), m_line(line), m_function(function)
     {
     }
 
-    text trace::entry::data::get_info() const
+    char const* trace::entry::data::get_info() const
     {
         return m_info;
     }
 
-    text trace::entry::data::get_file() const
+    char const* trace::entry::data::get_file() const
     {
         return m_file;
     }
@@ -73,7 +73,7 @@ namespace data
         return m_line;
     }
 
-    text trace::entry::data::get_function() const
+    char const* trace::entry::data::get_function() const
     {
         return m_function;
     }
