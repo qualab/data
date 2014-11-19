@@ -6,7 +6,7 @@
 namespace data
 {
     decimal::decimal()
-        : object((m_data = new(buffer()) decimal::data))
+        DATA_OBJECT_CREATE(decimal::data, ())
     {
         DATA_CALL_INFO("Create data::decimal with zero value by default.");
         static_assert(sizeof(decimal::data) <= data_max_size, "Data size of data::decimal class have greater size than provided by base data::object class.");
