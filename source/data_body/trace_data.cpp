@@ -19,6 +19,16 @@ namespace data
         m_entries.pop_back();
     }
 
+    bool trace::data::is_on_push() const
+    {
+        return m_on_push;
+    }
+
+    void trace::data::set_on_push(bool on_push)
+    {
+        m_on_push = on_push;
+    }
+
     trace::entry trace::data::get_entry(int index) const
     {
         return m_entries.at(index);

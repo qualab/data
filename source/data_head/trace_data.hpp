@@ -17,6 +17,9 @@ namespace data
         auto_pop push(trace::entry new_entry);
         void pop();
 
+        bool is_on_push() const;
+        void set_on_push(bool on_push);
+
         entry get_entry(int index) const;
         int get_entry_count() const;
 
@@ -25,6 +28,7 @@ namespace data
 
     private:
         std::deque<trace::entry> m_entries;
+        bool m_on_push;
     };
 
     class trace::entry::data : public object::data

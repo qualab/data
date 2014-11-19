@@ -60,13 +60,14 @@ namespace data
     {
     public:
         auto_pop();
+        auto_pop(trace* stacktrace);
         auto_pop(auto_pop&& temporary);
         ~auto_pop();
 
         friend class trace;
 
     private:
-        bool m_need_pop;
+        trace* m_stacktrace;
 
         auto_pop(auto_pop const&);
     };

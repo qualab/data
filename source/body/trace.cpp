@@ -21,24 +21,33 @@ namespace data
         static_assert(sizeof(trace::data) <= data_max_size, "Data size of data::trace class have greater size than provided by base data::object class.");
     }
 
+#define DATA_TRACE_ON_PUSH \
+        if (m_data->is_on_push()) \
+            return trace::auto_pop(); \
+        m_data->set_on_push(true) \
+
     trace::auto_pop trace::push(trace::entry new_entry)
     {
+        DATA_TRACE_ON_PUSH;
         return m_data->push(new_entry);
     }
 
     trace::auto_pop trace::push(text const& info, text const& file, int line, text const& function)
     {
+        DATA_TRACE_ON_PUSH;
         return m_data->push(trace::entry(info, file, line, function));
     }
 
     trace::auto_pop trace::push(char const* info, char const* file, int line, char const* function)
     {
+        DATA_TRACE_ON_PUSH;
         return m_data->push(trace::entry(info, file, line, function));
     }
 
     void trace::pop()
     {
         m_data->pop();
+        m_data->set_on_push(false);
     }
 
     trace& trace::thread_stack()
@@ -102,20 +111,25 @@ namespace data
     }
 
     trace::auto_pop::auto_pop()
-        : m_need_pop(true)
+        : m_stacktrace(nullptr)
+    {
+    }
+
+    trace::auto_pop::auto_pop(trace* stacktrace)
+        : m_stacktrace(stacktrace)
     {
     }
 
     trace::auto_pop::auto_pop(trace::auto_pop&& temporary)
-        : m_need_pop(temporary.m_need_pop)
+        : m_stacktrace(nullptr)
     {
-        temporary.m_need_pop = false;
+        std::swap(m_stacktrace, temporary.m_stacktrace);
     }
 
     trace::auto_pop::~auto_pop()
     {
-        if (m_need_pop)
-            trace::thread_stack().pop();
+        if (m_stacktrace)
+            m_stacktrace->pop();
     }
 }
 

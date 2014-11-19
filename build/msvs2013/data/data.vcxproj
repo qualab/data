@@ -33,6 +33,7 @@
     <ClInclude Include="..\..\..\data\head\trace.hpp" />
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\exception_data_body.hpp" />
     <ClInclude Include="..\..\..\source\data_head\lazy_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
@@ -48,6 +49,7 @@
     <ClCompile Include="..\..\..\source\body\trace.cpp" />
     <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\exception_data_body.cpp" />
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp" />
