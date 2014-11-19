@@ -2,6 +2,7 @@
 
 #include <data_head/decimal_data.hpp>
 #include <data/stacktrace>
+#include <data/cast>
 
 namespace data
 {
@@ -31,48 +32,56 @@ namespace data
     }
 
     decimal::decimal(int64_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 64-bit signed integer.");
         // TODO: ...
     }
 
     decimal::decimal(int32_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 32-bit signed integer.");
         // TODO: ...
     }
 
     decimal::decimal(int16_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 16-bit signed integer.");
         // TODO: ...
     }
 
     decimal::decimal(int8_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 8-bit signed integer.");
         // TODO: ...
     }
 
     decimal::decimal(uint64_t value)
+        DATA_OBJECT_CREATE(decimal::data, (cast<int64_t>(value), 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 64-bit unsigned integer.");
         // TODO: ...
     }
 
     decimal::decimal(uint32_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 32-bit unsigned integer.");
         // TODO: ...
     }
 
     decimal::decimal(uint16_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 16-bit unsigned integer.");
         // TODO: ...
     }
 
     decimal::decimal(uint8_t value)
+        DATA_OBJECT_CREATE(decimal::data, (value, 0))
     {
         DATA_CALL_INFO("Create data::decimal with value of 8-bit unsigned integer.");
         // TODO: ...

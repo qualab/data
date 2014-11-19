@@ -36,9 +36,7 @@ namespace data
     class time;
     class timezone;
     class period;
-    class year;
     class month;
-    class day;
     class query;
     class unit;
 }

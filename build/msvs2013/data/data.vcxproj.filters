@@ -49,6 +49,12 @@
     <None Include="..\..\..\data\stacktrace">
       <Filter>data</Filter>
     </None>
+    <None Include="..\..\..\data\query">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\unit">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
@@ -108,6 +114,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\stacktrace_data.hpp">
       <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\unit.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\query.hpp">
+      <Filter>data\head</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
