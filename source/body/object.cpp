@@ -4,7 +4,7 @@
 #include <data/exception>
 #include <data/decimal>
 #include <data/text>
-#include <data/trace>
+#include <data/stacktrace>
 #include <string>
 
 namespace data

@@ -4,7 +4,7 @@
 
 #include <data_head/exception_data.hpp>
 #include <data/text>
-#include <data/trace>
+#include <data/stacktrace>
 
 namespace data
 {
@@ -33,10 +33,10 @@ namespace data
         return m_data->get_message();
     }
 
-    trace exception::get_trace() const
+    stacktrace exception::get_stacktrace() const
     {
         DATA_CALL_INFO("Get stack trace from where exception is origin from.");
-        return m_data->get_trace();
+        return m_data->get_stacktrace();
     }
 
     char const* exception::what() const

@@ -29,10 +29,10 @@
                                  __FILE__, __LINE__, __FUNCTION__)
 #define DATA_CHECK_EXCEPTION_THROWN(exception_type, statement) \
     data::test::check::exception_thrown<exception_type>([&]() { statement; }, \
-                                        "Excepted exception " ## #exception_type ## " thrown from\n\t" ## #statement, \
+                                        #exception_type ## " thrown from " ## #statement, \
                                         __FILE__, __LINE__, __FUNCTION__)
 #define DATA_CHECK_NO_EXCEPTION_THROW(statement) \
-    data::test::check::no_exception_thrown([&]() { statement; }, "Expected no exception throw from\n\t" ## #statement, \
+    data::test::check::no_exception_thrown([&]() { statement; }, "No exception throw from " ## #statement, \
                                            __FILE__, __LINE__, __FUNCTION__)
 
 namespace data

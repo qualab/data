@@ -2,36 +2,36 @@
 
 #pragma once
 
-#include <data/trace>
+#include <data/stacktrace>
 #include <data_head/object_data.hpp>
 #include <data/text>
 #include <deque>
 
 namespace data
 {
-    class trace::data : public object::data
+    class stacktrace::data : public object::data
     {
     public:
         data();
 
-        auto_pop push(trace::entry new_entry);
+        auto_pop push(callinfo new_entry);
         void pop();
 
         bool is_on_push() const;
         void set_on_push(bool on_push);
 
-        entry get_entry(int index) const;
-        int get_entry_count() const;
+        callinfo get_info(int index) const;
+        int get_length() const;
 
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
 
     private:
-        std::deque<trace::entry> m_entries;
+        std::deque<callinfo> m_stack;
         bool m_on_push;
     };
 
-    class trace::entry::data : public object::data
+    class callinfo::data : public object::data
     {
     public:
         data();

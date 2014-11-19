@@ -3,7 +3,6 @@
 #pragma once
 
 #include <data/object>
-#include <data/stdfwd>
 
 namespace data
 {

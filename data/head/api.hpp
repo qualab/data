@@ -27,11 +27,18 @@ namespace data
     class object;
     class decimal;
     class text;
-    class trace;
+    class symbol;
+    class stacktrace;
+    class callinfo;
     class exception;
+    class datetime;
     class date;
     class time;
-    class datetime;
+    class timezone;
+    class period;
+    class year;
+    class month;
+    class day;
     class query;
     class unit;
 }

@@ -2,7 +2,7 @@
 
 #include <data_head/text_data.hpp>
 #include <data/exception>
-#include <data/trace>
+#include <data/stacktrace>
 #include <string>
 
 namespace data

@@ -1,7 +1,7 @@
 ﻿/// @author Владимир Керимов
 
 #include <data_head/decimal_data.hpp>
-#include <data/trace>
+#include <data/stacktrace>
 
 namespace data
 {
