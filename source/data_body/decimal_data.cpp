@@ -5,23 +5,23 @@
 namespace data
 {
     decimal::data::data()
-        : m_intfloor(0), m_multifract(0)
+        : m_integral(0), m_fractional(0)
     {
     }
 
-    decimal::data::data(int64_t intfloor, uint64_t multifract)
-        : m_intfloor(intfloor), m_multifract(multifract)
+    decimal::data::data(int64_t integral, uint64_t fractional)
+        : m_integral(integral), m_fractional(fractional)
     {
     }
 
-    int64_t decimal::data::get_intfloor() const
+    int64_t decimal::data::get_integral() const
     {
-        return m_intfloor;
+        return m_integral;
     }
 
-    uint64_t decimal::data::get_multifract() const
+    uint64_t decimal::data::get_fractional() const
     {
-        return m_multifract;
+        return m_fractional;
     }
 
     object::data* decimal::data::copy_to(void* address) const

@@ -84,16 +84,16 @@ namespace data
         DATA_CALL_INFO("Create data::decimal with value calculated by combining integral \"floor\" and fractional part muliplied to 10^18 and rounded to integer.");
     }
 
-    int64_t decimal::get_intfloor() const
+    int64_t decimal::get_integral() const
     {
         DATA_CALL_INFO("Get fractional part muliplied to 10^18 and rounded to integer.");
-        return m_data->get_intfloor();
+        return m_data->get_integral();
     }
 
-    uint64_t decimal::get_multifract() const
+    uint64_t decimal::get_fractional() const
     {
         DATA_CALL_INFO("Get maximal integer less than this value (integral \"floor\").");
-        return m_data->get_multifract();
+        return m_data->get_fractional();
     }
 }
 
