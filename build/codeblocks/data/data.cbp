@@ -42,52 +42,56 @@
 		</Build>
 		<Compiler>
 			<Add option="-std=c++11" />
-			<Add directory="$(ProjectDir)/../../" />
+			<Add directory="$(ProjectDir)../../../" />
+			<Add directory="$(ProjectDir)/../../../source/" />
 		</Compiler>
 		<Unit filename="../../../data/api" />
-		<Unit filename="../../../data/boolean" />
 		<Unit filename="../../../data/cast" />
+		<Unit filename="../../../data/datetime" />
+		<Unit filename="../../../data/decimal" />
 		<Unit filename="../../../data/exception" />
-		<Unit filename="../../../data/floating" />
-		<Unit filename="../../../data/head/api.h" />
-		<Unit filename="../../../data/head/boolean.hpp" />
+		<Unit filename="../../../data/head/api.hpp" />
 		<Unit filename="../../../data/head/cast.hpp" />
+		<Unit filename="../../../data/head/datetime.hpp" />
+		<Unit filename="../../../data/head/decimal.hpp" />
 		<Unit filename="../../../data/head/exception.hpp" />
-		<Unit filename="../../../data/head/floating.hpp" />
-		<Unit filename="../../../data/head/integer.hpp" />
-		<Unit filename="../../../data/head/lazy.hpp" />
 		<Unit filename="../../../data/head/object.hpp" />
+		<Unit filename="../../../data/head/query.hpp" />
+		<Unit filename="../../../data/head/stacktrace.hpp" />
 		<Unit filename="../../../data/head/stdfwd.hpp" />
 		<Unit filename="../../../data/head/text.hpp" />
-		<Unit filename="../../../data/head/trace.hpp" />
-		<Unit filename="../../../data/integer" />
-		<Unit filename="../../../data/lazy" />
+		<Unit filename="../../../data/head/unit.hpp" />
 		<Unit filename="../../../data/object" />
+		<Unit filename="../../../data/query" />
+		<Unit filename="../../../data/stacktrace" />
 		<Unit filename="../../../data/stdfwd" />
 		<Unit filename="../../../data/text" />
-		<Unit filename="../../../data/trace" />
-		<Unit filename="../../../source/body/boolean.cpp" />
-		<Unit filename="../../../source/body/cast.cpp" />
+		<Unit filename="../../../data/unit" />
+		<Unit filename="../../../source/body/datetime.cpp" />
+		<Unit filename="../../../source/body/decimal.cpp" />
 		<Unit filename="../../../source/body/exception.cpp" />
-		<Unit filename="../../../source/body/floating.cpp" />
-		<Unit filename="../../../source/body/integer.cpp" />
 		<Unit filename="../../../source/body/object.cpp" />
+		<Unit filename="../../../source/body/stacktrace.cpp" />
 		<Unit filename="../../../source/body/text.cpp" />
-		<Unit filename="../../../source/body/trace.cpp" />
-		<Unit filename="../../../source/data_body/boolean_data.cpp" />
+		<Unit filename="../../../source/data_body/datetime_data.cpp" />
+		<Unit filename="../../../source/data_body/decimal_data.cpp" />
 		<Unit filename="../../../source/data_body/exception_data.cpp" />
-		<Unit filename="../../../source/data_body/floating_data.cpp" />
-		<Unit filename="../../../source/data_body/integer_data.cpp" />
+		<Unit filename="../../../source/data_body/exception_data_body.cpp" />
 		<Unit filename="../../../source/data_body/object_data.cpp" />
+		<Unit filename="../../../source/data_body/stacktrace_data.cpp" />
 		<Unit filename="../../../source/data_body/text_data.cpp" />
-		<Unit filename="../../../source/data_body/trace_data.cpp" />
+		<Unit filename="../../../source/data_body/text_data_body.cpp" />
 		<Unit filename="../../../source/data_head/boolean_data.hpp" />
+		<Unit filename="../../../source/data_head/datetime_data.hpp" />
+		<Unit filename="../../../source/data_head/decimal_data.hpp" />
 		<Unit filename="../../../source/data_head/exception_data.hpp" />
-		<Unit filename="../../../source/data_head/floating_data.hpp" />
-		<Unit filename="../../../source/data_head/integer_data.hpp" />
+		<Unit filename="../../../source/data_head/exception_data_body.hpp" />
+		<Unit filename="../../../source/data_head/lazy_data.hpp" />
 		<Unit filename="../../../source/data_head/object_data.hpp" />
+		<Unit filename="../../../source/data_head/scalar_data.hpp" />
+		<Unit filename="../../../source/data_head/stacktrace_data.hpp" />
 		<Unit filename="../../../source/data_head/text_data.hpp" />
-		<Unit filename="../../../source/data_head/trace_data.hpp" />
+		<Unit filename="../../../source/data_head/text_data_body.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

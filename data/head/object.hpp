@@ -46,28 +46,28 @@ namespace data
         /// Create object of logical value
         explicit object(bool value);
 
-        /// Create object of 8-bit signed integer 
+        /// Create object of 8-bit signed integer
         explicit object(int8_t value);
 
-        /// Create object of 16-bit signed integer 
+        /// Create object of 16-bit signed integer
         explicit object(int16_t value);
 
-        /// Create object of 32-bit signed integer 
+        /// Create object of 32-bit signed integer
         explicit object(int32_t value);
 
-        /// Create object of 64-bit signed integer 
+        /// Create object of 64-bit signed integer
         explicit object(int64_t value);
 
-        /// Create object of 8-bit unsigned integer 
+        /// Create object of 8-bit unsigned integer
         explicit object(uint8_t value);
 
-        /// Create object of 16-bit unsigned integer 
+        /// Create object of 16-bit unsigned integer
         explicit object(uint16_t value);
 
-        /// Create object of 32-bit unsigned integer 
+        /// Create object of 32-bit unsigned integer
         explicit object(uint32_t value);
 
-        /// Create object of 64-bit unsigned integer 
+        /// Create object of 64-bit unsigned integer
         explicit object(uint64_t value);
 
         /// Create object of single precision floating point value
@@ -120,7 +120,7 @@ namespace data
         class data;
 
         /// Constant of max available size for data
-        static const size_t data_max_size = DATA_MAX_SIZE;
+        static const int data_max_size = DATA_MAX_SIZE;
 
         /// Address of buffer
         char* buffer();
