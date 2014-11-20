@@ -12,6 +12,9 @@ namespace data
     public:
         data();
         data(int64_t integral, uint64_t fractional);
+        data(double value);
+        data(float value);
+        data(text const& value);
 
         int64_t get_integral() const;
         uint64_t get_fractional() const;

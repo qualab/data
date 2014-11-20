@@ -36,9 +36,6 @@
     <ClInclude Include="..\..\..\data\head\text.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\head\trace.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
@@ -46,9 +43,6 @@
       <Filter>source\data_head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp">
-      <Filter>source\data_head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\source\data_head\trace_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\data\head\query.hpp">
@@ -84,9 +78,6 @@
     <ClInclude Include="..\..\..\data\text">
       <Filter>data</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\trace">
-      <Filter>data</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\unit">
       <Filter>data</Filter>
     </ClInclude>
@@ -108,6 +99,15 @@
     <ClInclude Include="..\..\..\source\data_head\exception_data_body.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\stacktrace.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\datetime.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\stacktrace_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\body\exception.cpp">
@@ -119,9 +119,6 @@
     <ClCompile Include="..\..\..\source\body\text.cpp">
       <Filter>source\body</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\body\trace.cpp">
-      <Filter>source\body</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
@@ -129,9 +126,6 @@
       <Filter>source\data_body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp">
-      <Filter>source\data_body</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\data_body\trace_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\body\decimal.cpp">
@@ -146,9 +140,27 @@
     <ClCompile Include="..\..\..\source\data_body\exception_data_body.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\body\stacktrace.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\datetime.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\datetime_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\stacktrace_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\data\cast">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\stacktrace">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\..\data\datetime">
       <Filter>data</Filter>
     </None>
   </ItemGroup>

@@ -15,6 +15,22 @@ namespace data
     {
     }
 
+    decimal::data::data(double value)
+        : m_integral(cast<int64_t>(value)), m_fractional(cast<uint64_t>((value - m_integral) * divider))
+    {
+    }
+
+    decimal::data::data(float value)
+        : m_integral(cast<int64_t>(value)), m_fractional(cast<uint64_t>((value - m_integral) * divider))
+    {
+    }
+
+    decimal::data::data(text const& value)
+        : m_integral(), m_fractional()
+    {
+        // TODO: ...
+    }
+
     int64_t decimal::data::get_integral() const
     {
         return m_integral;
@@ -37,22 +53,22 @@ namespace data
 
     uint64_t decimal::data::as_uint64() const
     {
-        return cast<uint64_t>(m_intfloor);
+        return cast<uint64_t>(m_integral);
     }
 
     int64_t decimal::data::as_int64() const
     {
-        return m_intfloor;
+        return m_integral;
     }
 
     double decimal::data::as_double() const
     {
-        return cast<double>(m_intfloor) + m_multifract / static_cast<double>(divider);
+        return cast<double>(m_integral) + m_fractional / static_cast<double>(divider);
     }
 
     float decimal::data::as_float() const
     {
-        return cast<float>(m_intfloor) + m_multifract / static_cast<float>(divider);
+        return cast<float>(m_integral) + m_fractional / static_cast<float>(divider);
     }
 
     text decimal::data::as_text() const

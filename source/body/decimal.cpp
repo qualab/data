@@ -15,19 +15,19 @@ namespace data
     }
 
     decimal::decimal(text const& value)
-        : object(m_data = new(buffer()) decimal::data(value))
+        DATA_OBJECT_CREATE(decimal::data, (value))
     {
         DATA_CALL_INFO("Create data::decimal with value parsed from text.");
     }
 
     decimal::decimal(float value)
-        : object(m_data = new(buffer()) decimal::data(value))
+        DATA_OBJECT_CREATE(decimal::data, (value))
     {
         DATA_CALL_INFO("Create data::decimal with value of single-precision floating-point.");
     }
 
     decimal::decimal(double value)
-        : object(m_data = new(buffer()) decimal::data(value))
+        DATA_OBJECT_CREATE(decimal::data, (value))
     {
         DATA_CALL_INFO("Create data::decimal with value of double-precision floating-point.");
     }
