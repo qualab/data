@@ -29,8 +29,8 @@ namespace data
         /// Get exception associated message
         virtual text get_message() const;
 
-        /// Get exception trace back to origin
-        virtual trace get_trace() const;
+        /// Get exception stacktrace back to origin
+        virtual stacktrace get_stacktrace() const;
 
         /// Override of std::exception::what
         virtual char const* what() const override;

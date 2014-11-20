@@ -1,11 +1,10 @@
 ﻿/// @author Владимир Керимов
 
-#include <data_head/object_data.hpp>
 #include <data_head/scalar_data.hpp>
 #include <data/exception>
 #include <data/decimal>
 #include <data/text>
-#include <data/trace>
+#include <data/stacktrace>
 #include <string>
 
 namespace data
@@ -82,26 +81,22 @@ namespace data
 
     char* object::buffer()
     {
-        DATA_CALL_INFO("Buffer reference for derived from data::object classes.");
         return m_buffer;
     }
 
     object::data* object::data_ptr()
     {
-        DATA_CALL_INFO("Data pointer for derived from data::object classes.");
         return m_data;
     }
 
     object::data const* object::data_ptr() const
     {
-        DATA_CALL_INFO("Data pointer for derived from data::object classes.");
         return m_data;
     }
 
     object::object(object::data* derived_data)
         : m_data(derived_data)
     {
-        DATA_CALL_INFO("Create data::object from new created derived data class instance.");
         if (static_cast<void*>(derived_data) != static_cast<void*>(m_buffer))
         {
             m_data = nullptr; // m_data can't refer outside m_buffer
@@ -266,14 +261,14 @@ namespace data
     char const* object::as() const
     {
         DATA_OBJECT_CHECK_NOT_NULL("byte-character C-string pointer");
-        return m_data->as_text().byte_char();
+        return m_data->as_text().byte_c_str();
     }
 
     template <>
     wchar_t const* object::as() const
     {
         DATA_OBJECT_CHECK_NOT_NULL("wide-character C-string pointer");
-        return m_data->as_text().wide_char();
+        return m_data->as_text().wide_c_str();
     }
 
     template <>
@@ -285,7 +280,7 @@ namespace data
 
     template <> DATA_API std::wstring object::as() const
     {
-        DATA_OBJECT_CHECK_NOT_NULL("wide-character STL string container");
+        DATA_OBJECT_CHECK_NOT_NULL("wide-character standard string container");
         return m_data->as_text().wide_string();
     }    
 }

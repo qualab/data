@@ -1,7 +1,9 @@
 ﻿/// @author Владимир Керимов
 
-#pragma once
+#include <data_head/datetime_data.hpp>
 
-#include <data/head/lazy.hpp>
+namespace data
+{
+}
 
 // sine qua non

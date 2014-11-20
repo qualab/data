@@ -11,47 +11,77 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\api" />
-    <None Include="..\..\..\data\cast" />
-    <None Include="..\..\..\data\exception" />
-    <None Include="..\..\..\data\lazy" />
+    <ClInclude Include="..\..\..\data\api">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\cast">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\datetime">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\exception">
+      <FileType>Document</FileType>
+    </ClInclude>
     <None Include="..\..\..\data\numeric" />
-    <None Include="..\..\..\data\object" />
-    <None Include="..\..\..\data\stdfwd" />
-    <None Include="..\..\..\data\text" />
-    <None Include="..\..\..\data\trace" />
+    <ClInclude Include="..\..\..\data\object">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\query">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stdfwd">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\text">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\stacktrace">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\unit">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.hpp" />
     <ClInclude Include="..\..\..\data\head\cast.hpp" />
+    <ClInclude Include="..\..\..\data\head\datetime.hpp" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
     <ClInclude Include="..\..\..\data\head\numeric.hpp" />
     <ClInclude Include="..\..\..\data\head\object.hpp" />
+    <ClInclude Include="..\..\..\data\head\query.hpp" />
     <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
     <ClInclude Include="..\..\..\data\head\text.hpp" />
-    <ClInclude Include="..\..\..\data\head\trace.hpp" />
+    <ClInclude Include="..\..\..\data\head\stacktrace.hpp" />
+    <ClInclude Include="..\..\..\data\head\unit.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\datetime_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\exception_data_body.hpp" />
     <ClInclude Include="..\..\..\source\data_head\lazy_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\text_data_body.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\trace_data.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\stacktrace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\datetime.cpp" />
     <ClCompile Include="..\..\..\source\body\decimal.cpp" />
     <ClCompile Include="..\..\..\source\body\exception.cpp" />
     <ClCompile Include="..\..\..\source\body\object.cpp" />
     <ClCompile Include="..\..\..\source\body\text.cpp" />
-    <ClCompile Include="..\..\..\source\body\trace.cpp" />
+    <ClCompile Include="..\..\..\source\body\stacktrace.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\datetime_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\exception_data_body.cpp" />
     <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\trace_data.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\stacktrace_data.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>

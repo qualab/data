@@ -6,44 +6,23 @@
 namespace data
 {
     decimal::data::data()
-        : m_intfloor(0), m_multifract(0)
+        : m_integral(0), m_fractional(0)
     {
     }
 
-    decimal::data::data(int64_t intfloor, uint64_t multifract)
-        : m_intfloor(intfloor), m_multifract(multifract)
+    decimal::data::data(int64_t integral, uint64_t fractional)
+        : m_integral(integral), m_fractional(fractional)
     {
     }
 
-    decimal::data::data(int64_t value)
-        : m_intfloor(value), m_multifract(0)
+    int64_t decimal::data::get_integral() const
     {
+        return m_integral;
     }
 
-    decimal::data::data(double value)
-        : m_intfloor(int(value)), m_multifract(int((value - m_intfloor) * divider))
+    uint64_t decimal::data::get_fractional() const
     {
-    }
-
-    decimal::data::data(float value)
-        : m_intfloor(int(value)), m_multifract(int((value - m_intfloor) * divider))
-    {
-    }
-
-    decimal::data::data(text const& value)
-        : m_intfloor(), m_multifract()
-    {
-        // TODO: read from text
-    }
-
-    int64_t decimal::data::get_intfloor() const
-    {
-        return m_intfloor;
-    }
-
-    uint64_t decimal::data::get_multifract() const
-    {
-        return m_multifract;
+        return m_fractional;
     }
 
     object::data* decimal::data::copy_to(void* address) const

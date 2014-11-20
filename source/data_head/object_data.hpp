@@ -5,6 +5,9 @@
 #include <data/object>
 #include <memory>
 
+#define DATA_OBJECT_CREATE(data_type, arguments) \
+    : object(new(buffer()) data_type arguments)
+
 namespace data
 {
     // base class for data of object

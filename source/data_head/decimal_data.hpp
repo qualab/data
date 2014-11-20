@@ -11,15 +11,10 @@ namespace data
     {
     public:
         data();
-        data(int64_t intfloor, uint64_t multifract);
+        data(int64_t integral, uint64_t fractional);
 
-        data(int64_t value);
-        data(double value);
-        data(float value);
-        data(text const& value);
-
-        int64_t  get_intfloor() const;
-        uint64_t get_multifract() const;
+        int64_t get_integral() const;
+        uint64_t get_fractional() const;
 
         static const uint64_t divider = static_cast<int64_t>(1e+18);
 
@@ -35,8 +30,11 @@ namespace data
         virtual text as_text() const override;
 
     private:
-		int64_t  m_intfloor;   //< maximal integer less than this value (floor)
-        uint64_t m_multifract; //< fractional part multiplied to 10^18 and round to integer
+        /// Maximum of integer less than this value (floor)
+		int64_t m_integral; 
+
+        /// Fractional part multiplied to 10^18 and round to integer
+        uint64_t m_fractional;
     };
 }
 

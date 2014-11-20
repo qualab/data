@@ -13,10 +13,10 @@ namespace data
     public:
         data();
         data(text const& message);
-        data(text const& message, text const& file, int line, text const& function);
+        data(text const& message, char const* file, int line, char const* function);
 
         text get_message() const;
-        trace get_trace() const;
+        stacktrace get_stacktrace() const;
 
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
