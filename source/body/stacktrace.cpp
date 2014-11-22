@@ -21,20 +21,20 @@ namespace data
         static_assert(sizeof(stacktrace::data) <= data_max_size, "Data size of data::stacktrace class have greater size than provided by base data::object class.");
     }
 
-#define DATA_stacktrace_ON_PUSH \
+#define DATA_STACKTRACE_ON_PUSH \
         if (m_data->is_on_push()) \
             return stacktrace::auto_pop(); \
         m_data->set_on_push(true) \
 
     stacktrace::auto_pop stacktrace::push(callinfo new_entry)
     {
-        DATA_stacktrace_ON_PUSH;
+        DATA_STACKTRACE_ON_PUSH;
         return m_data->push(new_entry);
     }
 
     stacktrace::auto_pop stacktrace::push(char const* info, char const* file, int line, char const* function)
     {
-        DATA_stacktrace_ON_PUSH;
+        DATA_STACKTRACE_ON_PUSH;
         return m_data->push(callinfo(info, file, line, function));
     }
 

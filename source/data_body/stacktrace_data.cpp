@@ -5,6 +5,7 @@
 namespace data
 {
     stacktrace::data::data()
+        : m_on_push(false)
     {
     }
 

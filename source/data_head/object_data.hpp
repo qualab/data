@@ -6,7 +6,7 @@
 #include <memory>
 
 #define DATA_OBJECT_CREATE(data_type, arguments) \
-    : object(new(buffer()) data_type arguments)
+    : object((m_data = new(buffer()) data_type arguments))
 
 namespace data
 {
