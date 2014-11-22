@@ -493,6 +493,12 @@ namespace data
 // ---- value <= std::wstring
 
     template <>
+    struct DATA_API type_cast<bool, std::wstring>
+    {
+        static bool try_cast(bool& result, std::wstring const& value);
+    };
+
+    template <>
     struct DATA_API type_cast<int64_t, std::wstring>
     {
         static bool try_cast(int64_t& result, std::wstring const& value);

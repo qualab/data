@@ -38,6 +38,23 @@ namespace data
         virtual object::data* copy_to(void* address) const override;
         virtual object::data* move_to(void* address) const override;
 
+        virtual bool    as_bool()  const override;
+
+        virtual int64_t as_int64() const override;
+        virtual int32_t as_int32() const override;
+        virtual int16_t as_int16() const override;
+        virtual int8_t  as_int8()  const override;
+
+        virtual uint64_t as_uint64() const override;
+        virtual uint32_t as_uint32() const override;
+        virtual uint16_t as_uint16() const override;
+        virtual uint8_t  as_uint8()  const override;
+
+        virtual double as_double() const override;
+        virtual float  as_float()  const override;
+
+        virtual decimal as_decimal() const override;
+
     protected:
         class body;
 

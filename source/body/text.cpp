@@ -130,36 +130,48 @@ namespace data
 
     char const* text::byte_c_str(char const* encoding) const
     {
+        DATA_CALL_INFO("Get text as pointer to byte-character null-terminated string "
+                        "in encoding specified as pointer to byte-character null-terminated string.");
         return m_data->byte_c_str(encoding);
     }
 
     char const* text::byte_c_str(std::string const& encoding) const
     {
+        DATA_CALL_INFO("Get text as pointer to byte-character null-terminated string "
+                        "in encoding specified as standard byte-character string container.");
         return m_data->byte_c_str(encoding);
     }
 
     char const* text::byte_c_str() const
     {
+        DATA_CALL_INFO("Get text as pointer to byte-character null-terminated string "
+                        "in encoding specified inside data::text object.");
         return m_data->byte_c_str();
     }
 
     wchar_t const* text::wide_c_str() const
     {
+        DATA_CALL_INFO("Get pointer to wide-character null-terminated string.");
         return m_data->wide_c_str();
     }
 
     std::string const& text::byte_string(std::string const& encoding) const
     {
+        DATA_CALL_INFO("Get text as byte-character standard string container "
+                        "in encoding specified as standard byte-character string container.");
         return m_data->byte_string(encoding);
     }
 
     std::string const& text::byte_string() const
     {
+        DATA_CALL_INFO("Get text as byte-character standard string container "
+                        "in encoding specified inside data::text object.");
         return m_data->byte_string();
     }
 
     std::wstring const& text::wide_string() const
     {
+        DATA_CALL_INFO("Get text as wide-character standard string container.");
         return m_data->wide_string();
     }
 }

@@ -1,6 +1,7 @@
 ﻿/// @author Владимир Керимов
 
 #include <data_head/text_data_body.hpp>
+#include <data/decimal>
 
 namespace data
 {
@@ -96,6 +97,66 @@ namespace data
     wchar_t const* text::data::wide_c_str() const
     {
         return m_body->wide_c_str();
+    }
+
+    bool text::data::as_bool() const
+    {
+        return m_body->as<bool>();
+    }
+
+    int64_t text::data::as_int64() const
+    {
+        return m_body->as<int64_t>();
+    }
+
+    int32_t text::data::as_int32() const
+    {
+        return m_body->as<int32_t>();
+    }
+
+    int16_t text::data::as_int16() const
+    {
+        return m_body->as<int16_t>();
+    }
+
+    int8_t text::data::as_int8() const
+    {
+        return m_body->as<int8_t>();
+    }
+
+    uint64_t text::data::as_uint64() const
+    {
+        return m_body->as<uint64_t>();
+    }
+
+    uint32_t text::data::as_uint32() const
+    {
+        return m_body->as<uint32_t>();
+    }
+
+    uint16_t text::data::as_uint16() const
+    {
+        return m_body->as<uint16_t>();
+    }
+
+    uint8_t text::data::as_uint8() const
+    {
+        return m_body->as<uint8_t>();
+    }
+
+    double text::data::as_double() const
+    {
+        return m_body->as<double>();
+    }
+
+    float text::data::as_float() const
+    {
+        return m_body->as<float>();
+    }
+
+    decimal text::data::as_decimal() const
+    {
+        return m_body->as<decimal>();
     }
 }
 
