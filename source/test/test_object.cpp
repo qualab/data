@@ -28,7 +28,7 @@ namespace data
 
                 data::object real = data::object(3.14159);
                 DATA_CHECK_CLOSE(real.as<double>(), 3.14159, 1e-15);
-                DATA_CHECK_EQUAL(real.as<int>(), 4);
+                DATA_CHECK_EQUAL(real.as<int>(), 3);
                 DATA_CHECK_IS_TRUE(real.as<bool>());
             }
         } g_test_object;
