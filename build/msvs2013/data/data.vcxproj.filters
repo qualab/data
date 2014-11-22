@@ -162,5 +162,8 @@
     <ClCompile Include="..\..\..\source\data_body\stacktrace_data.cpp">
       <Filter>source\data_body</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\body\cast.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

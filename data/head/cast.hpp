@@ -269,6 +269,126 @@ namespace data
             return true;
         }
     };
+
+    template <>
+    struct DATA_API type_cast<std::string, int64_t>
+    {
+        static bool try_cast(std::string& result, int64_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, int32_t>
+    {
+        static bool try_cast(std::string& result, int32_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, int16_t>
+    {
+        static bool try_cast(std::string& result, int16_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, int8_t>
+    {
+        static bool try_cast(std::string& result, int8_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, uint64_t>
+    {
+        static bool try_cast(std::string& result, uint64_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, uint32_t>
+    {
+        static bool try_cast(std::string& result, uint32_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, uint16_t>
+    {
+        static bool try_cast(std::string& result, uint16_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, uint8_t>
+    {
+        static bool try_cast(std::string& result, uint8_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, double>
+    {
+        static bool try_cast(std::string& result, double const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, float>
+    {
+        static bool try_cast(std::string& result, float const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int64_t, std::string>
+    {
+        static bool try_cast(int64_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int32_t, std::string>
+    {
+        static bool try_cast(int32_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int16_t, std::string>
+    {
+        static bool try_cast(int16_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int8_t, std::string>
+    {
+        static bool try_cast(int8_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint64_t, std::string>
+    {
+        static bool try_cast(uint64_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint32_t, std::string>
+    {
+        static bool try_cast(uint32_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint16_t, std::string>
+    {
+        static bool try_cast(uint16_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint8_t, std::string>
+    {
+        static bool try_cast(uint8_t& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<double, std::string>
+    {
+        static bool try_cast(double& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<float, std::string>
+    {
+        static bool try_cast(float& result, std::string const& value);
+    };
 }
 
 // sine qua non
