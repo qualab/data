@@ -21,7 +21,7 @@
 #define DATA_BYTE_FORMAT_DOUBLE "%LG"
 #define DATA_BYTE_FORMAT_FLOAT  "%G"
 
-#define DATA_WIDE( literal_constant ) L ## literal_constant
+#define DATA_WIDE( literal_constant ) L ## #literal_constant
 
 #define DATA_WIDE_FORMAT_INT64  DATA_WIDE( DATA_BYTE_FORMAT_INT64 )
 #define DATA_WIDE_FORMAT_INT32  DATA_WIDE( DATA_BYTE_FORMAT_INT32 )
@@ -83,14 +83,14 @@ namespace data
     template <> char const* const string_format<double,   char>::format = DATA_BYTE_FORMAT_DOUBLE;
     template <> char const* const string_format<float,    char>::format = DATA_BYTE_FORMAT_FLOAT;
 
-    //template <> wchar_t const* const string_format<int64_t, wchar_t>::format = DATA_WIDE_FORMAT_INT64;
-    //template <> wchar_t const* const string_format<int32_t, wchar_t>::format = DATA_WIDE_FORMAT_INT32;
-    //template <> wchar_t const* const string_format<int16_t, wchar_t>::format = DATA_WIDE_FORMAT_INT16;
-    //template <> wchar_t const* const string_format<uint64_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT64;
-    //template <> wchar_t const* const string_format<uint32_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT32;
-    //template <> wchar_t const* const string_format<uint16_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT16;
-    //template <> wchar_t const* const string_format<double, wchar_t>::format = DATA_WIDE_FORMAT_DOUBLE;
-    //template <> wchar_t const* const string_format<float, wchar_t>::format = DATA_WIDE_FORMAT_FLOAT;
+    template <> wchar_t const* const string_format<int64_t,  wchar_t>::format = DATA_WIDE_FORMAT_INT64;
+    template <> wchar_t const* const string_format<int32_t,  wchar_t>::format = DATA_WIDE_FORMAT_INT32;
+    template <> wchar_t const* const string_format<int16_t,  wchar_t>::format = DATA_WIDE_FORMAT_INT16;
+    template <> wchar_t const* const string_format<uint64_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT64;
+    template <> wchar_t const* const string_format<uint32_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT32;
+    template <> wchar_t const* const string_format<uint16_t, wchar_t>::format = DATA_WIDE_FORMAT_UINT16;
+    template <> wchar_t const* const string_format<double,   wchar_t>::format = DATA_WIDE_FORMAT_DOUBLE;
+    template <> wchar_t const* const string_format<float,    wchar_t>::format = DATA_WIDE_FORMAT_FLOAT;
 
     template <typename value_type, typename char_type>
     bool cast_to_string(std::basic_string<char_type>& result, value_type const& value)
@@ -177,7 +177,11 @@ namespace data
 
     bool type_cast<int8_t, std::string>::try_cast(int8_t& result, std::string const& value)
     {
-        return try_cast_from_string(result, value);
+        int16_t holder;
+        if (!try_cast_from_string(holder, value))
+            return false;
+        result = cast<int8_t>(holder);
+        return true;
     }
 
     bool type_cast<uint64_t, std::string>::try_cast(uint64_t& result, std::string const& value)
@@ -197,7 +201,11 @@ namespace data
 
     bool type_cast<uint8_t, std::string>::try_cast(uint8_t& result, std::string const& value)
     {
-        return try_cast_from_string(result, value);
+        uint16_t holder;
+        if (!try_cast_from_string(holder, value))
+            return false;
+        result = cast<uint8_t>(holder);
+        return true;
     }
 
     bool type_cast<double, std::string>::try_cast(double& result, std::string const& value)
@@ -206,6 +214,114 @@ namespace data
     }
 
     bool type_cast<float, std::string>::try_cast(float& result, std::string const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<std::wstring, int64_t>::try_cast(std::wstring& result, int64_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, int32_t>::try_cast(std::wstring& result, int32_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, int16_t>::try_cast(std::wstring& result, int16_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, int8_t>::try_cast(std::wstring& result, int8_t const& value)
+    {
+        return cast_to_string(result, static_cast<int16_t>(value));
+    }
+
+    bool type_cast<std::wstring, uint64_t>::try_cast(std::wstring& result, uint64_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, uint32_t>::try_cast(std::wstring& result, uint32_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, uint16_t>::try_cast(std::wstring& result, uint16_t const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, uint8_t>::try_cast(std::wstring& result, uint8_t const& value)
+    {
+        return cast_to_string(result, static_cast<uint16_t>(value));
+    }
+
+    bool type_cast<std::wstring, double>::try_cast(std::wstring& result, double const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, float>::try_cast(std::wstring& result, float const& value)
+    {
+        return cast_to_string(result, value);
+    }
+
+    bool type_cast<int64_t, std::wstring>::try_cast(int64_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<int32_t, std::wstring>::try_cast(int32_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<int16_t, std::wstring>::try_cast(int16_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<int8_t, std::wstring>::try_cast(int8_t& result, std::wstring const& value)
+    {
+        int16_t holder;
+        if (!try_cast_from_string(holder, value))
+            return false;
+        result = cast<int8_t>(holder);
+        return true;
+    }
+
+    bool type_cast<uint64_t, std::wstring>::try_cast(uint64_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<uint32_t, std::wstring>::try_cast(uint32_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<uint16_t, std::wstring>::try_cast(uint16_t& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<uint8_t, std::wstring>::try_cast(uint8_t& result, std::wstring const& value)
+    {
+        uint16_t holder;
+        if (!try_cast_from_string(holder, value))
+            return false;
+        result = cast<uint8_t>(holder);
+        return true;
+    }
+
+    bool type_cast<double, std::wstring>::try_cast(double& result, std::wstring const& value)
+    {
+        return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<float, std::wstring>::try_cast(float& result, std::wstring const& value)
     {
         return try_cast_from_string(result, value);
     }

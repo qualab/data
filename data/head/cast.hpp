@@ -270,6 +270,8 @@ namespace data
         }
     };
 
+// ---- std::string <= value
+
     template <>
     struct DATA_API type_cast<std::string, int64_t>
     {
@@ -330,6 +332,8 @@ namespace data
         static bool try_cast(std::string& result, float const& value);
     };
 
+// ---- value <= std::string
+
     template <>
     struct DATA_API type_cast<int64_t, std::string>
     {
@@ -388,6 +392,130 @@ namespace data
     struct DATA_API type_cast<float, std::string>
     {
         static bool try_cast(float& result, std::string const& value);
+    };
+
+// ---- std::wstring <= value
+
+    template <>
+    struct DATA_API type_cast<std::wstring, int64_t>
+    {
+        static bool try_cast(std::wstring& result, int64_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, int32_t>
+    {
+        static bool try_cast(std::wstring& result, int32_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, int16_t>
+    {
+        static bool try_cast(std::wstring& result, int16_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, int8_t>
+    {
+        static bool try_cast(std::wstring& result, int8_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, uint64_t>
+    {
+        static bool try_cast(std::wstring& result, uint64_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, uint32_t>
+    {
+        static bool try_cast(std::wstring& result, uint32_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, uint16_t>
+    {
+        static bool try_cast(std::wstring& result, uint16_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, uint8_t>
+    {
+        static bool try_cast(std::wstring& result, uint8_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, double>
+    {
+        static bool try_cast(std::wstring& result, double const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::wstring, float>
+    {
+        static bool try_cast(std::wstring& result, float const& value);
+    };
+
+// ---- value <= std::wstring
+
+    template <>
+    struct DATA_API type_cast<int64_t, std::wstring>
+    {
+        static bool try_cast(int64_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int32_t, std::wstring>
+    {
+        static bool try_cast(int32_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int16_t, std::wstring>
+    {
+        static bool try_cast(int16_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<int8_t, std::wstring>
+    {
+        static bool try_cast(int8_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint64_t, std::wstring>
+    {
+        static bool try_cast(uint64_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint32_t, std::wstring>
+    {
+        static bool try_cast(uint32_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint16_t, std::wstring>
+    {
+        static bool try_cast(uint16_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<uint8_t, std::wstring>
+    {
+        static bool try_cast(uint8_t& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<double, std::wstring>
+    {
+        static bool try_cast(double& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<float, std::wstring>
+    {
+        static bool try_cast(float& result, std::wstring const& value);
     };
 }
 
