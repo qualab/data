@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\test\test.cpp" />
+    <ClCompile Include="..\..\..\source\test\test_cast.cpp" />
     <ClCompile Include="..\..\..\source\test\test_object.cpp" />
   </ItemGroup>
   <ItemGroup>

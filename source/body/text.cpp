@@ -3,11 +3,12 @@
 #include <data_head/text_data.hpp>
 #include <data/exception>
 #include <data/stacktrace>
+#include <data/cast>
+#include <string>
 
 namespace data
 {
     text::text()
-        DATA_OBJECT_CREATE(text::data, ())
     {
         DATA_CALL_INFO("Create an empty data::text object with text of zero length.");
         static_assert(sizeof(text::data) <= data_max_size, "Data size of data::text class have greater size than provided by base data::object class.");
@@ -46,73 +47,85 @@ namespace data
     text::text(std::string const& value)
         DATA_OBJECT_CREATE(text::data, (value))
     {
-        // TODO: initialization by byte-character string container
+        DATA_CALL_INFO("Create an empty data::text by byte-character string container with default encoding.");
     }
 
     text::text(std::wstring const& value)
         DATA_OBJECT_CREATE(text::data, (value))
     {
-        // TODO: initialization by wide-character string container
+        DATA_CALL_INFO("Create an empty data::text by wide-character string container.");
     }
 
     text::text(object const& another)
         DATA_OBJECT_CREATE(text::data, (*dynamic_cast<text::data const*>(another.data_ptr())))
     {
+        DATA_CALL_INFO("Create data::text by another object.");
     }
 
     text::text(bool value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert boolean value to text
+        DATA_CALL_INFO("Create data::text as representation of boolean value.");
     }
 
     text::text(int64_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 64-bit signed integer to text
+        DATA_CALL_INFO("Create data::text as representation of 64-bit signed integral value.");
     }
 
     text::text(int32_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 32-bit signed integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 32-bit signed integral value.");
     }
 
     text::text(int16_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 16-bit signed integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 16-bit signed integral value.");
     }
 
     text::text(int8_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 8-bit signed integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 8-bit signed integral value.");
     }
 
     text::text(uint64_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 64-bit unsigned integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 64-bit unsigned integral value.");
     }
 
     text::text(uint32_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 32-bit unsigned integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 32-bit unsigned integral value.");
     }
 
     text::text(uint16_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 16-bit unsigned integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 16-bit unsigned integral value.");
     }
 
     text::text(uint8_t value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert 8-bit unsigned integer value to text
+        DATA_CALL_INFO("Create data::text as representation of 8-bit unsigned integral value.");
     }
 
     text::text(double value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert double-precision floating-point value to text
+        DATA_CALL_INFO("Create data::text as representation of double-precision floating-point value.");
     }
 
     text::text(float value)
+        DATA_OBJECT_CREATE(text::data, (cast<std::string>(value)))
     {
-        // TODO: convert double-precision floating-point value to text
+        DATA_CALL_INFO("Create data::text as representation of single-precision floating-point value.");
     }
 
     char const* text::byte_c_str(char const* encoding) const

@@ -37,7 +37,17 @@ namespace data
         return result;
     }
 
-    // Specializations of template of type_cast
+// ---- Literal constants
+
+    DATA_API extern char const* const byte_string_null;
+    DATA_API extern char const* const byte_string_true;
+    DATA_API extern char const* const byte_string_false;
+
+    DATA_API extern wchar_t const* const wide_string_null;
+    DATA_API extern wchar_t const* const wide_string_true;
+    DATA_API extern wchar_t const* const wide_string_false;
+
+// ---- Specializations of template of type_cast
 
     // Trevial cast to the same type
     template <typename same_type>
@@ -273,6 +283,18 @@ namespace data
 // ---- std::string <= value
 
     template <>
+    struct DATA_API type_cast<std::string, std::nullptr_t>
+    {
+        static bool try_cast(std::string& result, std::nullptr_t const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<std::string, bool>
+    {
+        static bool try_cast(std::string& result, bool const& value);
+    };
+
+    template <>
     struct DATA_API type_cast<std::string, int64_t>
     {
         static bool try_cast(std::string& result, int64_t const& value);
@@ -335,6 +357,12 @@ namespace data
 // ---- value <= std::string
 
     template <>
+    struct DATA_API type_cast<bool, std::string>
+    {
+        static bool try_cast(bool& result, std::string const& value);
+    };
+
+    template <>
     struct DATA_API type_cast<int64_t, std::string>
     {
         static bool try_cast(int64_t& result, std::string const& value);
@@ -395,6 +423,12 @@ namespace data
     };
 
 // ---- std::wstring <= value
+
+    template <>
+    struct DATA_API type_cast<std::wstring, bool>
+    {
+        static bool try_cast(std::wstring& result, bool const& value);
+    };
 
     template <>
     struct DATA_API type_cast<std::wstring, int64_t>

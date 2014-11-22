@@ -23,7 +23,6 @@
     <ClInclude Include="..\..\..\data\exception">
       <FileType>Document</FileType>
     </ClInclude>
-    <None Include="..\..\..\data\numeric" />
     <ClInclude Include="..\..\..\data\object">
       <FileType>Document</FileType>
     </ClInclude>
@@ -49,7 +48,6 @@
     <ClInclude Include="..\..\..\data\head\datetime.hpp" />
     <ClInclude Include="..\..\..\data\head\exception.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp" />
-    <ClInclude Include="..\..\..\data\head\numeric.hpp" />
     <ClInclude Include="..\..\..\data\head\object.hpp" />
     <ClInclude Include="..\..\..\data\head\query.hpp" />
     <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />

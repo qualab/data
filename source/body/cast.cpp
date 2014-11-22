@@ -21,6 +21,10 @@
 #define DATA_BYTE_FORMAT_DOUBLE "%LG"
 #define DATA_BYTE_FORMAT_FLOAT  "%G"
 
+#define DATA_BYTE_STRING_NULL   "null"
+#define DATA_BYTE_STRING_TRUE   "true"
+#define DATA_BYTE_STRING_FALSE  "false"
+
 #define DATA_WIDE( literal_constant ) L ## #literal_constant
 
 #define DATA_WIDE_FORMAT_INT64  DATA_WIDE( DATA_BYTE_FORMAT_INT64 )
@@ -32,8 +36,20 @@
 #define DATA_WIDE_FORMAT_DOUBLE DATA_WIDE( DATA_BYTE_FORMAT_DOUBLE )
 #define DATA_WIDE_FORMAT_FLOAT  DATA_WIDE( DATA_BYTE_FORMAT_FLOAT )
 
+#define DATA_WIDE_STRING_NULL   DATA_WIDE( DATA_BYTE_STRING_NULL )
+#define DATA_WIDE_STRING_TRUE   DATA_WIDE( DATA_BYTE_STRING_TRUE )
+#define DATA_WIDE_STRING_FALSE  DATA_WIDE( DATA_BYTE_STRING_FALSE )
+
 namespace data
 {
+    char const* const byte_string_null  = DATA_BYTE_STRING_NULL;
+    char const* const byte_string_true  = DATA_BYTE_STRING_TRUE;
+    char const* const byte_string_false = DATA_BYTE_STRING_FALSE;
+
+    wchar_t const* const wide_string_null  = DATA_WIDE_STRING_NULL;
+    wchar_t const* const wide_string_true  = DATA_WIDE_STRING_TRUE;
+    wchar_t const* const wide_string_false = DATA_WIDE_STRING_FALSE;
+
     template <typename char_type>
     struct string_operations
     {
@@ -110,6 +126,18 @@ namespace data
         return count == 1;
     }
 
+    bool type_cast<std::string, std::nullptr_t>::try_cast(std::string& result, std::nullptr_t const& )
+    {
+        result = byte_string_null;
+        return true;
+    }
+
+    bool type_cast<std::string, bool>::try_cast(std::string& result, bool const& value)
+    {
+        result = value ? byte_string_true : byte_string_false;
+        return true;
+    }
+
     bool type_cast<std::string, int64_t>::try_cast(std::string& result, int64_t const& value)
     {
         return cast_to_string(result, value);
@@ -158,6 +186,12 @@ namespace data
     bool type_cast<std::string, float>::try_cast(std::string& result, float const& value)
     {
         return cast_to_string(result, value);
+    }
+
+    bool type_cast<bool, std::string>::try_cast(bool& result, std::string const& value)
+    {
+        result = !value.empty();
+        return true;
     }
 
     bool type_cast<int64_t, std::string>::try_cast(int64_t& result, std::string const& value)
@@ -218,6 +252,18 @@ namespace data
         return try_cast_from_string(result, value);
     }
 
+    bool type_cast<std::wstring, std::nullptr_t>::try_cast(std::wstring& result, std::nullptr_t const& )
+    {
+        result = wide_string_null;
+        return true;
+    }
+
+    bool type_cast<std::wstring, bool>::try_cast(std::wstring& result, bool const& value)
+    {
+        result = value ? wide_string_true : wide_string_false;
+        return true;
+    }
+
     bool type_cast<std::wstring, int64_t>::try_cast(std::wstring& result, int64_t const& value)
     {
         return cast_to_string(result, value);
@@ -266,6 +312,12 @@ namespace data
     bool type_cast<std::wstring, float>::try_cast(std::wstring& result, float const& value)
     {
         return cast_to_string(result, value);
+    }
+
+    bool type_cast<bool, std::wstring>::try_cast(bool& result, std::wstring const& value)
+    {
+        result = !value.empty();
+        return true;
     }
 
     bool type_cast<int64_t, std::wstring>::try_cast(int64_t& result, std::wstring const& value)

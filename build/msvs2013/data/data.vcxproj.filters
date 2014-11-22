@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\data\numeric" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\data\head\exception.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
@@ -45,7 +42,6 @@
     <ClInclude Include="..\..\..\source\data_head\text_data.hpp">
       <Filter>source\data_head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\head\numeric.hpp" />
     <ClInclude Include="..\..\..\data\head\decimal.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
