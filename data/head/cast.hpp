@@ -354,6 +354,12 @@ namespace data
         static bool try_cast(std::string& result, float const& value);
     };
 
+    template <>
+    struct DATA_API type_cast<std::string, decimal>
+    {
+        static bool try_cast(std::string& result, decimal const& value);
+    };
+
 // ---- value <= std::string
 
     template <>
@@ -420,6 +426,12 @@ namespace data
     struct DATA_API type_cast<float, std::string>
     {
         static bool try_cast(float& result, std::string const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<decimal, std::string>
+    {
+        static bool try_cast(decimal& result, std::string const& value);
     };
 
 // ---- std::wstring <= value
@@ -490,6 +502,12 @@ namespace data
         static bool try_cast(std::wstring& result, float const& value);
     };
 
+    template <>
+    struct DATA_API type_cast<std::wstring, decimal>
+    {
+        static bool try_cast(std::wstring& result, decimal const& value);
+    };
+
 // ---- value <= std::wstring
 
     template <>
@@ -556,6 +574,12 @@ namespace data
     struct DATA_API type_cast<float, std::wstring>
     {
         static bool try_cast(float& result, std::wstring const& value);
+    };
+
+    template <>
+    struct DATA_API type_cast<decimal, std::wstring>
+    {
+        static bool try_cast(decimal& result, std::wstring const& value);
     };
 }
 

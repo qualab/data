@@ -13,14 +13,11 @@ namespace data
         /// Create decimal with value of zero
         decimal();
 
+        /// Create decimal by boolean value
+        explicit decimal(bool value);
+
         /// Create decimal by textual representation
         explicit decimal(text const& value);
-
-        /// Create decimal by single precision floating-point value
-        explicit decimal(float value);
-
-        /// Create decimal by double precision floating-point value
-        explicit decimal(double value);
 
         /// Create decimal by 64-bit signed integer
         explicit decimal(int64_t value);
@@ -46,11 +43,22 @@ namespace data
         /// Create decimal by 8-bit unsigned integer
         explicit decimal(uint8_t value);
 
+        /// Create decimal by double precision floating-point value
+        explicit decimal(double value);
+
+        /// Create decimal by single precision floating-point value
+        explicit decimal(float value);
+
+        /// Create decimal from textual representation
+        explicit decimal(text const& value);
+
         /// Create decimal by integral and fractional components
         decimal(int64_t integral, uint64_t fractional);
 
+        /// maximal integer less or equal than value
         int64_t get_integral() const;
 
+        /// fractional part of value multiplied to divider
         uint64_t get_fractional() const;
 
     protected:

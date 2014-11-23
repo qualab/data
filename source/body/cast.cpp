@@ -1,6 +1,8 @@
 ﻿/// @author Владимир Керимов
 
 #include <data/cast>
+#include <data/text>
+#include <data/decimal>
 #include <cstddef>
 #include <cstdio>
 #include <string>
@@ -186,6 +188,12 @@ namespace data
     bool type_cast<std::string, float>::try_cast(std::string& result, float const& value)
     {
         return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::string, decimal>::try_cast(std::string& result, decimal const& value)
+    {
+        result = value.as<std::string>();
+        return true;
     }
 
     bool type_cast<bool, std::string>::try_cast(bool& result, std::string const& value)
