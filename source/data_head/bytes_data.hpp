@@ -13,6 +13,7 @@ namespace data
         data();
 
     private:
+        std::string m_array;
     };
 }
 
