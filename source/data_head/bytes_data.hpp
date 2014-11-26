@@ -4,6 +4,7 @@
 
 #include <data/bytes>
 #include <data_head/object_data.hpp>
+#include <string>
 
 namespace data
 {
@@ -12,7 +13,14 @@ namespace data
     public:
         data();
 
+        data(void* start, int length);
+        data(void* start, void* end);
+
+        byte  operator [] (int index) const;
+        byte& operator [] (int index);
+
     private:
+        std::string m_block;
     };
 }
 

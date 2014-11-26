@@ -6,6 +6,8 @@
 
 namespace data
 {
+    typedef uint8_t byte;
+
     /// Type of date and time with time zone
     class DATA_API bytes : public object
     {
