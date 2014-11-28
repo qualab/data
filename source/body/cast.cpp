@@ -260,6 +260,12 @@ namespace data
         return try_cast_from_string(result, value);
     }
 
+    bool type_cast<decimal, std::string>::try_cast(decimal& result, std::string const& value)
+    {
+        result = decimal(value);
+        return true;
+    }
+
     bool type_cast<std::wstring, std::nullptr_t>::try_cast(std::wstring& result, std::nullptr_t const& )
     {
         result = wide_string_null;
@@ -320,6 +326,12 @@ namespace data
     bool type_cast<std::wstring, float>::try_cast(std::wstring& result, float const& value)
     {
         return cast_to_string(result, value);
+    }
+
+    bool type_cast<std::wstring, decimal>::try_cast(std::wstring& result, decimal const& value)
+    {
+        result = value.as<std::wstring>();
+        return true;
     }
 
     bool type_cast<bool, std::wstring>::try_cast(bool& result, std::wstring const& value)
@@ -384,6 +396,12 @@ namespace data
     bool type_cast<float, std::wstring>::try_cast(float& result, std::wstring const& value)
     {
         return try_cast_from_string(result, value);
+    }
+
+    bool type_cast<decimal, std::wstring>::try_cast(decimal& result, std::wstring const& value)
+    {
+        result = decimal(value);
+        return true;
     }
 }
 

@@ -114,6 +114,12 @@
     <ClInclude Include="..\..\..\data\unit">
       <Filter>data</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\data_head\bytes_data.hpp">
+      <Filter>source\data_head</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\data\head\bytes.hpp">
+      <Filter>data\head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp">
@@ -161,5 +167,16 @@
     <ClCompile Include="..\..\..\source\body\cast.cpp">
       <Filter>source\body</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\data_body\bytes_data.cpp">
+      <Filter>source\data_body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\body\bytes.cpp">
+      <Filter>source\body</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\bytes">
+      <Filter>data</Filter>
+    </None>
   </ItemGroup>
 </Project>

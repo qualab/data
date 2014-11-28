@@ -16,9 +16,6 @@ namespace data
         /// Create decimal by boolean value
         explicit decimal(bool value);
 
-        /// Create decimal by textual representation
-        explicit decimal(text const& value);
-
         /// Create decimal by 64-bit signed integer
         explicit decimal(int64_t value);
 

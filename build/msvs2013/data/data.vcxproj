@@ -23,6 +23,7 @@
     <ClInclude Include="..\..\..\data\exception">
       <FileType>Document</FileType>
     </ClInclude>
+    <ClInclude Include="..\..\..\data\head\bytes.hpp" />
     <ClInclude Include="..\..\..\data\object">
       <FileType>Document</FileType>
     </ClInclude>
@@ -54,6 +55,7 @@
     <ClInclude Include="..\..\..\data\head\text.hpp" />
     <ClInclude Include="..\..\..\data\head\stacktrace.hpp" />
     <ClInclude Include="..\..\..\data\head\unit.hpp" />
+    <ClInclude Include="..\..\..\source\data_head\bytes_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\datetime_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
     <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
@@ -66,6 +68,7 @@
     <ClInclude Include="..\..\..\source\data_head\stacktrace_data.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\body\bytes.cpp" />
     <ClCompile Include="..\..\..\source\body\cast.cpp" />
     <ClCompile Include="..\..\..\source\body\datetime.cpp" />
     <ClCompile Include="..\..\..\source\body\decimal.cpp" />
@@ -73,6 +76,7 @@
     <ClCompile Include="..\..\..\source\body\object.cpp" />
     <ClCompile Include="..\..\..\source\body\text.cpp" />
     <ClCompile Include="..\..\..\source\body\stacktrace.cpp" />
+    <ClCompile Include="..\..\..\source\data_body\bytes_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\datetime_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
@@ -81,6 +85,9 @@
     <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
     <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp" />
     <ClCompile Include="..\..\..\source\data_body\stacktrace_data.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\bytes" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>

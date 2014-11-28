@@ -15,6 +15,12 @@ namespace data
         /// Create datetime of null value
         bytes();
 
+        /// Get byte by value from array
+        byte operator [] (int index) const;
+
+        /// Get byte by non-constant reference from array
+        byte& operator [] (int index);
+
     protected:
         /// Forward declaration of bytes::data
         class data;

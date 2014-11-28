@@ -19,6 +19,9 @@ namespace data
         byte  operator [] (int index) const;
         byte& operator [] (int index);
 
+        virtual object::data* copy_to(void* address) const override;
+        virtual object::data* move_to(void* address) const override;
+
     private:
         std::string m_block;
     };
