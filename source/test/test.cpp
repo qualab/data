@@ -19,36 +19,48 @@ namespace
     }
 }
 
+
 int main()
 {
+    using data::test::application;
     std::atexit(press_any_key);
-    data::test::scope::run();
+    application::instance().run();
     return 0;
 }
+
 
 namespace data
 {
     namespace test
     {
-        test::test()
+        scope::scope(std::string const& name, bool add_to_application)
+            : m_name(name)
         {
-            scope::add_test(this);
+            if (add_to_application)
+            {
+                application::instance().add_test(*this);
+            }
         }
 
-        void scope::add_test(test* new_test)
+        void scope::add_test(test_functor const& new_test)
         {
-            instance().m_tests.push_back(new_test);
+            m_tests.push_back(new_test);
         }
 
-        void scope::run()
+        void scope::operator () (void) const
         {
-            std::cout << "Test scope started." << std::endl;
-            std::for_each(instance().m_tests.begin(), instance().m_tests.end(),
-                [](test* single_test)
+            return run();
+        }
+
+        void scope::run() const
+        {
+            std::cout << "Enter \"" << m_name << '"' << std::endl;
+            std::for_each(m_tests.begin(), m_tests.end(),
+                [](test_functor const& single_test)
                 {
                     try
                     {
-                        single_test->run();
+                        single_test();
                     }
                     catch (std::exception& e)
                     {
@@ -56,21 +68,27 @@ namespace data
                     }
                 }
             );
-            std::cout << "Test scope finished." << std::endl;
+            std::cout << "Exit \"" << m_name << '"' << std::endl;
         }
 
-        scope::scope()
+        application::application()
+            : test::scope("Test application", false)
         {
         }
 
-        scope& scope::instance()
+        application& application::instance()
         {
-            static std::unique_ptr<scope> instance;
+            static std::unique_ptr<application> instance;
             if (!instance)
             {
-                instance.reset(new scope);
+                instance.reset(new application);
             }
             return *instance;
+        }
+
+        void application::failed(std::string const& message)
+        {
+            instance().m_fails += "\n" + message;
         }
 
         void check::info(std::string const& message, char const* file, int line, char const* function)
@@ -99,7 +117,8 @@ namespace data
 
         bool check::succeed(std::string const& message, char const* file, int line, char const* function)
         {
-            check::info(message, file, line, function);
+            //check::info(message, file, line, function);
+            std::cout << message;
             std::cout << " - OK." << std::endl;
             return true;
         }

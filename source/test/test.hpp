@@ -2,7 +2,8 @@
 
 #pragma once
 
-#include <sstream>
+#include <functional>
+#include <string>
 #include <deque>
 
 #define DATA_CHECK_IS_TRUE(statement) \
@@ -39,24 +40,36 @@ namespace data
 {
     namespace test
     {
-        class test
-        {
-        public:
-            test();
-            virtual void run() = 0;
-        };
+        typedef std::function<void()> test_functor;
 
         class scope
         {
         public:
-            static void add_test(test* new_test);
-            static void run();
+            void add_test(test_functor const& new_test);
+
+            void operator () (void) const;
+            void run() const;
+
+        protected:
+            scope(std::string const& name, bool add_to_application = true);
 
         private:
-            std::deque<test*> m_tests;
+            std::deque<test_functor> m_tests;
+            std::string m_name;
+        };
 
-            scope();
-            static scope& instance();
+        class application : public test::scope
+        {
+        public:
+            static application& instance();
+
+            void failed(std::string const& message);
+
+        private:
+            std::string m_fails;
+
+            application();
+            application(application const&);
         };
 
         class check
