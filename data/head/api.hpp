@@ -39,6 +39,8 @@ namespace data
     class month;
     class query;
     class unit;
+    class iterator;
+    class const_iterator;
 }
 
 // sine qua non

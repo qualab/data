@@ -34,6 +34,57 @@ namespace data
         template <typename value_type>
         value_type as() const;
 
+        /// Implicit cast to boolean
+        operator bool() const;
+
+        /// Implicit cast to 64-bit signed integer
+        operator int64_t() const;
+
+        /// Implicit cast to 32-bit signed integer
+        operator int32_t() const;
+
+        /// Implicit cast to 16-bit signed integer
+        operator int16_t() const;
+
+        /// Implicit cast to 8-bit signed integer
+        operator int8_t() const;
+
+        /// Implicit cast to 64-bit unsigned integer
+        operator uint64_t() const;
+
+        /// Implicit cast to 32-bit unsigned integer
+        operator uint32_t() const;
+
+        /// Implicit cast to 16-bit unsigned integer
+        operator uint16_t() const;
+
+        /// Implicit cast to 8-bit unsigned integer
+        operator uint8_t() const;
+
+        /// Implicit cast to single-precision floating-point value
+        operator float() const;
+
+        /// Implicit cast to double-precision floating-point value
+        operator double() const;
+
+        /// Implicit cast to fixed-point decimal value
+        operator decimal() const;
+
+        /// Implicit cast to text
+        operator text() const;
+
+        /// Implicit cast to byte-character null-terminated string pointer
+        operator char const*() const;
+
+        /// Implicit cast to wide-character null-terminated string pointer
+        operator wchar_t const*() const;
+
+        /// Implicit cast to byte-character standard string container
+        operator std::string() const;
+
+        /// Implicit cast to wide-character standard string container
+        operator std::wstring() const;
+
         /// Clone data into new object
         object clone() const;
 
@@ -41,52 +92,55 @@ namespace data
         bool is_null() const;
 
         /// Create object of null value
-        explicit object(std::nullptr_t);
+        object(std::nullptr_t);
 
         /// Create object of logical value
-        explicit object(bool value);
+        object(bool value);
 
         /// Create object of 8-bit signed integer
-        explicit object(int8_t value);
+        object(int8_t value);
 
         /// Create object of 16-bit signed integer
-        explicit object(int16_t value);
+        object(int16_t value);
 
         /// Create object of 32-bit signed integer
-        explicit object(int32_t value);
+        object(int32_t value);
 
         /// Create object of 64-bit signed integer
-        explicit object(int64_t value);
+        object(int64_t value);
 
         /// Create object of 8-bit unsigned integer
-        explicit object(uint8_t value);
+        object(uint8_t value);
 
         /// Create object of 16-bit unsigned integer
-        explicit object(uint16_t value);
+        object(uint16_t value);
 
         /// Create object of 32-bit unsigned integer
-        explicit object(uint32_t value);
+        object(uint32_t value);
 
         /// Create object of 64-bit unsigned integer
-        explicit object(uint64_t value);
+        object(uint64_t value);
 
         /// Create object of single precision floating point value
-        explicit object(float value);
+        object(float value);
 
         /// Create object of double precision floating point value
-        explicit object(double value);
+        object(double value);
 
         /// Create object of ANSI string
-        explicit object(char const* value);
+        object(char const* value);
 
         /// Create object of wide character string
-        explicit object(wchar_t const* value);
+        object(wchar_t const* value);
 
         /// Create object of standard container of ANSI string
-        explicit object(std::string const& value);
+        object(std::string const& value);
 
         /// Create object of standard container of wide character string
-        explicit object(std::wstring const& value);
+        object(std::wstring const& value);
+
+        /// Create object of function
+        object(std::function<object(object const& arguments)> const value);
 
         /// Indexing by constant object
         object operator [] (object const& id) const;
@@ -114,6 +168,57 @@ namespace data
 
         /// Unary minus
         object operator - () const;
+
+        /// Size of object presented collection
+        size_t size() const;
+
+        /// Iterator of the beginning of collection presented by object
+        iterator begin();
+
+        /// Iterator of the beginning of collection presented by object
+        iterator end();
+
+        /// Constant iterator of the beginning of collection presented by object
+        const_iterator begin() const;
+
+        /// Constant iterator of the beginning of collection presented by object
+        const_iterator end() const;
+
+        /// Constant iterator of the beginning of collection presented by object
+        const_iterator cbegin() const;
+
+        /// Constant iterator of the beginning of collection presented by object
+        const_iterator cend() const;
+
+        /// Find element of collection by key and return iterator to it
+        iterator find(object const& key);
+
+        /// Find element of collection by key and return constant iterator to it
+        const_iterator find(object const& key) const;
+
+        /// Find element of collection by predicate and return iterator to it
+        iterator find(std::function<void(object& elem)> const& predicate);
+
+        /// Find element of collection by predicate and return constant iterator to it
+        const_iterator find(std::function<void(object const& elem)> const& predicate) const;
+
+        /// Apply unary operation to each element in collection and store the results
+        object unary_operation(std::function<object(object& elem)> const& operation);
+
+        /// Apply unary operation to each element in collection and store the results
+        object unary_operation(std::function<object(object const& elem)> const& operation) const;
+
+        /// Apply unary operation to each element in collection and store the results
+        object binary_operation(object& another, std::function<object(object& mine, object& their)> const& operation);
+
+        /// Apply unary operation to each element in collection and store the results
+        object binary_operation(object const& another, std::function<object(object const& mine, object const& their)> const& operation) const;
+
+        /// Execute the function represented by object
+        object operator()(object const& arguments) const;
+
+        /// Apply unary operation to each element in collection and store the results
+        object binary_operation(object const& another, std::function<object(object const& mine, object const& their)> const& operation) const;
 
     protected:
         /// Base object data class

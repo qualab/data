@@ -38,6 +38,9 @@ namespace std
 
     typedef basic_ostream<char, char_traits<char>> ostream;
     typedef basic_istream<char, char_traits<char>> istream;
+
+    template <typename function_type>
+    class function;
 }
 
 // sine qua non
