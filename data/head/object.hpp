@@ -214,12 +214,6 @@ namespace data
         /// Apply unary operation to each element in collection and store the results
         object binary_operation(object const& another, std::function<object(object const& mine, object const& their)> const& operation) const;
 
-        /// Execute the function represented by object
-        object operator()(object const& arguments) const;
-
-        /// Apply unary operation to each element in collection and store the results
-        object binary_operation(object const& another, std::function<object(object const& mine, object const& their)> const& operation) const;
-
     protected:
         /// Base object data class
         class data;
