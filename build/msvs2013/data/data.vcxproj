@@ -42,6 +42,18 @@
     <ClInclude Include="..\..\..\data\unit">
       <FileType>Document</FileType>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\bytearray\bytearray_holder.hpp" />
+    <ClInclude Include="..\..\..\source\bytearray\bytearray_instance.hpp" />
+    <ClInclude Include="..\..\..\source\datetime\datetime_holder.hpp" />
+    <ClInclude Include="..\..\..\source\decimal\decimal_holder.hpp" />
+    <ClInclude Include="..\..\..\source\exception\exception_holder.hpp" />
+    <ClInclude Include="..\..\..\source\object\object_holder.hpp" />
+    <ClInclude Include="..\..\..\source\scalar\scalar_holder.hpp" />
+    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_holder.hpp" />
+    <ClInclude Include="..\..\..\source\text\text_holder.hpp" />
+    <ClInclude Include="..\..\..\source\text\text_instance.hpp" />
+    <ClInclude Include="..\..\..\source\tools\allow_null.hpp" />
+    <ClInclude Include="..\..\..\source\tools\copy_on_write.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\data\head\api.hpp" />
@@ -55,39 +67,29 @@
     <ClInclude Include="..\..\..\data\head\text.hpp" />
     <ClInclude Include="..\..\..\data\head\stacktrace.hpp" />
     <ClInclude Include="..\..\..\data\head\unit.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\bytes_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\datetime_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\decimal_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\exception_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\exception_data_body.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\lazy_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\object_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\scalar_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\text_data.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\text_data_body.hpp" />
-    <ClInclude Include="..\..\..\source\data_head\stacktrace_data.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\source\body\bytes.cpp" />
-    <ClCompile Include="..\..\..\source\body\cast.cpp" />
-    <ClCompile Include="..\..\..\source\body\datetime.cpp" />
-    <ClCompile Include="..\..\..\source\body\decimal.cpp" />
-    <ClCompile Include="..\..\..\source\body\exception.cpp" />
-    <ClCompile Include="..\..\..\source\body\object.cpp" />
-    <ClCompile Include="..\..\..\source\body\text.cpp" />
-    <ClCompile Include="..\..\..\source\body\stacktrace.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\bytes_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\datetime_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\decimal_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\exception_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\exception_data_body.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\object_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\text_data.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\text_data_body.cpp" />
-    <ClCompile Include="..\..\..\source\data_body\stacktrace_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\data\bytes" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\bytearray.cpp" />
+    <ClCompile Include="..\..\..\source\bytearray\bytearray_holder.cpp" />
+    <ClCompile Include="..\..\..\source\bytearray\bytearray_instance.cpp" />
+    <ClCompile Include="..\..\..\source\cast.cpp" />
+    <ClCompile Include="..\..\..\source\datetime.cpp" />
+    <ClCompile Include="..\..\..\source\datetime\datetime_holder.cpp" />
+    <ClCompile Include="..\..\..\source\decimal.cpp" />
+    <ClCompile Include="..\..\..\source\decimal\decimal_holder.cpp" />
+    <ClCompile Include="..\..\..\source\event.cpp" />
+    <ClCompile Include="..\..\..\source\exception.cpp" />
+    <ClCompile Include="..\..\..\source\exception\exception_holder.cpp" />
+    <ClCompile Include="..\..\..\source\object.cpp" />
+    <ClCompile Include="..\..\..\source\object\object_holder.cpp" />
+    <ClCompile Include="..\..\..\source\stacktrace.cpp" />
+    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_holder.cpp" />
+    <ClCompile Include="..\..\..\source\text.cpp" />
+    <ClCompile Include="..\..\..\source\text\text_holder.cpp" />
+    <ClCompile Include="..\..\..\source\text\text_instance.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>

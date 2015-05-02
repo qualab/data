@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="unittest">
+      <UniqueIdentifier>{17f5066d-4130-4ae7-b493-6c95c33de48e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\unittest\test_case.cpp">
+      <Filter>unittest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\unittest\test_runner.cpp">
+      <Filter>unittest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\unittest\test_suite.cpp">
+      <Filter>unittest</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\unittest\test_case.hpp">
+      <Filter>unittest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\unittest\test_runner.hpp">
+      <Filter>unittest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\unittest\test_suite.hpp">
+      <Filter>unittest</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
