@@ -3,29 +3,29 @@
 #pragma once
 
 #include <data/exception>
-#include <data_head/object_data.hpp>
-#include <data_head/lazy_data.hpp>
+#include <source/object/object_holder.hpp>
+#include <source/tools/copy_on_write.hpp>
 
 namespace data
 {
-    class exception::data : public object::data
+    class exception::holder : public object::holder
     {
     public:
-        data();
-        data(text const& message);
-        data(text const& message, char const* file, int line, char const* function);
+        holder();
+        holder(text const& message);
+        holder(text const& message, char const* file, int line, char const* function);
 
         text get_message() const;
         stacktrace get_stacktrace() const;
 
-        virtual object::data* copy_to(void* address) const override;
-        virtual object::data* move_to(void* address) const override;
+        virtual object::holder* copy_to(void* address) const override;
+        virtual object::holder* move_to(void* address) const override;
 
     protected:
         class body;
 
     private:
-        lazy_data<body> m_body;
+        copy_on_write<body> m_instance;
     };
 }
 

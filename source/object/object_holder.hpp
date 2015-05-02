@@ -11,20 +11,20 @@
 namespace data
 {
     // base class for data of object
-    class object::data
+    class object::holder
     {
     public:
         // create null object
-        data();
+        holder();
 
         // destruct data
-        virtual ~data();
+        virtual ~holder();
 
         // copy data of object into the buffer specified
-        virtual data* copy_to(void* address) const = 0;
+        virtual holder* copy_to(void* address) const = 0;
 
         // move data of object into the buffer specified
-        virtual data* move_to(void* address) const = 0;
+        virtual holder* move_to(void* address) const = 0;
 
         // return the value of element of collection represented by object
         virtual object get_element_copy() const;

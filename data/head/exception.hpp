@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <source/tools/allow_null.hpp>
 #include <data/object>
 #include <exception>
 
@@ -37,11 +38,12 @@ namespace data
 
     protected:
         /// Data of exception object
-        class data;
+        class holder;
+        class instance;
 
     private:
         /// Stored pointer to exception::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     template <class tag_type, class base_exception = exception>

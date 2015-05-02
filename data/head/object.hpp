@@ -216,7 +216,7 @@ namespace data
 
     protected:
         /// Base object data class
-        class data;
+        class holder;
 
         /// Constant of max available size for data
         static const int data_max_size = DATA_MAX_SIZE;
@@ -225,25 +225,25 @@ namespace data
         char* buffer();
 
         /// Create object by derived data
-        object(data* derived_data);
+        object(holder* derived_holder);
 
         /// Create object by prepared_data
-        object(data&& prepared_data);
+        object(holder&& prepared_holder);
 
         /// Scalar data storage
         template <typename value_type>
-        class scalar_data;
+        class scalar_holder;
 
     public:
         /// Pointer to the data
-        data* data_ptr();
+        holder* holder_pointer();
 
         /// Constant pointer to the data
-        data const* data_ptr() const;
+        holder const* holder_pointer() const;
 
     private:
         /// Reference to the base object::data
-        data* m_data;
+        holder* m_data;
 
         /// Data buffer must be greater size than any possible data
         char m_buffer[data_max_size];
