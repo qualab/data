@@ -28,9 +28,6 @@
     <Filter Include="source\object">
       <UniqueIdentifier>{a7ed69ec-10df-44e9-a4e3-dd7762670849}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\stacktrace">
-      <UniqueIdentifier>{38591f38-cdaf-4634-855a-f867add4fddf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\tools">
       <UniqueIdentifier>{0194dded-643d-4db6-95fb-961de2e44402}</UniqueIdentifier>
     </Filter>
@@ -63,9 +60,6 @@
     <ClInclude Include="..\..\..\data\head\datetime.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\head\stacktrace.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\head\unit.hpp">
       <Filter>data\head</Filter>
     </ClInclude>
@@ -96,9 +90,6 @@
     <ClInclude Include="..\..\..\data\text">
       <Filter>data</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\data\stacktrace">
-      <Filter>data</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\data\unit">
       <Filter>data</Filter>
     </ClInclude>
@@ -126,9 +117,6 @@
     <ClInclude Include="..\..\..\source\scalar\scalar_holder.hpp">
       <Filter>source\scalar</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_holder.hpp">
-      <Filter>source\stacktrace</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\text\text_holder.hpp">
       <Filter>source\text</Filter>
     </ClInclude>
@@ -139,6 +127,9 @@
       <Filter>source\tools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\tools\copy_on_write.hpp">
+      <Filter>source\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\tools\stack_trace.hpp">
       <Filter>source\tools</Filter>
     </ClInclude>
   </ItemGroup>
@@ -166,9 +157,6 @@
     <ClCompile Include="..\..\..\source\object.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\stacktrace.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\text.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -193,14 +181,14 @@
     <ClCompile Include="..\..\..\source\object\object_holder.cpp">
       <Filter>source\object</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_holder.cpp">
-      <Filter>source\stacktrace</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\text\text_holder.cpp">
       <Filter>source\text</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\text\text_instance.cpp">
       <Filter>source\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\tools\stack_trace.cpp">
+      <Filter>source\tools</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

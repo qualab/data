@@ -4,6 +4,27 @@
     <Filter Include="unittest">
       <UniqueIdentifier>{17f5066d-4130-4ae7-b493-6c95c33de48e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="object">
+      <UniqueIdentifier>{f0bd024d-bc4f-413f-b4b2-2c519a8b2318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bytearray">
+      <UniqueIdentifier>{aa2a3e4a-6ae2-474f-9c90-134e6975023f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="datetime">
+      <UniqueIdentifier>{fec268be-2cf3-4e1f-8484-ee753202d82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="decimal">
+      <UniqueIdentifier>{bf79ef66-86e0-462c-a2ba-75cafe71d782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="event">
+      <UniqueIdentifier>{1e0145f0-37e9-49a0-8017-32645fea3964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="exception">
+      <UniqueIdentifier>{93e50f28-2125-4493-9e14-c0c46f559009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scalar">
+      <UniqueIdentifier>{72885183-e835-4d04-951c-a5ff44157c05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\unittest\test_case.cpp">
