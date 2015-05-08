@@ -1,0 +1,7 @@
+﻿/// @author Владимир Керимов
+
+#pragma once
+
+#include <data/head/stdfwd.hpp>
+
+// sine qua non

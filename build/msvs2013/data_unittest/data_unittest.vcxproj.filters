@@ -4,47 +4,77 @@
     <Filter Include="unittest">
       <UniqueIdentifier>{17f5066d-4130-4ae7-b493-6c95c33de48e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="object">
+    <Filter Include="source">
+      <UniqueIdentifier>{eaffbd24-330b-4a4e-afc0-2c487675f13f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\object">
       <UniqueIdentifier>{f0bd024d-bc4f-413f-b4b2-2c519a8b2318}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bytearray">
-      <UniqueIdentifier>{aa2a3e4a-6ae2-474f-9c90-134e6975023f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="datetime">
-      <UniqueIdentifier>{fec268be-2cf3-4e1f-8484-ee753202d82c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="decimal">
-      <UniqueIdentifier>{bf79ef66-86e0-462c-a2ba-75cafe71d782}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="event">
-      <UniqueIdentifier>{1e0145f0-37e9-49a0-8017-32645fea3964}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="exception">
-      <UniqueIdentifier>{93e50f28-2125-4493-9e14-c0c46f559009}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="scalar">
+    <Filter Include="source\scalar">
       <UniqueIdentifier>{72885183-e835-4d04-951c-a5ff44157c05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\exception">
+      <UniqueIdentifier>{93e50f28-2125-4493-9e14-c0c46f559009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\event">
+      <UniqueIdentifier>{1e0145f0-37e9-49a0-8017-32645fea3964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\decimal">
+      <UniqueIdentifier>{bf79ef66-86e0-462c-a2ba-75cafe71d782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\datetime">
+      <UniqueIdentifier>{fec268be-2cf3-4e1f-8484-ee753202d82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\bytearray">
+      <UniqueIdentifier>{aa2a3e4a-6ae2-474f-9c90-134e6975023f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\text">
+      <UniqueIdentifier>{87ec0b8d-71f8-41d5-825b-f10eba5e8b46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\unittest\test_case.cpp">
+    <ClCompile Include="..\..\..\source\bytearray\bytearray_unittest.cpp">
+      <Filter>source\bytearray</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\datetime\datetime_unittest.cpp">
+      <Filter>source\datetime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\decimal\decimal_unittest.cpp">
+      <Filter>source\decimal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\event\event_unittest.cpp">
+      <Filter>source\event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\exception\exception_unittest.cpp">
+      <Filter>source\exception</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\object\object_unittest.cpp">
+      <Filter>source\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\unittest\test_case.cpp">
       <Filter>unittest</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\unittest\test_runner.cpp">
+    <ClCompile Include="..\..\..\unittest\test_runner.cpp">
       <Filter>unittest</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\unittest\test_suite.cpp">
+    <ClCompile Include="..\..\..\unittest\test_suite.cpp">
       <Filter>unittest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\scalar\scalar_unittest.cpp">
+      <Filter>source\scalar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\text\text_unittest.cpp">
+      <Filter>source\text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\source\unittest\test_case.hpp">
+    <ClInclude Include="..\..\..\unittest\test_case.hpp">
       <Filter>unittest</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\unittest\test_runner.hpp">
+    <ClInclude Include="..\..\..\unittest\test_runner.hpp">
       <Filter>unittest</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\unittest\test_suite.hpp">
+    <ClInclude Include="..\..\..\unittest\test_suite.hpp">
       <Filter>unittest</Filter>
     </ClInclude>
   </ItemGroup>

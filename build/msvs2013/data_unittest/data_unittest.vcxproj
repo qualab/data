@@ -98,14 +98,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\unittest\test_case.cpp" />
-    <ClCompile Include="..\..\..\source\unittest\test_runner.cpp" />
-    <ClCompile Include="..\..\..\source\unittest\test_suite.cpp" />
+    <ClCompile Include="..\..\..\source\bytearray\bytearray_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\datetime\datetime_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\decimal\decimal_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\event\event_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\exception\exception_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\object\object_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\scalar\scalar_unittest.cpp" />
+    <ClCompile Include="..\..\..\source\text\text_unittest.cpp" />
+    <ClCompile Include="..\..\..\unittest\test_case.cpp" />
+    <ClCompile Include="..\..\..\unittest\test_runner.cpp" />
+    <ClCompile Include="..\..\..\unittest\test_suite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\source\unittest\test_case.hpp" />
-    <ClInclude Include="..\..\..\source\unittest\test_runner.hpp" />
-    <ClInclude Include="..\..\..\source\unittest\test_suite.hpp" />
+    <ClInclude Include="..\..\..\unittest\test_case.hpp" />
+    <ClInclude Include="..\..\..\unittest\test_runner.hpp" />
+    <ClInclude Include="..\..\..\unittest\test_suite.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

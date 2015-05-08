@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="data">
-      <UniqueIdentifier>{22cdec74-b89b-42f3-b1fb-5a88f921183e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source">
       <UniqueIdentifier>{c5a8bf92-72f9-4bf6-be92-a155285df490}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="data\head">
-      <UniqueIdentifier>{c5143e46-4b44-49aa-9b5d-aabc4f81b17a}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\bytearray">
       <UniqueIdentifier>{9d415ab1-8bc2-4439-8257-0b40cdc62f63}</UniqueIdentifier>
@@ -34,68 +28,14 @@
     <Filter Include="source\text">
       <UniqueIdentifier>{8ec8e3ce-401f-4bb1-b0f2-46654fe678d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{9fed2fa0-06cf-4efc-99e3-4b6b3f84a1f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\data">
+      <UniqueIdentifier>{1d36dad3-ee5c-4eb8-b589-3ac24e34663b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\data\head\exception.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\object.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\stdfwd.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\text.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\decimal.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\cast.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\api.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\datetime.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\unit.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\query.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\api">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\cast">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\datetime">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\exception">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\object">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\query">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\stdfwd">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\text">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\unit">
-      <Filter>data</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\bytes.hpp">
-      <Filter>data\head</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\bytearray\bytearray_holder.hpp">
       <Filter>source\bytearray</Filter>
     </ClInclude>
@@ -132,11 +72,39 @@
     <ClInclude Include="..\..\..\source\tools\stack_trace.hpp">
       <Filter>source\tools</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\data\bytes">
-      <Filter>data</Filter>
-    </None>
+    <ClInclude Include="..\..\..\include\api.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\bytes.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cast.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\datetime.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\decimal.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\exception.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\object.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\query.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\stdfwd.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\text.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\unit.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\cast.cpp">
@@ -190,5 +158,40 @@
     <ClCompile Include="..\..\..\source\tools\stack_trace.cpp">
       <Filter>source\tools</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\data\api">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\bytes">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\cast">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\datetime">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\decimal">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\exception">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\object">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\query">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\stdfwd">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\text">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\unit">
+      <Filter>include\data</Filter>
+    </None>
   </ItemGroup>
 </Project>

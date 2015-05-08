@@ -11,34 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\data\api">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\cast">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\datetime">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\exception">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\head\bytes.hpp" />
-    <ClInclude Include="..\..\..\data\object">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\query">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\stdfwd">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\text">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClInclude Include="..\..\..\data\unit">
-      <FileType>Document</FileType>
-    </ClInclude>
+    <ClInclude Include="..\..\..\include\api.hpp" />
+    <ClInclude Include="..\..\..\include\bytes.hpp" />
+    <ClInclude Include="..\..\..\include\cast.hpp" />
+    <ClInclude Include="..\..\..\include\datetime.hpp" />
+    <ClInclude Include="..\..\..\include\decimal.hpp" />
+    <ClInclude Include="..\..\..\include\exception.hpp" />
+    <ClInclude Include="..\..\..\include\object.hpp" />
+    <ClInclude Include="..\..\..\include\query.hpp" />
+    <ClInclude Include="..\..\..\include\stdfwd.hpp" />
+    <ClInclude Include="..\..\..\include\text.hpp" />
+    <ClInclude Include="..\..\..\include\unit.hpp" />
     <ClInclude Include="..\..\..\source\bytearray\bytearray_holder.hpp" />
     <ClInclude Include="..\..\..\source\bytearray\bytearray_instance.hpp" />
     <ClInclude Include="..\..\..\source\datetime\datetime_holder.hpp" />
@@ -51,21 +34,6 @@
     <ClInclude Include="..\..\..\source\tools\allow_null.hpp" />
     <ClInclude Include="..\..\..\source\tools\copy_on_write.hpp" />
     <ClInclude Include="..\..\..\source\tools\stack_trace.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\data\head\api.hpp" />
-    <ClInclude Include="..\..\..\data\head\cast.hpp" />
-    <ClInclude Include="..\..\..\data\head\datetime.hpp" />
-    <ClInclude Include="..\..\..\data\head\exception.hpp" />
-    <ClInclude Include="..\..\..\data\head\decimal.hpp" />
-    <ClInclude Include="..\..\..\data\head\object.hpp" />
-    <ClInclude Include="..\..\..\data\head\query.hpp" />
-    <ClInclude Include="..\..\..\data\head\stdfwd.hpp" />
-    <ClInclude Include="..\..\..\data\head\text.hpp" />
-    <ClInclude Include="..\..\..\data\head\unit.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\data\bytes" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\bytearray.cpp" />
@@ -85,6 +53,19 @@
     <ClCompile Include="..\..\..\source\text\text_holder.cpp" />
     <ClCompile Include="..\..\..\source\text\text_instance.cpp" />
     <ClCompile Include="..\..\..\source\tools\stack_trace.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\data\api" />
+    <None Include="..\..\..\include\data\bytes" />
+    <None Include="..\..\..\include\data\cast" />
+    <None Include="..\..\..\include\data\datetime" />
+    <None Include="..\..\..\include\data\decimal" />
+    <None Include="..\..\..\include\data\exception" />
+    <None Include="..\..\..\include\data\object" />
+    <None Include="..\..\..\include\data\query" />
+    <None Include="..\..\..\include\data\stdfwd" />
+    <None Include="..\..\..\include\data\text" />
+    <None Include="..\..\..\include\data\unit" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>
