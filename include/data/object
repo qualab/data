@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/object.hpp>
+#include <object.hpp>
 
 // sine qua non

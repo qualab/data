@@ -3,26 +3,26 @@
 #pragma once
 
 #include <data/decimal>
-#include <data_head/object_data.hpp>
+#include <object/object_holder.hpp>
 
 namespace data
 {
-    class decimal::data : public object::data
+    class decimal::holder : public object::holder
     {
     public:
-        data();
-        data(int64_t integral, uint64_t fractional);
-        data(double value);
-        data(float value);
-        data(text const& value);
+        holder();
+        holder(int64_t integral, uint64_t fractional);
+        holder(double value);
+        holder(float value);
+        holder(text const& value);
 
         int64_t get_integral() const;
         uint64_t get_fractional() const;
 
         static const uint64_t divider = static_cast<int64_t>(1e+18);
 
-        virtual object::data* copy_to(void* address) const override;
-        virtual object::data* move_to(void* address) const override;
+        virtual object::holder* copy_to(void* address) const override;
+        virtual object::holder* move_to(void* address) const override;
 
         virtual uint64_t as_uint64() const override;
         virtual int64_t  as_int64()  const override;

@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/decimal.hpp>
+#include <decimal.hpp>
 
 // sine qua non

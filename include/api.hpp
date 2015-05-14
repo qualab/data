@@ -20,8 +20,6 @@
                         (static_cast<unsigned>(DATA_VERSION_MAJOR) <<  8) | \
                          static_cast<unsigned>(DATA_VERSION_MINOR) )
 
-#define DATA_MAX_SIZE 32
-
 namespace data
 {
     class object;

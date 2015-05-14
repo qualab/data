@@ -4,9 +4,6 @@
     <Filter Include="source">
       <UniqueIdentifier>{c5a8bf92-72f9-4bf6-be92-a155285df490}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\bytearray">
-      <UniqueIdentifier>{9d415ab1-8bc2-4439-8257-0b40cdc62f63}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\datetime">
       <UniqueIdentifier>{2f2e799e-9bf6-452c-802d-4f53caa007d2}</UniqueIdentifier>
     </Filter>
@@ -34,14 +31,11 @@
     <Filter Include="include\data">
       <UniqueIdentifier>{1d36dad3-ee5c-4eb8-b589-3ac24e34663b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\memory">
+      <UniqueIdentifier>{9d415ab1-8bc2-4439-8257-0b40cdc62f63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\source\bytearray\bytearray_holder.hpp">
-      <Filter>source\bytearray</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\source\bytearray\bytearray_instance.hpp">
-      <Filter>source\bytearray</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\datetime\datetime_holder.hpp">
       <Filter>source\datetime</Filter>
     </ClInclude>
@@ -75,9 +69,6 @@
     <ClInclude Include="..\..\..\include\api.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\bytes.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\cast.hpp">
       <Filter>include</Filter>
     </ClInclude>
@@ -105,6 +96,57 @@
     <ClInclude Include="..\..\..\include\unit.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\event.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\memory.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\memory\memory_holder.hpp">
+      <Filter>source\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\memory\memory_instance.hpp">
+      <Filter>source\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\api">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\cast">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\datetime">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\decimal">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\event">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\exception">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\memory">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\object">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\query">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\stdfwd">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\text">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\unit">
+      <Filter>include\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\exception\exception_instance.hpp">
+      <Filter>source\exception</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\cast.cpp">
@@ -131,12 +173,6 @@
     <ClCompile Include="..\..\..\source\bytearray.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\bytearray\bytearray_holder.cpp">
-      <Filter>source\bytearray</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\source\bytearray\bytearray_instance.cpp">
-      <Filter>source\bytearray</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\datetime\datetime_holder.cpp">
       <Filter>source\datetime</Filter>
     </ClCompile>
@@ -158,40 +194,14 @@
     <ClCompile Include="..\..\..\source\tools\stack_trace.cpp">
       <Filter>source\tools</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\include\data\api">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\bytes">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\cast">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\datetime">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\decimal">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\exception">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\object">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\query">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\stdfwd">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\text">
-      <Filter>include\data</Filter>
-    </None>
-    <None Include="..\..\..\include\data\unit">
-      <Filter>include\data</Filter>
-    </None>
+    <ClCompile Include="..\..\..\source\memory\memory_holder.cpp">
+      <Filter>source\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\memory\memory_instance.cpp">
+      <Filter>source\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\exception\exception_instance.cpp">
+      <Filter>source\exception</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

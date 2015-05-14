@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include <source/tools/allow_null.hpp>
 #include <data/object>
+#include <tools/allow_null.hpp>
 #include <exception>
 
 #define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type((message), (__FILE__), (__LINE__), (__FUNCTION__))

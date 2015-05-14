@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <tools/allow_null.hpp>
 
 namespace data
 {
@@ -60,11 +61,11 @@ namespace data
 
     protected:
         /// Forward declaration of object::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to floating::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 }
 

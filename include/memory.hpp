@@ -3,17 +3,18 @@
 #pragma once
 
 #include <data/object>
+#include <tools/allow_null.hpp>
 
 namespace data
 {
     typedef uint8_t byte;
 
-    /// Type of date and time with time zone
-    class DATA_API bytes : public object
+    /// Sequence of bytes
+    class DATA_API byte_array : public object
     {
     public:
-        /// Create datetime of null value
-        bytes();
+        /// Create byte array
+        byte_array();
 
         /// Get byte by value from array
         byte operator [] (int index) const;
@@ -23,11 +24,11 @@ namespace data
 
     protected:
         /// Forward declaration of bytes::data
-        class data;
+        class holder;
 
     private:
-        /// Stored pointer to bytes::data
-        data* m_data;
+        /// Stored pointer to byte_array::holder
+        allow_null<holder> m_holder;
     };
 }
 

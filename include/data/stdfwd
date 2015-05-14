@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/stdfwd.hpp>
+#include <stdfwd.hpp>
 
 // sine qua non

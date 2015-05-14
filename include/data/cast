@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/cast.hpp>
+#include <cast.hpp>
 
 // sine qua non

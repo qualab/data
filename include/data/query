@@ -2,6 +2,6 @@
 
 #pragma once
 
-#include <data/head/query.hpp>
+#include <query.hpp>
 
 // sine qua non

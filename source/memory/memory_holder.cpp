@@ -1,6 +1,6 @@
 ﻿/// @author Владимир Керимов
 
-#include <source/bytearray/bytearray_holder.hpp>
+#include <memory/memory_holder.hpp>
 
 namespace data
 {

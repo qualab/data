@@ -3,34 +3,34 @@
 #pragma once
 
 #include <data/datetime>
-#include <data_head/object_data.hpp>
+#include <object/object_holder.hpp>
 #include <data/decimal>
 
 namespace data
 {
-    class datetime::data : public object::data
+    class datetime::holder : public object::holder
     {
     public:
-        data();
+        holder();
 
     private:
         date m_date;
         time m_time;
     };
 
-    class date::data : public object::data
+    class date::holder : public object::holder
     {
     public:
-        data();
+        holder();
 
     private:
         int64_t m_century_day;
     };
 
-    class time::data : public object::data
+    class time::holder : public object::holder
     {
     public:
-        data();
+        holder();
 
     private:
         decimal m_day_moment;

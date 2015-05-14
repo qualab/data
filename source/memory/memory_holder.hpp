@@ -2,13 +2,13 @@
 
 #pragma once
 
-#include <data/bytes>
-#include <source/object/object_holder.hpp>
+#include <data/memory>
+#include <object/object_holder.hpp>
 #include <string>
 
 namespace data
 {
-    class bytes::data : public object::data
+    class byte_array::holder : public object::holder
     {
     public:
         data();

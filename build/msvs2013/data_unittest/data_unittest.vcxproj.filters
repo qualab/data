@@ -25,17 +25,14 @@
     <Filter Include="source\datetime">
       <UniqueIdentifier>{fec268be-2cf3-4e1f-8484-ee753202d82c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\bytearray">
-      <UniqueIdentifier>{aa2a3e4a-6ae2-474f-9c90-134e6975023f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\text">
       <UniqueIdentifier>{87ec0b8d-71f8-41d5-825b-f10eba5e8b46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\memory">
+      <UniqueIdentifier>{aa2a3e4a-6ae2-474f-9c90-134e6975023f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\bytearray\bytearray_unittest.cpp">
-      <Filter>source\bytearray</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\datetime\datetime_unittest.cpp">
       <Filter>source\datetime</Filter>
     </ClCompile>
@@ -65,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\text\text_unittest.cpp">
       <Filter>source\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\memory\memory_unittest.cpp">
+      <Filter>source\memory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

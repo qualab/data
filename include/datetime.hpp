@@ -74,11 +74,11 @@ namespace data
 
     protected:
         /// Forward declaration of datetime::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to datetime::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     /// Type of gregorian date
@@ -117,11 +117,11 @@ namespace data
 
     protected:
         /// Forward declaration of date::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to date::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     /// Type of time with optional time zone
@@ -161,11 +161,11 @@ namespace data
 
     protected:
         /// Forward declaration of time::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to time::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     /// Time zone of time specified
@@ -188,11 +188,11 @@ namespace data
 
     protected:
         /// Forward declaration of timezone::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to timezone::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     /// Period of time between two date and/or time points
@@ -210,11 +210,11 @@ namespace data
 
     protected:
         /// Forward declaration of period::data
-        class data;
+        class holder;
 
     private:
         /// Stored pointer to period::data
-        data* m_data;
+        allow_null<holder> m_holder;
     };
 
     /// Month with ability to create month by name or number

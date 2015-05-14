@@ -12,21 +12,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\api.hpp" />
-    <ClInclude Include="..\..\..\include\bytes.hpp" />
     <ClInclude Include="..\..\..\include\cast.hpp" />
     <ClInclude Include="..\..\..\include\datetime.hpp" />
     <ClInclude Include="..\..\..\include\decimal.hpp" />
+    <ClInclude Include="..\..\..\include\event.hpp" />
     <ClInclude Include="..\..\..\include\exception.hpp" />
+    <ClInclude Include="..\..\..\include\memory.hpp" />
     <ClInclude Include="..\..\..\include\object.hpp" />
     <ClInclude Include="..\..\..\include\query.hpp" />
     <ClInclude Include="..\..\..\include\stdfwd.hpp" />
     <ClInclude Include="..\..\..\include\text.hpp" />
     <ClInclude Include="..\..\..\include\unit.hpp" />
-    <ClInclude Include="..\..\..\source\bytearray\bytearray_holder.hpp" />
-    <ClInclude Include="..\..\..\source\bytearray\bytearray_instance.hpp" />
     <ClInclude Include="..\..\..\source\datetime\datetime_holder.hpp" />
     <ClInclude Include="..\..\..\source\decimal\decimal_holder.hpp" />
     <ClInclude Include="..\..\..\source\exception\exception_holder.hpp" />
+    <ClInclude Include="..\..\..\source\exception\exception_instance.hpp" />
+    <ClInclude Include="..\..\..\source\memory\memory_holder.hpp" />
+    <ClInclude Include="..\..\..\source\memory\memory_instance.hpp" />
     <ClInclude Include="..\..\..\source\object\object_holder.hpp" />
     <ClInclude Include="..\..\..\source\scalar\scalar_holder.hpp" />
     <ClInclude Include="..\..\..\source\text\text_holder.hpp" />
@@ -37,8 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\bytearray.cpp" />
-    <ClCompile Include="..\..\..\source\bytearray\bytearray_holder.cpp" />
-    <ClCompile Include="..\..\..\source\bytearray\bytearray_instance.cpp" />
     <ClCompile Include="..\..\..\source\cast.cpp" />
     <ClCompile Include="..\..\..\source\datetime.cpp" />
     <ClCompile Include="..\..\..\source\datetime\datetime_holder.cpp" />
@@ -47,6 +47,9 @@
     <ClCompile Include="..\..\..\source\event.cpp" />
     <ClCompile Include="..\..\..\source\exception.cpp" />
     <ClCompile Include="..\..\..\source\exception\exception_holder.cpp" />
+    <ClCompile Include="..\..\..\source\exception\exception_instance.cpp" />
+    <ClCompile Include="..\..\..\source\memory\memory_holder.cpp" />
+    <ClCompile Include="..\..\..\source\memory\memory_instance.cpp" />
     <ClCompile Include="..\..\..\source\object.cpp" />
     <ClCompile Include="..\..\..\source\object\object_holder.cpp" />
     <ClCompile Include="..\..\..\source\text.cpp" />
@@ -55,17 +58,42 @@
     <ClCompile Include="..\..\..\source\tools\stack_trace.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\include\data\api" />
-    <None Include="..\..\..\include\data\bytes" />
-    <None Include="..\..\..\include\data\cast" />
-    <None Include="..\..\..\include\data\datetime" />
-    <None Include="..\..\..\include\data\decimal" />
-    <None Include="..\..\..\include\data\exception" />
-    <None Include="..\..\..\include\data\object" />
-    <None Include="..\..\..\include\data\query" />
-    <None Include="..\..\..\include\data\stdfwd" />
-    <None Include="..\..\..\include\data\text" />
-    <None Include="..\..\..\include\data\unit" />
+    <ClInclude Include="..\..\..\include\data\api">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\cast">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\datetime">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\decimal">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\event">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\exception">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\memory">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\object">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\query">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\stdfwd">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\text">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\data\unit">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>
@@ -100,10 +128,12 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\source;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+    <IncludePath>$(ProjectDir)..\..\..\include;$(ProjectDir)..\..\..\source;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
