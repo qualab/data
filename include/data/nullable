@@ -1,0 +1,7 @@
+﻿/// @author Владимир Керимов
+
+#pragma once
+
+#include <nullable.hpp>
+
+// sine qua non

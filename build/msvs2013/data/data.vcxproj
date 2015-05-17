@@ -18,6 +18,7 @@
     <ClInclude Include="..\..\..\include\event.hpp" />
     <ClInclude Include="..\..\..\include\exception.hpp" />
     <ClInclude Include="..\..\..\include\memory.hpp" />
+    <ClInclude Include="..\..\..\include\nullable.hpp" />
     <ClInclude Include="..\..\..\include\object.hpp" />
     <ClInclude Include="..\..\..\include\query.hpp" />
     <ClInclude Include="..\..\..\include\stdfwd.hpp" />
@@ -94,6 +95,10 @@
     <ClInclude Include="..\..\..\include\data\unit">
       <FileType>Document</FileType>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\data\nullable" />
+    <None Include="..\..\..\include\data\stacktrace" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2FB94F9-F068-44E9-9DB6-BEBDE887BE4D}</ProjectGuid>

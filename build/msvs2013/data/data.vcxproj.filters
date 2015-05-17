@@ -147,6 +147,9 @@
     <ClInclude Include="..\..\..\source\exception\exception_instance.hpp">
       <Filter>source\exception</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\nullable.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\cast.cpp">
@@ -203,5 +206,13 @@
     <ClCompile Include="..\..\..\source\exception\exception_instance.cpp">
       <Filter>source\exception</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\data\nullable">
+      <Filter>include\data</Filter>
+    </None>
+    <None Include="..\..\..\include\data\stacktrace">
+      <Filter>include\data</Filter>
+    </None>
   </ItemGroup>
 </Project>

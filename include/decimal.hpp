@@ -3,7 +3,7 @@
 #pragma once
 
 #include <data/object>
-#include <tools/allow_null.hpp>
+#include <data/nullable>
 
 namespace data
 {
@@ -65,7 +65,7 @@ namespace data
 
     private:
         /// Stored pointer to floating::data
-        allow_null<holder> m_holder;
+        nullable<holder> m_holder;
     };
 }
 

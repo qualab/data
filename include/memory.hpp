@@ -3,18 +3,18 @@
 #pragma once
 
 #include <data/object>
-#include <tools/allow_null.hpp>
+#include <data/nullable>
 
 namespace data
 {
     typedef uint8_t byte;
 
     /// Sequence of bytes
-    class DATA_API byte_array : public object
+    class DATA_API memory : public object
     {
     public:
         /// Create byte array
-        byte_array();
+        memory();
 
         /// Get byte by value from array
         byte operator [] (int index) const;
@@ -22,13 +22,19 @@ namespace data
         /// Get byte by non-constant reference from array
         byte& operator [] (int index);
 
+        template <typename value_type>
+        value_type& as(int offset = 0);
+
+        template <typename value_type>
+        value_type const& as(int offset = 0) const;
+
     protected:
-        /// Forward declaration of bytes::data
         class holder;
+        class instance;
 
     private:
         /// Stored pointer to byte_array::holder
-        allow_null<holder> m_holder;
+        nullable<holder> m_holder;
     };
 }
 

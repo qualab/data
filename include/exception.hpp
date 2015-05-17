@@ -3,7 +3,7 @@
 #pragma once
 
 #include <data/object>
-#include <tools/allow_null.hpp>
+#include <data/nullable>
 #include <exception>
 
 #define DATA_EXCEPTION_THROW(exception_type, message) throw exception_type((message), (__FILE__), (__LINE__), (__FUNCTION__))
@@ -43,7 +43,7 @@ namespace data
 
     private:
         /// Stored pointer to exception::data
-        allow_null<holder> m_holder;
+        nullable<holder> m_holder;
     };
 
     template <class tag_type, class base_exception = exception>
