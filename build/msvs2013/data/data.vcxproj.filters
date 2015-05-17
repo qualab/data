@@ -34,6 +34,9 @@
     <Filter Include="source\memory">
       <UniqueIdentifier>{9d415ab1-8bc2-4439-8257-0b40cdc62f63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\stacktrace">
+      <UniqueIdentifier>{428173d3-eca1-4e48-a687-1490b70e10df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\source\datetime\datetime_holder.hpp">
@@ -57,13 +60,7 @@
     <ClInclude Include="..\..\..\source\text\text_instance.hpp">
       <Filter>source\text</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\source\tools\allow_null.hpp">
-      <Filter>source\tools</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\source\tools\copy_on_write.hpp">
-      <Filter>source\tools</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\source\tools\stack_trace.hpp">
       <Filter>source\tools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\api.hpp">
@@ -150,6 +147,12 @@
     <ClInclude Include="..\..\..\include\nullable.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_holder.hpp">
+      <Filter>source\stacktrace</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_instance.hpp">
+      <Filter>source\stacktrace</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\cast.cpp">
@@ -194,9 +197,6 @@
     <ClCompile Include="..\..\..\source\text\text_instance.cpp">
       <Filter>source\text</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\tools\stack_trace.cpp">
-      <Filter>source\tools</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\memory\memory_holder.cpp">
       <Filter>source\memory</Filter>
     </ClCompile>
@@ -205,6 +205,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\exception\exception_instance.cpp">
       <Filter>source\exception</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\stacktrace.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_holder.cpp">
+      <Filter>source\stacktrace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_instance.cpp">
+      <Filter>source\stacktrace</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

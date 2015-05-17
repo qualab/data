@@ -21,11 +21,8 @@ namespace data
         virtual object::holder* copy_to(void* address) const override;
         virtual object::holder* move_to(void* address) const override;
 
-    protected:
-        class body;
-
     private:
-        copy_on_write<body> m_instance;
+        copy_on_write<instance> m_instance;
     };
 }
 

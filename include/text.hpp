@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/nullable>
 
 namespace data
 {
@@ -95,12 +96,11 @@ namespace data
         wchar_t const* wide_c_str() const;
 
     protected:
-        /// Forward declaration of text::data
-        class data;
+        class holder;
+        class instance;
 
     private:
-        /// Stored pointer to text::data
-        data* m_data;
+        nullable<holder> m_holder;
     };
 }
 

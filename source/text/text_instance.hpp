@@ -2,31 +2,27 @@
 
 #pragma once
 
-#include <data_head/text_data.hpp>
-#include <data/cast>
-#include <string>
+#include <data/text>
 
 namespace data
 {
-    typedef std::basic_string<int32_t> unicode_string;
-
-    class text::data::body
+    class text::instance
     {
     public:
-        body();
-        body(char const* byte_string);
-        body(char const* byte_string, char const* encoding);
-        body(char const* byte_string, std::string const& encoding);
-        body(std::string const& byte_string);
-        body(std::string const& byte_string, char const* encoding);
-        body(std::string const& byte_string, std::string const& encoding);
-        body(wchar_t const* wide_string);
-        body(std::wstring const& wide_string);
+        instance();
+        instance(char const* byte_string);
+        instance(char const* byte_string, char const* encoding);
+        instance(char const* byte_string, std::string const& encoding);
+        instance(std::string const& byte_string);
+        instance(std::string const& byte_string, char const* encoding);
+        instance(std::string const& byte_string, std::string const& encoding);
+        instance(wchar_t const* wide_string);
+        instance(std::wstring const& wide_string);
 
-        body& operator = (char const* byte_string);
-        body& operator = (std::string const& byte_string);
-        body& operator = (wchar_t const* wide_string);
-        body& operator = (std::wstring const& wide_string);
+        instance& operator = (char const* byte_string);
+        instance& operator = (std::string const& byte_string);
+        instance& operator = (wchar_t const* wide_string);
+        instance& operator = (std::wstring const& wide_string);
 
         std::string const& encoding() const;
 

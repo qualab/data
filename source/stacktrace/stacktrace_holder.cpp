@@ -2,8 +2,7 @@
 
 #pragma once
 
-#include <data_head/exception_data_body.hpp>
-#include <data/stacktrace>
+#include <stacktrace/stacktrace_holder.hpp>
 
 namespace data
 {

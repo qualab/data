@@ -32,11 +32,11 @@
     <ClInclude Include="..\..\..\source\memory\memory_instance.hpp" />
     <ClInclude Include="..\..\..\source\object\object_holder.hpp" />
     <ClInclude Include="..\..\..\source\scalar\scalar_holder.hpp" />
+    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_holder.hpp" />
+    <ClInclude Include="..\..\..\source\stacktrace\stacktrace_instance.hpp" />
     <ClInclude Include="..\..\..\source\text\text_holder.hpp" />
     <ClInclude Include="..\..\..\source\text\text_instance.hpp" />
-    <ClInclude Include="..\..\..\source\tools\allow_null.hpp" />
     <ClInclude Include="..\..\..\source\tools\copy_on_write.hpp" />
-    <ClInclude Include="..\..\..\source\tools\stack_trace.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\bytearray.cpp" />
@@ -53,10 +53,12 @@
     <ClCompile Include="..\..\..\source\memory\memory_instance.cpp" />
     <ClCompile Include="..\..\..\source\object.cpp" />
     <ClCompile Include="..\..\..\source\object\object_holder.cpp" />
+    <ClCompile Include="..\..\..\source\stacktrace.cpp" />
+    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_holder.cpp" />
+    <ClCompile Include="..\..\..\source\stacktrace\stacktrace_instance.cpp" />
     <ClCompile Include="..\..\..\source\text.cpp" />
     <ClCompile Include="..\..\..\source\text\text_holder.cpp" />
     <ClCompile Include="..\..\..\source\text\text_instance.cpp" />
-    <ClCompile Include="..\..\..\source\tools\stack_trace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\data\api">

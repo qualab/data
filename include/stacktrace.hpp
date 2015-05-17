@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/nullable>
 
 namespace data
 {
@@ -23,12 +24,13 @@ namespace data
         int get_length() const;
 
     protected:
-        class data;
+        class holder;
+        class instance;
 
         void pop();
 
     private:
-        data* m_data;
+        nullable<holder> m_holder;
     };
     
     class DATA_API callinfo : public object
@@ -43,12 +45,10 @@ namespace data
         char const* get_function() const;
 
     protected:
-        class data;
-
-        friend class object;
+        class holder;
 
     private:
-        data* m_data;
+        nullable<holder> m_holder;
     };
 
     class DATA_API stacktrace::auto_pop

@@ -3,29 +3,26 @@
 #pragma once
 
 #include <data/exception>
+#include <data/text>
+#include <data/stacktrace>
 #include <object/object_holder.hpp>
 #include <tools/copy_on_write.hpp>
 
 namespace data
 {
-    class exception::holder : public object::holder
+    class exception::instance
     {
     public:
-        holder();
-        holder(text const& message);
-        holder(text const& message, char const* file, int line, char const* function);
+        instance();
+        instance(text const& message);
+        instance(text const& message, char const* file, int line, char const* function);
 
         text get_message() const;
         stacktrace get_stacktrace() const;
 
-        virtual object::holder* copy_to(void* address) const override;
-        virtual object::holder* move_to(void* address) const override;
-
-    protected:
-        class body;
-
     private:
-        copy_on_write<body> m_instance;
+        text m_message;
+        stacktrace m_stacktrace;
     };
 }
 

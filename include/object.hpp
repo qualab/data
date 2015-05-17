@@ -219,7 +219,7 @@ namespace data
         class holder;
 
         /// Constant of max available size for data
-        static const int data_max_size = DATA_MAX_SIZE;
+        static const int data_max_size = 32;
 
         /// Address of buffer
         char* buffer();

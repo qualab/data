@@ -3,6 +3,7 @@
 #pragma once
 
 #include <data/object>
+#include <data/nullable>
 
 namespace data
 {
@@ -13,10 +14,11 @@ namespace data
         unit();
 
     protected:
-        class data;
+        class holder;
+        class instance;
 
     private:
-        data* m_data;
+        nullable<holder> m_holder;
     };
 }
 
