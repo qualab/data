@@ -1,162 +1,163 @@
 ﻿/// @author Владимир Керимов
 
-#include <data_head/text_data_body.hpp>
+#include <text/text_holder.hpp>
+#include <text/text_instance.hpp>
 #include <data/decimal>
 
 namespace data
 {
-    text::data::data()
+    text::holder::holder()
     {
     }
 
-    text::data::data(char const* byte_string)
-        : m_body(new body(byte_string))
+    text::holder::holder(char const* byte_string)
+        : m_instance(new instance(byte_string))
     {
     }
 
-    text::data::data(char const* byte_string, char const* encoding)
-        : m_body(new body(byte_string, encoding))
+    text::holder::holder(char const* byte_string, char const* encoding)
+        : m_instance(new instance(byte_string, encoding))
     {
     }
 
-    text::data::data(char const* byte_string, std::string const& encoding)
-        : m_body(new body(byte_string, encoding))
+    text::holder::holder(char const* byte_string, std::string const& encoding)
+        : m_instance(new instance(byte_string, encoding))
     {
     }
 
-    text::data::data(std::string const& byte_string)
-        : m_body(new body(byte_string))
+    text::holder::holder(std::string const& byte_string)
+        : m_instance(new instance(byte_string))
     {
     }
 
-    text::data::data(std::string const& byte_string, char const* encoding)
-        : m_body(new body(byte_string, encoding))
+    text::holder::holder(std::string const& byte_string, char const* encoding)
+        : m_instance(new instance(byte_string, encoding))
     {
     }
 
-    text::data::data(std::string const& byte_string, std::string const& encoding)
-        : m_body(new body(byte_string, encoding))
+    text::holder::holder(std::string const& byte_string, std::string const& encoding)
+        : m_instance(new instance(byte_string, encoding))
     {
     }
 
-    text::data::data(wchar_t const* wide_string)
-        : m_body(new body(wide_string))
+    text::holder::holder(wchar_t const* wide_string)
+        : m_instance(new instance(wide_string))
     {
     }
 
-    text::data::data(std::wstring const& wide_string)
-        : m_body(new body(wide_string))
+    text::holder::holder(std::wstring const& wide_string)
+        : m_instance(new instance(wide_string))
     {
     }
 
-    object::data* text::data::copy_to(void* address) const
+    object::holder* text::holder::copy_to(void* address) const
     {
-        return new(address) text::data(*this);
+        return new(address) text::holder(*this);
     }
 
-    object::data* text::data::move_to(void* address) const
+    object::holder* text::holder::move_to(void* address) const
     {
-        return new(address) text::data(std::move(*this));
+        return new(address) text::holder(std::move(*this));
     }
 
-    std::string const& text::data::byte_string() const
+    std::string const& text::holder::byte_string() const
     {
-        return m_body->byte_string();
+        return m_instance->byte_string();
     }
 
-    std::string const& text::data::byte_string(char const* encoding) const
+    std::string const& text::holder::byte_string(char const* encoding) const
     {
-        return m_body->byte_string(encoding);
+        return m_instance->byte_string(encoding);
     }
 
-    std::string const& text::data::byte_string(std::string const& encoding) const
+    std::string const& text::holder::byte_string(std::string const& encoding) const
     {
-        return m_body->byte_string(encoding);
+        return m_instance->byte_string(encoding);
     }
 
-    std::wstring const& text::data::wide_string() const
+    std::wstring const& text::holder::wide_string() const
     {
-        return m_body->wide_string();
+        return m_instance->wide_string();
     }
 
-    char const* text::data::byte_c_str() const
+    char const* text::holder::byte_c_str() const
     {
-        return m_body->byte_c_str();
+        return m_instance->byte_c_str();
     }
 
-    char const* text::data::byte_c_str(char const* encoding) const
+    char const* text::holder::byte_c_str(char const* encoding) const
     {
-        return m_body->byte_c_str(encoding);
+        return m_instance->byte_c_str(encoding);
     }
 
-    char const* text::data::byte_c_str(std::string const& encoding) const
+    char const* text::holder::byte_c_str(std::string const& encoding) const
     {
-        return m_body->byte_c_str(encoding);
+        return m_instance->byte_c_str(encoding);
     }
 
-    wchar_t const* text::data::wide_c_str() const
+    wchar_t const* text::holder::wide_c_str() const
     {
-        return m_body->wide_c_str();
+        return m_instance->wide_c_str();
     }
 
-    bool text::data::as_bool() const
+    bool text::holder::as_bool() const
     {
-        return m_body->as<bool>();
+        return m_instance->as<bool>();
     }
 
-    int64_t text::data::as_int64() const
+    int64_t text::holder::as_int64() const
     {
-        return m_body->as<int64_t>();
+        return m_instance->as<int64_t>();
     }
 
-    int32_t text::data::as_int32() const
+    int32_t text::holder::as_int32() const
     {
-        return m_body->as<int32_t>();
+        return m_instance->as<int32_t>();
     }
 
-    int16_t text::data::as_int16() const
+    int16_t text::holder::as_int16() const
     {
-        return m_body->as<int16_t>();
+        return m_instance->as<int16_t>();
     }
 
-    int8_t text::data::as_int8() const
+    int8_t text::holder::as_int8() const
     {
-        return m_body->as<int8_t>();
+        return m_instance->as<int8_t>();
     }
 
-    uint64_t text::data::as_uint64() const
+    uint64_t text::holder::as_uint64() const
     {
-        return m_body->as<uint64_t>();
+        return m_instance->as<uint64_t>();
     }
 
-    uint32_t text::data::as_uint32() const
+    uint32_t text::holder::as_uint32() const
     {
-        return m_body->as<uint32_t>();
+        return m_instance->as<uint32_t>();
     }
 
-    uint16_t text::data::as_uint16() const
+    uint16_t text::holder::as_uint16() const
     {
-        return m_body->as<uint16_t>();
+        return m_instance->as<uint16_t>();
     }
 
-    uint8_t text::data::as_uint8() const
+    uint8_t text::holder::as_uint8() const
     {
-        return m_body->as<uint8_t>();
+        return m_instance->as<uint8_t>();
     }
 
-    double text::data::as_double() const
+    double text::holder::as_double() const
     {
-        return m_body->as<double>();
+        return m_instance->as<double>();
     }
 
-    float text::data::as_float() const
+    float text::holder::as_float() const
     {
-        return m_body->as<float>();
+        return m_instance->as<float>();
     }
 
-    decimal text::data::as_decimal() const
+    decimal text::holder::as_decimal() const
     {
-        return m_body->as<decimal>();
+        return m_instance->as<decimal>();
     }
 }
 

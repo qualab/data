@@ -3,9 +3,13 @@
 #pragma once
 
 #include <data/text>
+#include <data/cast>
+#include <string>
 
 namespace data
 {
+    typedef std::basic_string<uint32_t> unicode_string;
+
     class text::instance
     {
     public:
@@ -64,7 +68,7 @@ namespace data
     };
 
     template <typename value_type>
-    value_type text::data::body::as() const
+    value_type text::instance::as() const
     {
         if (!m_byte_string.empty())
             return cast<value_type>(m_byte_string);

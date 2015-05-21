@@ -6,7 +6,7 @@
 #include <memory>
 
 #define DATA_OBJECT_CREATE(data_type, arguments) \
-    : object((m_data = new(buffer()) data_type arguments))
+    : object((m_holder = new(buffer()) data::nullable<data_type>(data_type arguments))
 
 namespace data
 {

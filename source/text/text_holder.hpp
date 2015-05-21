@@ -3,27 +3,27 @@
 #pragma once
 
 #include <data/text>
-#include <data_head/object_data.hpp>
-#include <data_head/lazy_data.hpp>
+#include <object/object_holder.hpp>
+#include <tools/copy_on_write.hpp>
 
 namespace data
 {
-    class text::data : public object::data
+    class text::holder : public object::holder
     {
     public:
-        data();
-        data(char const* byte_string);
-        data(char const* byte_string, char const* encoding);
-        data(char const* byte_string, std::string const& encoding);
-        data(std::string const& byte_string);
-        data(std::string const& byte_string, char const* encoding);
-        data(std::string const& byte_string, std::string const& encoding);
-        data(wchar_t const* wide_string);
-        data(std::wstring const& wide_string);
+        holder();
+        holder(char const* byte_string);
+        holder(char const* byte_string, char const* encoding);
+        holder(char const* byte_string, std::string const& encoding);
+        holder(std::string const& byte_string);
+        holder(std::string const& byte_string, char const* encoding);
+        holder(std::string const& byte_string, std::string const& encoding);
+        holder(wchar_t const* wide_string);
+        holder(std::wstring const& wide_string);
 
-        data& operator = (char const* byte_string);
-        data& operator = (std::string const& byte_string);
-        data& operator = (std::wstring const& wide_string);
+        holder& operator = (char const* byte_string);
+        holder& operator = (std::string const& byte_string);
+        holder& operator = (std::wstring const& wide_string);
 
         std::string const& encoding() const;
         std::string const& byte_string(char const* encoding) const;
@@ -35,10 +35,10 @@ namespace data
         char const* byte_c_str() const;
         wchar_t const* wide_c_str() const;
 
-        virtual object::data* copy_to(void* address) const override;
-        virtual object::data* move_to(void* address) const override;
+        virtual object::holder* copy_to(void* address) const override;
+        virtual object::holder* move_to(void* address) const override;
 
-        virtual bool    as_bool()  const override;
+        virtual bool as_bool()  const override;
 
         virtual int64_t as_int64() const override;
         virtual int32_t as_int32() const override;
@@ -55,11 +55,8 @@ namespace data
 
         virtual decimal as_decimal() const override;
 
-    protected:
-        class body;
-
     private:
-        lazy_data<body> m_body;
+        copy_on_write<instance> m_instance;
     };
 }
 

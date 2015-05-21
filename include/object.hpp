@@ -219,7 +219,7 @@ namespace data
         class holder;
 
         /// Constant of max available size for data
-        static const int data_max_size = 32;
+        static const int max_holder_size = 32;
 
         /// Address of buffer
         char* buffer();
@@ -243,10 +243,10 @@ namespace data
 
     private:
         /// Reference to the base object::data
-        holder* m_data;
+        holder* m_holder;
 
         /// Data buffer must be greater size than any possible data
-        char m_buffer[data_max_size];
+        char m_buffer[max_holder_size];
 
         /// Destruct data
         void destruct();
