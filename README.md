@@ -1,6 +1,11 @@
 data
 ====
 
+# Obsolete
+
+Further development at repository:
+https://github.com/qualab/dot
+
 # Data Access Technology Algorithms
 
 ## Basic terms
