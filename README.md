@@ -3,7 +3,7 @@ data
 
 # Obsolete
 
-Further development at repository:
+Further development is at repository:
 https://github.com/qualab/dot
 
 # Data Access Technology Algorithms
